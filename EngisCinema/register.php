@@ -44,15 +44,15 @@ if (isset($_POST['register']))
     // Bind checkQuery parameters
     $params1 = array(
         ":username" => $username,
-        ":email" => $email
+        ":email" => $email,
         ":phoneNumber" => $phoneNumber
     );
 
     // Execute checkQuery
-    $stmt1->execute($params1)
-
+    $stmt1->execute($params1);
+    
     // Existing data validation
-    $result = $results->fetch(PDO::FETCH_ASSOC);
+    $result = $stmt1->fetch(PDO::FETCH_ASSOC);
 
     if ($result)
     {
@@ -82,8 +82,8 @@ if (isset($_POST['register']))
         // Bind insertQuery parameters
         $params2 = array(
             ":username" => $username,
-            ":email" => $email
-            ":phoneNumber" => $phoneNumber
+            ":email" => $email,
+            ":phoneNumber" => $phoneNumber,
             ":password" => $password1,
             ":profilePicture" => $profilePicture
         );
