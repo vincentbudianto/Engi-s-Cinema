@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Connecting to database engi_cinema
 require_once("config.php");
@@ -49,6 +48,7 @@ if (isset($_POST['register']))
         ":phoneNumber" => $phoneNumber
     );
 
+    // Execute checkQuery
     $stmt1->execute($params1)
 
     // Existing data validation
@@ -92,7 +92,7 @@ if (isset($_POST['register']))
         $registered = $stmt2->execute($params2);
 
         // Go to login page
-        if($registered)
+        if ($registered)
         {
             header("location: login.php");
         }
