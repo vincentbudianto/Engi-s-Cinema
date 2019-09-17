@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="register.css">
+    </head>
+
+    <body>
+        <form class="register-form" action="register.php" method="post">
+            <div class="container">
+                <div class="center-text" id="register-title">Welcome to <b>Engi</b>ma!</div>
+
+                <label for="username">Username</label>
+                <input type="text" placeholder="joe.johndoe" name="username" required>
+
+                <br>
+                <br>
+
+                <label for="email">Email Address</label>
+                <input type="text" placeholder="john.doe@example.com" name="email" required>
+
+                <br>
+                <br>
+
+                <label for="phone">Phone Number</label>
+                <input type="text" placeholder="john.doe@example.com" name="phone" required>
+
+                <br>
+                <br>
+
+                <label for="password">Password</label>
+                <input type="text" placeholder="strong password" name="password" required>
+
+                <br>         
+                <br>   
+
+                <label>Confirm Password</label>
+                <input type="text" placeholder="confirm your password" name="confirm-password" required>
+
+                <br>         
+                <br>   
+                
+                <label>Profile Picture</label>
+                <div class="profile-picture-container">
+                    <input type="text" name="profile-picture-location">
+                    <button id="browse-button">Browse</button>
+                    <!-- <div class="browser-wrapper">
+                            <button id="browse-button">Browse</button>
+                            <input type="file" name="profile-picture-file">
+                    </div> -->
+                    
+                </div>
+
+                <button id="register-button" type="submit">Register</button>
+
+                <br>
+                <br>
+
+                <div class="center-text"><span id="register-text"><b>Already have an account? </b><a href="login.html">Login Here</a></span></div>
+                
+                <br>
+            </div>
+        </form>    
+    </body>
+</html>
