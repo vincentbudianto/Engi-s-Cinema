@@ -11,15 +11,20 @@ if (isset($_POST['register']))
     // Get input data
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $phoneNumber = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-    $password1 = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $password2 = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $profilePicture = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
+    $phoneNumber = filter_input(INPUT_POST, 'phoneNumber', FILTER_SANITIZE_STRING);
+    $password1 = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
+    $password2 = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_STRING);
+    $profilePicture = filter_input(INPUT_POST, 'profilePicture', FILTER_SANITIZE_STRING);
 
     // Input data validation
     if (empty($username))
     {
         array_push($errors, "Username is required");
+    }
+
+    if (empty($profilePicture))
+    {
+        $profilePicture = "";
     }
     
     if (empty($email))
@@ -32,7 +37,11 @@ if (isset($_POST['register']))
         array_push($errors, "Password is required");
     }
     
-    if ($password1 != $password2)
+    if ($password1 == $password2)
+    {
+        $password = password_hash($password1, PASSWORD_DEFAULT);
+    }
+    else
     {
         array_push($errors, "Passwords do not match");
     }
@@ -84,17 +93,17 @@ if (isset($_POST['register']))
             ":username" => $username,
             ":email" => $email,
             ":phoneNumber" => $phoneNumber,
-            ":password" => $password1,
+            ":password" => $password,
             ":profilePicture" => $profilePicture
         );
 
         // Execute insertQuery
         $registered = $stmt2->execute($params2);
 
-        // Go to login page
+        // Go to login page        
         if ($registered)
         {
-            header("location: login.php");
+            header("location: login.html");
         }
     }
 }
