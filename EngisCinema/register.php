@@ -22,11 +22,16 @@ if (isset($_POST['register']))
         array_push($errors, "Username is required");
     }
 
-    if (empty($profilePicture))
+    if (!preg_match("/\w/", $username))
     {
-        $profilePicture = "";
+        array_push($errors, "Username is invalid");
     }
-    
+
+    if ((strlen((string)$phoneNumber) < 9) or (strlen((string) $phoneNumber) > 12))
+    {
+        array_push($errors, "Phone number is invalid");
+    }
+
     if (empty($email))
     {
         array_push($errors, "Email is required");
@@ -46,6 +51,11 @@ if (isset($_POST['register']))
         array_push($errors, "Passwords do not match");
     }
 
+    if (empty($profilePicture))
+    {
+        $profilePicture = "";
+    }
+    
     // Preparing checkQuery
     $checkQuery = "SELECT * FROM users WHERE (username = :username) OR (email = :email) OR (phoneNumber = :phoneNumber) LIMIT 1";
     $stmt1 = $db->prepare($checkQuery);
