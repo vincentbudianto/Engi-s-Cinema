@@ -72,12 +72,12 @@ if (isset($_POST['register']))
 
         if ($result['email'] === $email)
         {
-            array_push($errors, "email already exists");
+            array_push($errors, "Email already exists");
         }
 
         if ($result['phoneNumber'] === $phoneNumber)
         {
-            array_push($errors, "email already exists");
+            array_push($errors, "Phone number already exists");
         }
     }
 
