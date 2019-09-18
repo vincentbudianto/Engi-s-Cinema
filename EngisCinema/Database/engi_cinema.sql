@@ -34,8 +34,9 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `phoneNumber` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `profilePicture` varchar(255) NOT NULL DEFAULT 'default.svg'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `profilePicture` mediumblob NOT NULL DEFAULT 'default.svg'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+COMMIT;
 
 --
 -- Indexes for dumped tables

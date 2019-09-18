@@ -11,31 +11,9 @@ if (isset($_POST['register']))
     // Get input data
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $phoneNumber = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-    $password1 = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $password2 = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $profilePicture = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_STRING);
-
-    // Input data validation
-    if (empty($username))
-    {
-        array_push($errors, "Username is required");
-    }
-    
-    if (empty($email))
-    {
-        array_push($errors, "Email is required");
-    }
-    
-    if (empty($password1))
-    {
-        array_push($errors, "Password is required");
-    }
-    
-    if ($password1 != $password2)
-    {
-        array_push($errors, "Passwords do not match");
-    }
+    $phoneNumber = filter_input(INPUT_POST, 'phoneNumber', FILTER_SANITIZE_STRING);
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
+    $profilePicture = filter_input(INPUT_POST, 'profilePicture', FILTER_SANITIZE_STRING);
 
     // Preparing checkQuery
     $checkQuery = "SELECT * FROM users WHERE (username = :username) OR (email = :email) OR (phoneNumber = :phoneNumber) LIMIT 1";
@@ -68,7 +46,7 @@ if (isset($_POST['register']))
 
         if ($result['phoneNumber'] === $phoneNumber)
         {
-            array_push($errors, "email already exists");
+            array_push($errors, "phone number already exists");
         }
     }
 
@@ -94,7 +72,7 @@ if (isset($_POST['register']))
         // Go to login page
         if ($registered)
         {
-            header("location: login.php");
+            header("location: login.html");
         }
     }
 }

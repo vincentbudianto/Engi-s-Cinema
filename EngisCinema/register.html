@@ -6,7 +6,7 @@
     </head>
 
     <body>
-        <form class="register-form" action="register.php" method="post">
+        <form class="register-form" action="register.php" method="POST">
             <div class="container">
                 <div class="center-text" id="register-title">Welcome to <b>Engi</b>ma!</div>
 
@@ -17,38 +17,34 @@
                 <br>
 
                 <label for="email">Email Address</label>
-                <input type="text" placeholder="john.doe@example.com" name="email" required>
+                <input type="email" placeholder="john.doe@example.com" name="email" required>
 
                 <br>
                 <br>
 
-                <label for="phone">Phone Number</label>
-                <input type="text" placeholder="john.doe@example.com" name="phone" required>
+                <label for="phoneNumber">Phone Number</label>
+                <input type="text" placeholder="john.doe@example.com" name="phoneNumber" required>
 
                 <br>
                 <br>
 
                 <label for="password">Password</label>
-                <input type="text" placeholder="strong password" name="password" required>
+                <input type="password" placeholder="strong password" name="password" required>
 
                 <br>         
                 <br>   
 
                 <label>Confirm Password</label>
-                <input type="text" placeholder="confirm your password" name="confirm-password" required>
+                <input type="password" placeholder="confirm your password" name="confirm-password" required>
 
                 <br>         
                 <br>   
                 
-                <label>Profile Picture</label>
+                <label for="profilePicture">Profile Picture</label>
                 <div class="profile-picture-container">
-                    <input type="text" name="profile-picture-location">
-                    <button id="browse-button">Browse</button>
-                    <!-- <div class="browser-wrapper">
-                            <button id="browse-button">Browse</button>
-                            <input type="file" name="profile-picture-file">
-                    </div> -->
-                    
+                    <input id="profile-picture-loc" type="text" value="" disabled>
+                    <input type="file" id="browser-button" name="profilePicture"/>
+                    <label for="browser-button">Browse</label>
                 </div>
 
                 <button id="register-button" type="submit">Register</button>
