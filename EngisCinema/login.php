@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 // Connecting to database engi_cinema
 require_once("config.php");
@@ -22,7 +22,7 @@ if (isset($_POST['login']))
     {
         array_push($errors, "Password is required");
     }
-    
+
     if (count($errors) == 0)
     {
         // Preparing searchQuery
