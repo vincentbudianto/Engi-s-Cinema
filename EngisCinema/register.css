@@ -20,7 +20,7 @@ button {
     border-radius: 5px;
 }
 
-input[type=text], input[type=email], input[type=password] {
+input[type="text"], input[type="email"], input[type="password"] {
     width: 100%;
     padding: 10px;
     margin-top: 3px;
@@ -96,6 +96,8 @@ input[type="file"] {
 
 #register-button {
     background-color: rgb(0,193,236);
+    border: 0 none;
+    border-radius: 5px;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;

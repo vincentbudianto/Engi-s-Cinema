@@ -62,7 +62,7 @@ if (isset($_POST['register']))
             ":username" => $username,
             ":email" => $email,
             ":phoneNumber" => $phoneNumber,
-            ":password" => $password1,
+            ":password" => $password,
             ":profilePicture" => $profilePicture
         );
 
