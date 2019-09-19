@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 17, 2019 at 10:02 AM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Waktu pembuatan: 19 Sep 2019 pada 11.59
+-- Versi server: 10.1.38-MariaDB
+-- Versi PHP: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,18 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `cookies`
+--
+
+CREATE TABLE `cookies` (
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -34,30 +45,43 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `phoneNumber` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `profilePicture` mediumblob NOT NULL DEFAULT 'default.svg'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-COMMIT;
+  `profilePicture` varchar(255) NOT NULL DEFAULT 'default.svg'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `email`, `phoneNumber`, `password`, `profilePicture`) VALUES
+(1, 'test1', 'test1@gmail.com', '081123456789', '$2y$10$cMlJhDqu4VUg2XlmXqcYou73D16OwWZ7Kl4edNxqTQqU/M6JH4byW', 'CTF kurtzpel.jpg'),
+(2, 'vincentbudianto', '13517137@std.stei.itb.ac.id', '081321554136', '$2y$10$21Pxh1E31KJmLjpxodkAA.kmyg/5sdqJlMSmr7A1Qe2ZB5xo.fTbm', '');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `cookies`
+--
+ALTER TABLE `cookies`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
