@@ -12,24 +12,13 @@ if (isset($_POST['register']))
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $phoneNumber = filter_input(INPUT_POST, 'phoneNumber', FILTER_SANITIZE_STRING);
-    $password1 = filter_input(INPUT_POST, 'password1', FILTER_SANITIZE_STRING);
-    $password2 = filter_input(INPUT_POST, 'password2', FILTER_SANITIZE_STRING);
+    $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $profilePicture = filter_input(INPUT_POST, 'profilePicture', FILTER_SANITIZE_STRING);
 
-    // Input data validation
-    if (empty($username))
-    {
-        array_push($errors, "Username is required");
-    }
-
+    //Input data validation
     if (!preg_match("/\w/", $username))
     {
         array_push($errors, "Username is invalid");
-    }
-
-    if (empty($phoneNumber))
-    {
-        array_push($errors, "Phone number is required");
     }
 
     if ((strlen((string)$phoneNumber) < 9) or (strlen((string) $phoneNumber) > 12))
@@ -37,30 +26,11 @@ if (isset($_POST['register']))
         array_push($errors, "Phone number is invalid");
     }
 
-    if (empty($email))
-    {
-        array_push($errors, "Email is required");
-    }
-    
-    if (empty($password1))
-    {
-        array_push($errors, "Password is required");
-    }
-    
-    if ($password1 == $password2)
-    {
-        $password = password_hash($password1, PASSWORD_DEFAULT);
-    }
-    else
-    {
-        array_push($errors, "Passwords do not match");
-    }
-
     if (empty($profilePicture))
     {
         array_push($errors, "Profile picture can't be empty");
     }
-    
+
     // Preparing checkQuery
     $checkQuery = "SELECT * FROM users WHERE (username = :username) OR (email = :email) OR (phoneNumber = :phoneNumber) LIMIT 1";
     $stmt1 = $db->prepare($checkQuery);
@@ -87,12 +57,12 @@ if (isset($_POST['register']))
 
         if ($result['email'] === $email)
         {
-            array_push($errors, "Email already exists");
+            array_push($errors, "email already exists");
         }
 
         if ($result['phoneNumber'] === $phoneNumber)
         {
-            array_push($errors, "Phone number already exists");
+            array_push($errors, "phone number already exists");
         }
     }
 
@@ -115,7 +85,7 @@ if (isset($_POST['register']))
         // Execute insertQuery
         $registered = $stmt2->execute($params2);
 
-        // Go to login page        
+        // Go to login page
         if ($registered)
         {
             header("location: login.html");
