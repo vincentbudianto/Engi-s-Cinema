@@ -6,7 +6,7 @@
     </head>
 
     <body>
-        <form class="register-form" action="register.php" method="post">
+        <form class="register-form" action="register.php" method="POST">
             <div class="container">
                 <div class="center-text" id="register-title">Welcome to <b>Engi</b>ma!</div>
 
@@ -40,19 +40,15 @@
                 <br>         
                 <br>   
                 
-                <label>Profile Picture</label>
+                <label for="profilePicture">Profile Picture</label>
                 <div class="profile-picture-container">
-                    <input type="text" name="profile-picture-location">
-                    <button id="browse-button">Browse</button>
-                    <!-- <div class="browser-wrapper">
-                            <button id="browse-button">Browse</button>
-                            <input type="file" name="profile-picture-file">
-                    </div> -->
-                    
+                    <input id="profile-picture-loc" type="text" value="" disabled>
+                    <input type="file" id="browser-button" name="profilePicture"/>
+                    <label for="browser-button">Browse</label>
                 </div>
 
-                <input id="register-button" type="submit" name="register" value="Submit" />
-                
+                <input id="register-button" type="submit" name="register" value="Register" />
+
                 <br>
                 <br>
 
