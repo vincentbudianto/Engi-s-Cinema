@@ -59,8 +59,8 @@ if (isset($_POST['login']))
 
                     // Bind insertQuery parameters
                     $params = array(
-                        ":username" => $username,
-                        ":email" => $email
+                        ":username" => $user["username"],
+                        ":email" => $user["email"]
                     );
 
                     // Execute insertQuery
