@@ -88,7 +88,7 @@ if (isset($_POST['register']))
         // Go to login page
         if ($registered)
         {
-            header("location: login.html");
+            header("location: ../login.html");
         }
     }
 }

@@ -46,7 +46,8 @@ CREATE TABLE `users` (
   `phoneNumber` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
   `profilePicture` varchar(255) NOT NULL DEFAULT 'default.svg'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+COMMIT;
 
 --
 -- Dumping data untuk tabel `users`
