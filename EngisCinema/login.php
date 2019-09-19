@@ -5,6 +5,7 @@ require_once("config.php");
 
 // Variables
 $errors = array();
+$cookieName = "user";
 
 if (isset($_POST['login']))
 {
@@ -23,6 +24,7 @@ if (isset($_POST['login']))
         array_push($errors, "Password is required");
     }
 
+    
     if (count($errors) == 0)
     {
         // Preparing searchQuery
@@ -38,18 +40,38 @@ if (isset($_POST['login']))
 
         // Execute searchQuery
         $stmt->execute($params);
-
-        // Data validation
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
+        
+        // Data validation
         if ($user)
         {
             // Password verification
             if (password_verify($password, $user["password"]))
             {
                 //Setting cookie
-                setcookie("userCookie", $user, time() + 86400);
-                header("location: timeline.php");
+                setcookie($cookieName, json_encode($user), time() + 86400);
+                
+                if (isset($_COOKIE[$cookieName]))
+                {
+                    // Preparing insertQuery
+                    $insertQuery = "INSERT INTO cookies (username, email) VALUES (:username, :email)";
+                    $stmt = $db->prepare($insertQuery);
+
+                    // Bind insertQuery parameters
+                    $params = array(
+                        ":username" => $username,
+                        ":email" => $email
+                    );
+
+                    // Execute insertQuery
+                    $loginStatus = $stmt->execute($params);
+
+                    // Go to homepage
+                    if ($loginStatus)
+                    {
+                        header("location: homepage.php");
+                    }
+                }                
             }
             else
             {
