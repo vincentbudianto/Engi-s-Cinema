@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="register.css">
+        <script src="register.js"></script>
     </head>
 
     <body>
@@ -17,37 +18,38 @@
                 <br>
 
                 <label for="email">Email Address</label>
-                <input type="email" placeholder="john.doe@example.com" name="email" required>
+                <input type="email" placeholder="joe@email.com" name="email" required>
 
                 <br>
                 <br>
 
                 <label for="phoneNumber">Phone Number</label>
-                <input type="text" placeholder="john.doe@example.com" name="phoneNumber" required>
+                <input type="text" placeholder="+62813xxxxxxx" name="phoneNumber" required>
 
                 <br>
                 <br>
 
                 <label for="password">Password</label>
-                <input type="password" placeholder="strong password" name="password" required>
+                <input type="password" placeholder="make as strong as possible" id="password" name="password" required>
 
                 <br>         
                 <br>   
 
                 <label>Confirm Password</label>
-                <input type="password" placeholder="confirm your password" name="confirm-password" required>
+                <input type="password" placeholder="same as above" id="confirm-password" name="confirm-password" onkeyup='validate();' required>
+                <span id="match-message"></span>
 
                 <br>         
                 <br>   
                 
                 <label for="profilePicture">Profile Picture</label>
                 <div class="profile-picture-container">
-                    <input id="profile-picture-loc" type="text" value="" disabled>
-                    <input type="file" id="browser-button" name="profilePicture"/>
+                    <input id="profile-picture-name" type="text" value="" disabled>
+                    <input type="file" id="browser-button" name="profilePicture" onchange="getFileName()"/>
                     <label for="browser-button">Browse</label>
                 </div>
 
-                <button id="register-button" type="submit" name="register" value="Register">Register</button>
+                <input id="register-button" type="submit" name="register" value="Register" />
 
                 <br>
                 <br>

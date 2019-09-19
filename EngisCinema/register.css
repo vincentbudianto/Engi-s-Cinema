@@ -10,7 +10,8 @@ a {
 
 label {
     padding: 5px;
-    font-size: 12px;
+    /* font-size: 12px; */
+    font-size: 0.75rem;
     font-weight: bold;
     color: #878787;
 }
@@ -29,7 +30,7 @@ input[type="text"], input[type="email"], input[type="password"] {
     box-sizing: border-box;
     border-radius: 5px;
     opacity: 0.8;
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 input[type="file"] {
@@ -106,8 +107,12 @@ input[type="file"] {
     font-size: 14px;
 }
 
+#register-button:hover {
+    opacity: 0.8;
+}
+
 #register-text {
-    font-size: 12px;
+    font-size: 0.75rem;
 }
 
 #browse-button {
@@ -117,9 +122,13 @@ input[type="file"] {
     margin: 0 0 0 10px;
     cursor: pointer;
     width: 100%;
-    font-size: 14px;
+    font-size: 0.875rem;
 }
 
-#profile-picture-loc {
+#profile-picture-name {
     background-color: white;
+}
+
+#confirm-password:focus {
+    outline: 0;
 }

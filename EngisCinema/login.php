@@ -24,7 +24,6 @@ if (isset($_POST['login']))
         array_push($errors, "Password is required");
     }
 
-    
     if (count($errors) == 0)
     {
         // Preparing searchQuery
@@ -41,8 +40,7 @@ if (isset($_POST['login']))
         // Execute searchQuery
         $stmt->execute($params);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        // Data validation
+
         if ($user)
         {
             // Password verification
@@ -56,16 +54,13 @@ if (isset($_POST['login']))
                     // Preparing insertQuery
                     $insertQuery = "INSERT INTO cookies (username, email) VALUES (:username, :email)";
                     $stmt = $db->prepare($insertQuery);
-
                     // Bind insertQuery parameters
                     $params = array(
                         ":username" => $user["username"],
                         ":email" => $user["email"]
                     );
-
                     // Execute insertQuery
                     $loginStatus = $stmt->execute($params);
-
                     // Go to homepage
                     if ($loginStatus)
                     {

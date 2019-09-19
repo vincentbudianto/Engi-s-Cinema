@@ -66,6 +66,7 @@ if (isset($_POST['register']))
         }
     }
 
+    // Preparing query
     if (count($errors) == 0)
     {
         // Preparing insertQuery
