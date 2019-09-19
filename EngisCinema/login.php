@@ -47,8 +47,8 @@ if (isset($_POST['login']))
             // Password verification
             if (password_verify($password, $user["password"]))
             {
-                session_start();
-                $_SESSION["user"] = $user;
+                //Setting cookie
+                setcookie("userCookie", $user, time() + 86400);
                 header("location: timeline.php");
             }
             else

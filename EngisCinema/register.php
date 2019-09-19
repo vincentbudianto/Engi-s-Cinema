@@ -27,6 +27,11 @@ if (isset($_POST['register']))
         array_push($errors, "Username is invalid");
     }
 
+    if (empty($phoneNumber))
+    {
+        array_push($errors, "Phone number is required");
+    }
+
     if ((strlen((string)$phoneNumber) < 9) or (strlen((string) $phoneNumber) > 12))
     {
         array_push($errors, "Phone number is invalid");
@@ -53,7 +58,7 @@ if (isset($_POST['register']))
 
     if (empty($profilePicture))
     {
-        $profilePicture = "";
+        array_push($errors, "Profile picture can't be empty");
     }
     
     // Preparing checkQuery
