@@ -32,10 +32,6 @@ function register(e)
     {
         window.location.replace('login.html');
     }
-    else if (resp == )
-    {
-        
-    }
 }
 
 document.getElementById('registerForm').addEventListener('submit', register);
