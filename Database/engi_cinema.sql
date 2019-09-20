@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Sep 2019 pada 11.59
+-- Waktu pembuatan: 20 Sep 2019 pada 06.05
 -- Versi server: 10.1.38-MariaDB
 -- Versi PHP: 7.3.4
 
@@ -29,8 +29,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `cookies` (
-  `username` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL
+  `token` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -45,17 +44,16 @@ CREATE TABLE `users` (
   `email` varchar(255) NOT NULL,
   `phoneNumber` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `profilePicture` varchar(255) NOT NULL DEFAULT 'default.svg'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-COMMIT;
+  `profilePicture` varchar(255) NOT NULL DEFAULT 'default.svg',
+  `token` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `phoneNumber`, `password`, `profilePicture`) VALUES
-(1, 'test1', 'test1@gmail.com', '081123456789', '$2y$10$cMlJhDqu4VUg2XlmXqcYou73D16OwWZ7Kl4edNxqTQqU/M6JH4byW', 'CTF kurtzpel.jpg'),
-(2, 'vincentbudianto', '13517137@std.stei.itb.ac.id', '081321554136', '$2y$10$21Pxh1E31KJmLjpxodkAA.kmyg/5sdqJlMSmr7A1Qe2ZB5xo.fTbm', '');
+INSERT INTO `users` (`id`, `username`, `email`, `phoneNumber`, `password`, `profilePicture`, `token`) VALUES
+(1, 'test', 'test@gmail.com', '081123456789', '$2y$10$rnwuMv2XYBCIUUz52F8Dg.lnTn44yGHwoaGRmmKEw.pbutVAok22u', 'test.svg', '$2y$10$c4GGWmxz5PXibSXWWLdg7.7Jaa7ZHVmIJcHcrpEtqzrtdtLrwQfYK');
 
 --
 -- Indexes for dumped tables
@@ -65,7 +63,7 @@ INSERT INTO `users` (`id`, `username`, `email`, `phoneNumber`, `password`, `prof
 -- Indeks untuk tabel `cookies`
 --
 ALTER TABLE `cookies`
-  ADD PRIMARY KEY (`username`);
+  ADD PRIMARY KEY (`token`);
 
 --
 -- Indeks untuk tabel `users`
@@ -82,7 +80,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

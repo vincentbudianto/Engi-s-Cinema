@@ -5,16 +5,15 @@ require_once("config.php");
 
 // Variables
 $cookieName = "user";
-$user = json_decode($_COOKIE[$cookieName], true);
+$user = $_COOKIE[$cookieName];
 
 // Preparing deleteQuery
-$deleteQuery = "DELETE FROM cookies WHERE ((username = :username) AND (email = :email))";
+$deleteQuery = "DELETE FROM cookies WHERE (token = :token)";
 $stmt = $db->prepare($deleteQuery);
 
 // Bind deleteQuery parameters
 $params = array(
-    ":username" => $user["username"],
-    ":email" => $user["email"]
+    ":token" => $user
 );
 
 // Execute deleteQuery
@@ -25,7 +24,6 @@ if ($logoutStatus)
 {
     //Delete cookie
     setcookie($cookieName, "", time() - 86400);
-    
-    header("location:login.html");
+    header("location:../login.html");
 }
 ?>

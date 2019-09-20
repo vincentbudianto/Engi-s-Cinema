@@ -47,24 +47,26 @@ if (isset($_POST['login']))
             if (password_verify($password, $user["password"]))
             {
                 //Setting cookie
-                setcookie($cookieName, json_encode($user), time() + 86400);
+                setcookie($cookieName, $user["token"], time() + 86400);
                 
                 if (isset($_COOKIE[$cookieName]))
                 {
                     // Preparing insertQuery
-                    $insertQuery = "INSERT INTO cookies (username, email) VALUES (:username, :email)";
+                    $insertQuery = "INSERT INTO cookies (token) VALUES (:token)";
                     $stmt = $db->prepare($insertQuery);
+                    
                     // Bind insertQuery parameters
                     $params = array(
-                        ":username" => $user["username"],
-                        ":email" => $user["email"]
+                        ":token" => $user["token"]
                     );
+
                     // Execute insertQuery
                     $loginStatus = $stmt->execute($params);
+                    
                     // Go to homepage
                     if ($loginStatus)
                     {
-                        header("location: homepage.php");
+                        header("location: ../homepage.html");
                     }
                 }                
             }

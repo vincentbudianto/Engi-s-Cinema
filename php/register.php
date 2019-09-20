@@ -14,6 +14,7 @@ if (isset($_POST['register']))
     $phoneNumber = filter_input(INPUT_POST, 'phoneNumber', FILTER_SANITIZE_STRING);
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $profilePicture = filter_input(INPUT_POST, 'profilePicture', FILTER_SANITIZE_STRING);
+    $token = password_hash($username, PASSWORD_DEFAULT);
 
     //Input data validation
     if (!preg_match("/\w/", $username))
@@ -70,7 +71,7 @@ if (isset($_POST['register']))
     if (count($errors) == 0)
     {
         // Preparing insertQuery
-        $insertQuery = "INSERT INTO users (username, email, phoneNumber, password, profilePicture) VALUES (:username, :email, :phoneNumber, :password, :profilePicture)";
+        $insertQuery = "INSERT INTO users (username, email, phoneNumber, password, profilePicture, token) VALUES (:username, :email, :phoneNumber, :password, :profilePicture, :token)";
         $stmt2 = $db->prepare($insertQuery);
         
         // Bind insertQuery parameters
@@ -79,7 +80,8 @@ if (isset($_POST['register']))
             ":email" => $email,
             ":phoneNumber" => $phoneNumber,
             ":password" => $password,
-            ":profilePicture" => $profilePicture
+            ":profilePicture" => $profilePicture,
+            ":token" => $token
         );
 
         // Execute insertQuery
