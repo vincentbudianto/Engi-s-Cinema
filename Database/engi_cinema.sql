@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `cookies` (
   `token` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
 
@@ -46,8 +46,8 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `profilePicture` varchar(255) NOT NULL DEFAULT 'default.svg',
   `token` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+COMMIT;
 --
 -- Dumping data untuk tabel `users`
 --
