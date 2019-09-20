@@ -4,16 +4,21 @@
 require_once("config.php");
 
 // Variables
+$directory = "../assets/profilePicture/";
 $errors = array();
+$fileType = array('image/jpg', 'image/jpeg', 'image/png', 'image/svg');
 
-if (isset($_POST['register']))
+if ($_POST)
 {
     // Get input data
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
     $phoneNumber = filter_input(INPUT_POST, 'phoneNumber', FILTER_SANITIZE_STRING);
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
-    $profilePicture = filter_input(INPUT_POST, 'profilePicture', FILTER_SANITIZE_STRING);
+    $nameProfilePicture = $_FILES["profilePicture"]["name"];
+    $typeProfilePicture = $_FILES["profilePicture"]["type"];
+    $tempProfilePicture = $_FILES["profilePicture"]["tmp_name"];
+    $sizeProfilePicture = $_FILES["profilePicture"]["size"];
     $token = password_hash($username, PASSWORD_DEFAULT);
 
     //Input data validation
@@ -27,9 +32,17 @@ if (isset($_POST['register']))
         array_push($errors, "Phone number is invalid");
     }
 
-    if (empty($profilePicture))
+    if (empty($nameProfilePicture))
     {
         array_push($errors, "Profile picture can't be empty");
+    }
+    else if ($sizeProfilePicture > 2000000)
+    {
+        array_push($errors, "File can't be more than 2 MB");
+    }
+    else if (!in_array($typeProfilePicture, $fileType))
+    {
+        array_push($errors, "File type is invalid");
     }
 
     // Preparing checkQuery
@@ -58,13 +71,22 @@ if (isset($_POST['register']))
 
         if ($result['email'] === $email)
         {
-            array_push($errors, "email already exists");
+            array_push($errors, "Email already exists");
         }
 
         if ($result['phoneNumber'] === $phoneNumber)
         {
-            array_push($errors, "phone number already exists");
+            array_push($errors, "Phone number already exists");
         }
+    }
+
+    if (move_uploaded_file($tempProfilePicture, $directory . $nameProfilePicture))
+    {
+        $profilePicture = $dir . $nameProfilePicture;
+    }
+    else
+    {
+        array_push($errors, "Failed to upload profile picture");
     }
 
     // Preparing query
@@ -73,7 +95,7 @@ if (isset($_POST['register']))
         // Preparing insertQuery
         $insertQuery = "INSERT INTO users (username, email, phoneNumber, password, profilePicture, token) VALUES (:username, :email, :phoneNumber, :password, :profilePicture, :token)";
         $stmt2 = $db->prepare($insertQuery);
-        
+
         // Bind insertQuery parameters
         $params2 = array(
             ":username" => $username,
@@ -90,7 +112,7 @@ if (isset($_POST['register']))
         // Go to login page
         if ($registered)
         {
-            header("location: ../login.html");
+            echo 200;
         }
     }
 }

@@ -31,6 +31,7 @@ SET time_zone = "+00:00";
 CREATE TABLE `cookies` (
   `token` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+COMMIT;
 
 -- --------------------------------------------------------
 

@@ -3,11 +3,10 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/register.css">
-        <script src="js/register.js"></script>
     </head>
-
+    
     <body>
-        <form class="register-form" action="php/register.php" method="POST">
+        <form enctype="multipart/form-data" id="registerForm" class="register-form" method="POST">
             <div class="container">
                 <div class="center-text" id="register-title">Welcome to <b>Engi</b>ma!</div>
 
@@ -16,10 +15,10 @@
 
                 <br>
                 <br>
-
+                
                 <label for="email">Email Address</label>
                 <input type="email" placeholder="joe@email.com" name="email" required>
-
+                
                 <br>
                 <br>
 
@@ -31,7 +30,7 @@
 
                 <label for="password">Password</label>
                 <input type="password" placeholder="make as strong as possible" id="password" name="password" required>
-
+                
                 <br>         
                 <br>   
 
@@ -48,7 +47,7 @@
                     <input type="file" id="browser-button" name="profilePicture" onchange="getFileName()"/>
                     <label for="browser-button">Browse</label>
                 </div>
-
+                
                 <input id="register-button" type="submit" name="register" value="Register" />
 
                 <br>
@@ -59,5 +58,6 @@
                 <br>
             </div>
         </form>    
+    <script src="js/register.js"></script>
     </body>
 </html>
