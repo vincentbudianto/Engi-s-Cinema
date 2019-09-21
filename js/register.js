@@ -1,33 +1,77 @@
 function unameValidate() {
     let getData = new FormData(document.forms.registerForm); 
     let request = new XMLHttpRequest();
-    request.open("POST", "php/validation.php", true);
+    request.open("POST", "php/regValidation.php", true);
     request.send(getData);
 
     request.onload = function() {
-        switch (request.response) {
+        switch (request.response.substr(-3)) {
             case '401':
                 var unameInput = document.getElementById('username-input').value;
-                console.log(unameInput);
-                document.getElementById('false-username').style.color = 'red';
-                document.getElementById('false-username').innerHTML = 'Username +' 
-                unameInput + ' already existed! Please use another username.';
+                document.getElementById('username-input').style.borderColor = 'red';
+                document.getElementById('username-input').style.borderWidth = '1.5px';
+                document.getElementById('false-username-msg').style.color = 'red';
+                document.getElementById('false-username-msg').innerHTML = 'Username ' + unameInput + ' already exist! Please use another username.';
                 break;
-
-            case '402':
-                alert('Email already existed');
-                break;
-
-            case '403':
-                alert('Phone number already existed');
+            
+            default :
+                document.getElementById('username-input').style.borderColor = 'green';
+                document.getElementById('username-input').style.borderWidth = '1.5px';
+                document.getElementById('false-username-msg').innerHTML = '';
                 break;
         }
     }
-
-    // e.preventDefault();
 }
 
-function validate() {
+function emailValidate() {
+    let getData = new FormData(document.forms.registerForm); 
+    let request = new XMLHttpRequest();
+    request.open("POST", "php/regValidation.php", true);
+    request.send(getData);
+
+    request.onload = function() {
+        switch (request.response.substr(-3)) {
+            case '402':
+                document.getElementById('email-input').style.borderColor = 'red';
+                document.getElementById('email-input').style.borderWidth = '1.5px';
+                document.getElementById('false-email-msg').style.color = 'red';
+                document.getElementById('false-email-msg').innerHTML = 'Email already existed';
+                break;
+
+            default :
+                document.getElementById('email-input').style.borderColor = 'green';
+                document.getElementById('email-input').style.borderWidth = '1.5px';
+                document.getElementById('false-email-msg').innerHTML = '';
+                break;
+        }
+    }
+}
+
+function phoneValidate() {
+    let getData = new FormData(document.forms.registerForm); 
+    let request = new XMLHttpRequest();
+    request.open("POST", "php/regValidation.php", true);
+    request.send(getData);
+
+    request.onload = function() {
+        switch (request.response.substr(-3)) {
+            case '403':
+                document.getElementById('phone-input').style.borderColor = 'red';
+                document.getElementById('phone-input').style.borderWidth = '1.5px';
+                document.getElementById('false-phone-msg').style.color = 'red';
+                document.getElementById('false-phone-msg').innerHTML = 'Phone number already existed';
+                break;
+
+            default : 
+                document.getElementById('phone-input').style.borderColor = 'green';
+                document.getElementById('phone-input').style.borderWidth = '1.5px';
+                document.getElementById('false-phone-msg').innerHTML = '';
+                break;
+        }
+    }
+}
+
+function passValidate() {
     if (document.getElementById('password').value == document.getElementById('confirm-password').value) {
         document.getElementById('confirm-password').style.borderColor = 'green';
         document.getElementById('confirm-password').style.borderWidth = '1.5px';

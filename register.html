@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/register.css">
-        <script src="js/register.js"></script>
+        <script src="js/register.js" defer></script>
     </head>
     
     <body>
@@ -13,19 +13,21 @@
 
                 <label for="username">Username</label>
                 <input id="username-input" type="text" placeholder="joe.johndoe" name="username" pattern="[a-zA-Z0-9_]*" onchange="unameValidate();" required>
-                <span id="false-username"></span>
+                <span id="false-username-msg" class="input-message"></span>
 
                 <br>
                 <br>
                 
                 <label for="email">Email Address</label>
-                <input type="email" placeholder="joe@email.com" name="email" required>
+                <input id="email-input" type="email" placeholder="joe@email.com" name="email" onchange="emailValidate();" required>
+                <span id="false-email-msg" class="input-message"></span>
                 
                 <br>
                 <br>
 
-                <label for="phoneNumber">Phone Number</label>
-                <input type="text" placeholder="+62813xxxxxxx" name="phoneNumber" required>
+                <label for="phone">Phone Number</label>
+                <input id="phone-input" type="text" placeholder="+62813xxxxxxx" name="phone" onchange="phoneValidate();" required>
+                <span id="false-phone-msg" class="input-message"></span>
 
                 <br>
                 <br>
@@ -37,8 +39,7 @@
                 <br>   
 
                 <label>Confirm Password</label>
-                <input type="password" placeholder="same as above" id="confirm-password" name="confirm-password" onkeyup='validate();' required>
-                <span id="match-message"></span>
+                <input type="password" placeholder="same as above" id="confirm-password" name="confirm-password" onkeyup='passValidate();' required>
 
                 <br>         
                 <br>   
@@ -59,7 +60,6 @@
                 
                 <br>
             </div>
-        </form>    
-    <script src="js/register.js"></script>
+        </form>
     </body>
 </html>

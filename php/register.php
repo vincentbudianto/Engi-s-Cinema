@@ -12,7 +12,7 @@ if ($_POST) {
     // Get input data
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-    $phoneNumber = filter_input(INPUT_POST, 'phoneNumber', FILTER_SANITIZE_STRING);
+    $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_STRING);
     $password = password_hash($_POST["password"], PASSWORD_DEFAULT);
     $nameProfilePicture = $_FILES["profilePicture"]["name"];
     $typeProfilePicture = $_FILES["profilePicture"]["type"];
@@ -26,7 +26,7 @@ if ($_POST) {
         array_push($errors, "Username is invalid");
     }
 
-    if ((strlen((string)$phoneNumber) < 9) or (strlen((string) $phoneNumber) > 12)) {
+    if ((strlen((string)$phone) < 9) or (strlen((string) $phone) > 12)) {
         echo 302;
         array_push($errors, "Phone number is invalid");
     }
@@ -55,14 +55,14 @@ if ($_POST) {
     // Preparing query
     if (count($errors) == 0) {
         // Preparing insertQuery
-        $insertQuery = "INSERT INTO users (username, email, phoneNumber, password, profilePicture, token) VALUES (:username, :email, :phoneNumber, :password, :profilePicture, :token)";
+        $insertQuery = "INSERT INTO users (username, email, phone, password, profilePicture, token) VALUES (:username, :email, :phone, :password, :profilePicture, :token)";
         $stmt2 = $db->prepare($insertQuery);
 
         // Bind insertQuery parameters
         $params2 = array(
             ":username" => $username,
             ":email" => $email,
-            ":phoneNumber" => $phoneNumber,
+            ":phone" => $phone,
             ":password" => $password,
             ":profilePicture" => $profilePicture,
             ":token" => $token
