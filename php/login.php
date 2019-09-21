@@ -7,7 +7,7 @@ require_once("config.php");
 $errors = array();
 $cookieName = "user";
 
-if (isset($_POST['login'])) {
+if ($_POST) {
     // Get input data
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);

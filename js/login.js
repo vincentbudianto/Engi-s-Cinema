@@ -1,5 +1,5 @@
 function login(e) {
-    let getData = new FormData(document.forms.registerForm); 
+    let getData = new FormData(document.forms.loginForm); 
     let request = new XMLHttpRequest();
     request.open("POST", "php/login.php", true);
     request.send(getData);
@@ -31,7 +31,7 @@ function login(e) {
                 break;
         }
     }
-        
+
     e.preventDefault();
 }
 
