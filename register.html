@@ -15,50 +15,45 @@
                 <input id="username-input" type="text" placeholder="joe.johndoe" name="username" pattern="[a-zA-Z0-9_]*" onchange="unameValidate();" required>
                 <span id="false-username-msg" class="input-message"></span>
 
-                <br>
-                <br>
+                <div class="space"></div>
                 
                 <label for="email">Email Address</label>
                 <input id="email-input" type="email" placeholder="joe@email.com" name="email" onchange="emailValidate();" required>
                 <span id="false-email-msg" class="input-message"></span>
                 
-                <br>
-                <br>
+                <div class="space"></div>
 
                 <label for="phone">Phone Number</label>
-                <input id="phone-input" type="text" placeholder="+62813xxxxxxx" name="phone" onchange="phoneValidate();" required>
+                <input id="phone-input" type="text" placeholder="+62813xxxxxxx" name="phone" onchange="phoneValidate();" minlength="9" maxlength="12" required>
                 <span id="false-phone-msg" class="input-message"></span>
 
-                <br>
-                <br>
+                <div class="space"></div>
 
                 <label for="password">Password</label>
                 <input type="password" placeholder="make as strong as possible" id="password" name="password" required>
+                <span id="false-password-msg" class="input-message"></span>
                 
-                <br>         
-                <br>   
+                <div class="space"></div>
 
                 <label>Confirm Password</label>
                 <input type="password" placeholder="same as above" id="confirm-password" name="confirm-password" onkeyup='passValidate();' required>
 
-                <br>         
-                <br>   
+                <div class="space"></div>
                 
                 <label for="profilePicture">Profile Picture</label>
                 <div class="profile-picture-container">
                     <input id="profile-picture-name" type="text" value="" disabled>
-                    <input type="file" id="browser-button" name="profilePicture" onchange="getFileName()"/>
+                    <input type="file" id="browser-button" name="profilePicture" onchange="getFileName();" accept=".jpg, .jpeg, .png, .svg"/>
                     <label for="browser-button">Browse</label>
                 </div>
                 
                 <input id="register-button" type="submit" name="register" value="Register" />
 
-                <br>
-                <br>
+                <div class="space"></div>
 
                 <div class="center-text"><span id="register-text"><b>Already have an account? </b><a href="login.html">Login Here</a></span></div>
                 
-                <br>
+                <div class="space"></div>
             </div>
         </form>
     </body>

@@ -10,7 +10,6 @@ a {
 
 label {
     padding: 5px;
-    /* font-size: 12px; */
     font-size: 0.75rem;
     font-weight: bold;
     color: #878787;
@@ -93,6 +92,10 @@ input[type="file"] + label:hover {
 
 .input-message {
     font-size: 0.75rem;
+}
+
+.space {
+    padding: 8px;
 }
 
 #register-title {

@@ -7,30 +7,27 @@
     </head>
 
     <body>
-        <form enctype="multipart/form-data" id="loginForm" class="login-form" method="POST">
+            <form enctype="multipart/form-data" id="loginForm" class="login-form" method="POST">
             <div class="container">
                 <div class="center-text" id="login-title">Welcome to <b>Engi</b>ma!</div>
 
                 <label for="username">Username or Email Address</label>
-                <input id="username-input" type="text" placeholder="john@doe.com" name="username" pattern="[a-zA-Z0-9_]*" required>
+                <input type="text" placeholder="john@doe.com" name="username" required>
 
-                <br>
-                <br>
+                <div class="space"></div>
 
                 <label for="password">Password</label>
-                <input id="password-input" type="password" placeholder="place here" name="password" required>
+                <input type="password" placeholder="place here" name="password" required>
 
-                <br>         
-                <br>   
+                <div class="space"></div>
 
-                <input id="login-button" type="submit" name="login" value="Login" />
+                <button id=login-button type="submit" name="login" value="Login">Login</button>
 
-                <br>
-                <br>
+                <div class="space"></div>
 
                 <div class="center-text"><span id="register-text"><b>Don't have an account? </b><a href="register.html">Register Here</a></span></div>
 
-                <br>
+                <div class="space"></div>
             </div>
         </form>    
     </body>
