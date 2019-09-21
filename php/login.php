@@ -7,32 +7,29 @@ require_once("config.php");
 $errors = array();
 $cookieName = "user";
 
-if (isset($_POST['login']))
-{
+if (isset($_POST['login'])) {
     // Get input data
     $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
     $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
     // Input data validation
-    if (empty($username))
-    {
+    if (empty($username)) {
+        echo 401;
   	    array_push($errors, "Username/email is required");
     }
     
-    if (empty($password))
-    {
+    if (empty($password)) {
+        echo 402;
         array_push($errors, "Password is required");
     }
 
-    if (count($errors) == 0)
-    {
+    if (count($errors) == 0) {
         // Preparing searchQuery
         $searchQuery = "SELECT * FROM users WHERE (username = :username) OR (email = :email)";
         $stmt = $db->prepare($searchQuery);
         
         // Bind searchQuery parameters
-        $params = array
-        (
+        $params = array(
             ":username" => $username,
             ":email" => $username
         );
@@ -41,16 +38,13 @@ if (isset($_POST['login']))
         $stmt->execute($params);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        if ($user)
-        {
+        if ($user) {
             // Password verification
-            if (password_verify($password, $user["password"]))
-            {
+            if (password_verify($password, $user["password"])) {
                 //Setting cookie
                 setcookie($cookieName, $user["token"], time() + 86400);
                 
-                if (isset($_COOKIE[$cookieName]))
-                {
+                if (isset($_COOKIE[$cookieName])) {
                     // Preparing insertQuery
                     $insertQuery = "INSERT INTO cookies (token) VALUES (:token)";
                     $stmt = $db->prepare($insertQuery);
@@ -64,19 +58,21 @@ if (isset($_POST['login']))
                     $loginStatus = $stmt->execute($params);
                     
                     // Go to homepage
-                    if ($loginStatus)
-                    {
-                        header("location: ../homepage.html");
+                    if ($loginStatus) {
+                        echo 200;
+                    }
+                    else {
+                        echo 201;
                     }
                 }                
             }
-            else
-            {
+            else {
+                echo 301;
                 array_push($errors, "Wrong password");
             }
         }
-        else
-        {
+        else {
+            echo 302;
             array_push($errors, "Username/email is not registered");
         }
     }

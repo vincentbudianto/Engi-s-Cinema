@@ -3,21 +3,24 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/login.css">
+        <script src="js/login.js" defer></script>
     </head>
 
     <body>
-        <form class="login-form" action="php/login.php" method="POST">
+        <form enctype="multipart/form-data" id="loginForm" class="login-form" method="POST">
             <div class="container">
                 <div class="center-text" id="login-title">Welcome to <b>Engi</b>ma!</div>
 
                 <label for="username">Username or Email Address</label>
-                <input type="text" placeholder="john@doe.com" name="username" required>
+                <input id="username-input" type="text" placeholder="john@doe.com" name="username" pattern="[a-zA-Z0-9_]*" onchange="unameValidate();" required>
+                <span id="empty-username"></span>
 
                 <br>
                 <br>
 
                 <label for="password">Password</label>
-                <input type="password" placeholder="place here" name="password" required>
+                <input id="password-input" type="password" placeholder="place here" name="password" onchange="passValidate();" required>
+                <span id="empty-password"></span>
 
                 <br>         
                 <br>   
