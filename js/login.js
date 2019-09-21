@@ -1,10 +1,23 @@
+var input = document.getElementById('password');
+
+//To execute login button if enter key pressed on password input
+input.addEventListener("keyup", function(event) {
+    if (event.keyCode == 13) {
+        event.preventDefault();
+        document.getElementById("login-button").click();
+    }
+});
+
 function login(e) {
-    let getData = new FormData(document.forms.loginForm); 
+    console.log(100);
+    let getData = new FormData(document.forms.loginForm);
+    console.log(getData);
     let request = new XMLHttpRequest();
     request.open("POST", "php/login.php", true);
     request.send(getData);
 
     request.onload = function() {
+        console.log(request.response.substr(-3));
         switch (request.response.substr(-3)) {
             case '200':
                 window.location.replace('homepage.html');

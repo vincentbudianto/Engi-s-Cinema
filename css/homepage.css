@@ -1,6 +1,7 @@
 html {
     min-width: 800px;
-    min-height: 600px;
+    min-height: 100%;
+    height: 100%;
 }
 
 body {
@@ -8,15 +9,42 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    width: 100%;
+    min-height: 100%;
     height: 100%;
-    min-width: 600px;
+    overflow: visible;
 }
 
 p {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: bold;
 }
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+/* clear X in search field from IE */
+input[type="search"]::-ms-clear {  
+    display: none; 
+    width : 0; 
+    height: 0; 
+}
+
+input[type="search"]::-ms-reveal {  
+    display: none; 
+    width : 0; 
+    height: 0; 
+}
+
+/* clear X  in search field from Chrome */
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration { 
+    display: none; 
+}
+
 
 .navbar {
     background-color: white;
@@ -48,12 +76,14 @@ p {
     margin-right: 10%;
     padding-top: 10%;
     padding-left: 8%;
-    height: 100%;
+    padding-bottom: 8%;
+    min-height: 100%;
+    height: auto;
     z-index: 1;
 }
 
 .search-bar {
-    border: 2px solid #ccc;
+    border: 1.5px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
     display: flex;
@@ -77,25 +107,70 @@ p {
 }
 
 .grid-container {
+    box-sizing: border-box;
     display: grid;
-    grid-template-columns: auto auto auto;
-    background-color: yellow;
-    padding: 10px;
+    grid-template-columns: repeat(auto-fill, 180px);
+    grid-gap: 20px;
     margin-right: 10%;
+    min-height: 0;
+    min-width: 0;
+}
+
+.grid-container > div {
+    text-align: center;
 }
 
 .grid-item {
-    background-color: green;
-    border: 1px solid rgba(0, 0, 0, 0.8);
-    padding: 10px;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    display: grid;
+    grid-template-rows: [poster] 270px [title] 30px [rating] 30px;
     font-size: 30px;
-    text-align: center;
+    width: 180px;
+    height: 330px;
+}
+
+.grid-content {
+    font-size: 1rem;
+    font-weight: bold;
+    width: 100%;
+    height: 100%;
+}
+
+.poster {
+    border-radius: 5px;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.poster img {
+    background-size: cover;
+    overflow: hidden;
+}
+
+.title {
+    margin-top: 10px;
+    text-align: left;
+}
+
+.rating {
+    display: grid;
+    grid-template-columns: [star] 20px [value] 150px;
+}
+
+.rating-value {
+    margin-top: 5px;
+    margin-left: 10px;
+    opacity: 0.4;
+    text-align: left;
 }
 
 #navbar-title {
     margin-top: 1.3%;
     margin-left: 10%;
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 #homepage-title {
@@ -107,9 +182,11 @@ p {
     border-radius: 5px;
     box-sizing: border-box;
     display: inline-block;
-    padding-left: 5px;
     padding-top: 5px;
-    width: 93%;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-right: 3px;
+    width: 92%;
     height: 100%;
 }
 
@@ -118,18 +195,14 @@ p {
 }
 
 #search-icon {
-    margin-top: 2.5%;
-    margin-right: 2.5%;
+    /* margin-top: 2.5%;
+    margin-right: 2.5%; */
+    padding-top: 5px;
+    padding-right: 5px;
+    padding-bottom: 6px;
     width: 20px;
     height: 20px;
     opacity: 0.4;
-}
-
-#search-button {
-    background: none;
-    border: none;
-    padding: 0;
-    outline: inherit;
 }
 
 #transactions-button {
@@ -145,6 +218,6 @@ p {
 }
 
 #welcome {
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: bold;
 }
