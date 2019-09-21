@@ -52,7 +52,40 @@ if ($_POST) {
         array_push($errors, "Failed to upload profile picture");
     }
 
-    // Preparing query
+    // Preparing checkQuery
+    $checkQuery = "SELECT * FROM users WHERE (username = :username) OR (email = :email) OR (phone = :phone) LIMIT 1";
+    $stmt1 = $db->prepare($checkQuery);
+
+    // Bind checkQuery parameters
+    $params1 = array(
+        ":username" => $username,
+        ":email" => $email,
+        ":phone" => $phone
+    );
+
+    // Execute checkQuery
+    $stmt1->execute($params1);
+
+    // Existing data validation
+    $result = $stmt1->fetch(PDO::FETCH_ASSOC);
+
+    if ($result) {
+        if ($result['username'] === $username) {
+            echo 401;
+            array_push($errors, "Username already exist");
+        }
+
+        if ($result['email'] === $email) {
+            echo 402;
+            array_push($errors, "Email already exist");
+        }
+
+        if ($result['phone'] === $phone) {
+            echo 403;
+            array_push($errors, "Phone number already exist");
+        }
+    }
+
     if (count($errors) == 0) {
         // Preparing insertQuery
         $insertQuery = "INSERT INTO users (username, email, phone, password, profilePicture, token) VALUES (:username, :email, :phone, :password, :profilePicture, :token)";

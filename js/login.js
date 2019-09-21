@@ -1,38 +1,3 @@
-function unameValidate() {
-    let getData = new FormData(document.forms.registerForm); 
-    let request = new XMLHttpRequest();
-    request.open("POST", "php/loginUserValidation.php", true);
-    request.send(getData);
-
-    request.onload = function() {
-        switch (request.response) {
-            case '401':
-                var unameInput = document.getElementById('username-input').value;
-                document.getElementById('empty-username').style.color = 'red';
-                document.getElementById('empty-username').innerHTML = 'Username/email is required!';
-                break;
-        }
-    }
-}
-
-function passValidate() {
-    let getData = new FormData(document.forms.registerForm); 
-    let request = new XMLHttpRequest();
-    request.open("POST", "php/loginPassValidation.php", true);
-    request.send(getData);
-
-    request.onload = function() {
-        switch (request.response) {
-            case '402':
-                var passInput = document.getElementById('password-input').value;
-                console.log(passInput);
-                document.getElementById('empty-username').style.color = 'red';
-                document.getElementById('empty-username').innerHTML = 'Password is required!';
-                break;
-        }
-    }
-}
-
 function login(e) {
     let getData = new FormData(document.forms.registerForm); 
     let request = new XMLHttpRequest();
@@ -40,9 +5,9 @@ function login(e) {
     request.send(getData);
 
     request.onload = function() {
-        switch (request.response) {
+        switch (request.response.substr(-3)) {
             case '200':
-                window.location.replace('login.html');
+                window.location.replace('homepage.html');
                 break;
 
             case '201':
@@ -56,9 +21,17 @@ function login(e) {
             case '302':
                 alert('Username/email is not registered');
                 break;
+
+            case '401':
+                alert('Username/email is empty');
+                break;
+
+            case '402':
+                alert('Password is empty');
+                break;
         }
     }
-    
+        
     e.preventDefault();
 }
 

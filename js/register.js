@@ -94,9 +94,8 @@ function register(e) {
     request.send(getData);
 
     request.onload = function() {
-        switch (request.response) {
+        switch (request.response.substr(-3)) {
             case '200':
-                alert('Registration successful');
                 window.location.replace('login.html');
                 break;
 

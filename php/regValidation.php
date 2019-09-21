@@ -49,9 +49,7 @@ if ($_POST) {
 
         if ($result['phone'] === $phone) {
             echo 403;
-        } 
-
-        
+        }
     }
 }
 
