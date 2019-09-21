@@ -21,6 +21,10 @@ button {
     border-radius: 5px;
 }
 
+textarea:focus, input:focus {
+    outline: none;
+}
+
 input[type="text"], input[type="email"], input[type="password"] {
     width: 100%;
     padding: 10px;
@@ -44,7 +48,7 @@ input[type="file"] {
     width: 1px;
   }
    
-  input[type="file"] + label {
+input[type="file"] + label {
     background-color: #a1a1a1;
     text-align: center;
     font-weight: normal;
@@ -58,11 +62,11 @@ input[type="file"] {
     cursor: pointer;
     display: inline-block;
     padding-left: 2rem 4rem;
-  }
+}
     
-  input[type="file"] + label:hover {
+input[type="file"] + label:hover {
       opacity: 0.8;
-  }
+}
 
 .register-form {
     margin: 3% auto auto auto;
@@ -87,8 +91,8 @@ input[type="file"] {
     text-align: center;
 }
 
-.space {
-    padding: 8px;
+.input-message {
+    font-size: 0.75rem;
 }
 
 #register-title {
