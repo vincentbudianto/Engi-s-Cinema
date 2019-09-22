@@ -32,7 +32,7 @@ def scrape_movie():
 		request = requests.get(url, headers = header, timeout = 5)
 		soup = bs4.BeautifulSoup(request.text, 'html.parser')
 
-		#Get each restaurant's link
+		#Get each movie's link
 		movie_list = soup.find_all('a', href = True)
 
 		for j in movie_list:
@@ -48,7 +48,7 @@ def scrape_movie():
 	movie_link.sort()
 	get_result()
 
-#Procedure to store the results of scraping data for each restaurant
+#Procedure to store the results of scraping data for each movie
 def get_result():
 	global movieID
 	global movie_link
@@ -62,7 +62,7 @@ def get_result():
 		movieID += 1
 		time.sleep(2)
 
-#Function to scrape data from each restaurant
+#Function to scrape data from each movie
 def get_data(url):
 	global header
 	global movieID
@@ -90,7 +90,12 @@ def get_data(url):
 
 	for temp in temp_duration:
 		if ('Runtime' in temp.get_text(strip = True)):
-			duration = temp.get_text(strip = True).replace('Runtime','')
+			durations = temp.get_text(strip = True).replace('Runtime','')
+			time = durations.split("h")
+			hour = int(time[0])
+			time2 = time[1].split("m")
+			minute = int(time2[0])
+			duration = hour * 60 + minute
 	
 	#Get movie's releases date
 	date = soup.find(attrs = {'class': 'releases'}).find('li').find('img').next_sibling.strip()
