@@ -66,7 +66,6 @@ function emailValidate() {
             }
         }
     }
-    
 }
 
 function phoneValidate() {
@@ -138,7 +137,6 @@ function register(e) {
     request.onload = function() {
         switch (request.response.substr(-3)) {
             case '200':
-                alert('Registration successful');
                 window.location.replace('login.html');
                 break;
 
