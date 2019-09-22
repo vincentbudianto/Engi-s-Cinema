@@ -16,18 +16,7 @@ url = 'https://www.themoviedb.org/movie/301528'
 request = requests.get(url, headers = header)
 soup = bs4.BeautifulSoup(request.content.decode('utf-8', 'ignore').replace('\u200b', ''), 'html.parser')
 
-#Get movie's duration
-temp_duration = soup.find(attrs = {'class': 'facts left_column'}).find_all("p")
+#Get movie's rating
+rating = float(soup.find(attrs = {'class': 'user_score_chart'})['data-percent']) / 10
 
-for temp in temp_duration:
-    if ('Runtime' in temp.get_text(strip = True)):
-        durations = temp.get_text(strip = True).replace('Runtime','')
-        time = durations.split("h")
-        hour = int(time[0])
-        time2 = time[1].split("m")
-        minute = int(time2[0])
-        duration = hour * 60 + minute
-
-print(hour)
-print(minute)
-print(duration)
+print(rating)

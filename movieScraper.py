@@ -74,7 +74,7 @@ def get_data(url):
 	title = soup.find(attrs = {'class': 'title'}).find('h2').get_text(strip = True)
 
 	#Get movie's rating
-	rating = soup.find(attrs = {'class': 'user_score_chart'})['data-percent']
+	rating = float(soup.find(attrs = {'class': 'user_score_chart'})['data-percent']) / 10
 
 	#Get movie's genre
 	genres = []
