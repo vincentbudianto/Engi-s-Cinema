@@ -1,8 +1,92 @@
 <html>
     <head>
-
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/transactions.css">
     </head>
     <body>
-        <p>Transactions</p>
+        <div class="navbar">
+            <div class="navbar-wrapper">
+                <label class="navbar-button" id="navbar-title" onclick="location.href='homepage.html'"><span id="homepage-title">Engi</span>ma</label>
+                <div class ="search-bar">
+                    <input id="search-input" type="search" placeholder="Search movie">
+                    <img class="navbar-button" id="search-icon" src="assets/search_icon.png" alt="Search icon">
+                </div>
+                    <label class="navbar-button" id="transactions-button" onclick="location.href='transactions.html'">Transactions</label>
+                    <label class="navbar-button" id="logout-button" onclick="location.href='php/logout.php'">Logout</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <p>Transaction History</p>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <div class="grid-content">
+                        <div class="poster">
+                            <img src="assets/images.jpg">
+                        </div>
+                    </div>
+                    <div class="grid-content">
+                        <div class="history">
+                            <div class="title">IT: Chapter Two</div>
+                            <div class="schedule">
+                                <span id="schedule-text">Schedule:</span>
+                                <span id="schedule-time">September 4, 2019 - 05.00 PM</span>
+                            </div>
+                            <span class="review-submit"></span>
+                            <div class="review-button">
+                                <button id="delete-review">Delete Review</button>
+                                <button id="edit-review">Edit Review</button>
+                                <button id="add-review">Add Review</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-content">
+                        <div class="poster">
+                            <img src="assets/Gundala-post.jpg">
+                        </div>
+                    </div>
+                    <div class="grid-content">
+                        <div class="history">
+                            <div class="title">Gundala</div>
+                            <div class="schedule">
+                                <span id="schedule-text">Schedule:</span>
+                                <span id="schedule-time">August 29, 2019 - 04.00 PM</span>
+                            </div>
+                            <span class="review-submit"></span>
+                            <div class="review-button">
+                                <button id="delete-review">Delete Review</button>
+                                <button id="edit-review">Edit Review</button>
+                                <button id="add-review">Add Review</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-content">
+                        <div class="poster">
+                                <img src="assets/Say I Love You-post.jpg">
+                        </div>
+                    </div>
+                    <div class="grid-content">
+                        <div class="history">
+                                <div class="title">Say I Love You</div>
+                            <div class="schedule">
+                                <span id="schedule-text">Schedule:</span>
+                                <span id="schedule-time">July 4, 2019 - 03.00 PM</span>
+                            </div>
+                            <span class="review-submit"></span>
+                            <div class="review-button">
+                                <button id="delete-review">Delete Review</button>
+                                <button id="edit-review">Edit Review</button>
+                                <button id="add-review">Add Review</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>

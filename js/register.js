@@ -65,7 +65,7 @@ function emailValidate() {
                     break;
             }
         }
-    }
+    } 
 }
 
 function phoneValidate() {
