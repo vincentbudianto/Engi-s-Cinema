@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/pageTemplate.css">
+        <link rel="stylesheet" type="text/css" href="css/ticket.css">
+        <script src="js/ticket.js" defer></script>
+    </head>
+    
+    <body>    
+        <div class="navbar">
+            <div class="navbar-wrapper">
+                <label class="navbar-button" id="navbar-title" onclick="location.href='homepage.html'"><span id="homepage-title">Engi</span>ma</label>
+                <div class ="search-bar">
+                    <input id="search-input" type="search" placeholder="Search movie">
+                    <img class="navbar-button" id="search-icon" src="assets/search_icon.png" alt="Search icon">
+                </div>
+                    <label class="navbar-button" id="transactions-button" onclick="location.href='transactions.html'">Transactions</label>
+                    <label class="navbar-button" id="logout-button" onclick="location.href='php/logout.php'">Logout</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="grid-container">
+                <div class="grid-item">
+                    <div class="ticket-info-container">
+                        <div class="back-icon">
+                            <img src="assets/back_icon.png">
+                        </div>
+                        <div class="ticket-info">
+                            <label id="title">Gundala</label>
+                            <label id="schedule">August 29, 2019 - 04.00 PM</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="seat-container">
+                        <div class="seat">
+                            <div class="seat-number-container">
+                                <div class="seat-number">1</div>
+                                <div class="seat-number">2</div>
+                                <div class="seat-number">3</div>
+                                <div class="seat-number">4</div>
+                                <div class="seat-number">5</div>
+                                <div class="seat-number">6</div>
+                                <div class="seat-number">7</div>
+                                <div class="seat-number">8</div>
+                                <div class="seat-number">9</div>
+                                <div class="seat-number">10</div>
+                                <div class="seat-number">11</div>
+                                <div class="seat-number">12</div>
+                                <div class="seat-number">13</div>
+                                <div class="seat-number">14</div>
+                                <div class="seat-number">15</div>
+                                <div class="seat-number">16</div>
+                                <div class="seat-number">17</div>
+                                <div class="seat-number">18</div>
+                                <div class="seat-number">19</div>
+                                <div class="seat-number">20</div>
+                                <div class="seat-number">21</div>
+                                <div class="seat-number">22</div>
+                                <div class="seat-number">23</div>
+                                <div class="seat-number">24</div>
+                                <div class="seat-number">25</div>
+                                <div class="seat-number">26</div>
+                                <div class="seat-number">27</div>
+                                <div class="seat-number">28</div>
+                                <div class="seat-number">29</div>
+                                <div class="seat-number">30</div>
+                                <div class="screen">Screen</div>
+                            </div>
+                        </div>
+                        <div class="summary">
+                            <label id="summary-text">Booking Summary</label>
+                            <span id="seat-not-selected">
+                                You haven't selected any seat yet. 
+                                Please click on one of the seat provided
+                            </span>
+                            <span id="seat-selected">
+                                <span id="seat-summary">
+                                        <span id="summary-title">Gundala</span>
+                                        <span id="summary-schedule">August 29, 2019 - 04.00 PM</span>
+                                        <div class="summary-seat">
+                                            <span id="seat-text">Seat</span>
+                                            <span id="number-text">#18</span>
+                                            <span id="price-text">Rp 45.000</span>
+                                        </div>
+                                        <div class="summary-button">
+                                            <button id="buy-button" onclick="payment();">Buy Ticket</button>
+                                        </div>
+                                </span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal" class="modal">
+            <span onclick="close();"></span>
+            <div class="modal-content">
+                <p id="success">Payment Success!</p>
+                <p id="thanks">Thank you for purchasing! You can view your purchase now.</p>
+                <button id="modal-button" onclick="location.href='transactions.html'">Go to transaction history</button>
+            </div>
+        </div>
+    </body>
+</html>
