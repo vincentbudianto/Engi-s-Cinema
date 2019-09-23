@@ -1,0 +1,401 @@
+[
+    {
+        "movieID": 340104,
+        "title": "Lucy in the Sky",
+        "rating": 0.0,
+        "genres": [
+            "Drama",
+            "Science Fiction"
+        ],
+        "duration": 124,
+        "releaseDate": "October  4, 2019",
+        "description": "Astronaut Lucy Cola returns to Earth after a transcendent experience during a mission to space – and begins to lose touch with reality in a world that now seems too small.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/mZf8rjTTV5XrFlDCHDjB1ggZ66n.jpg"
+    },
+    {
+        "movieID": 418879,
+        "title": "The Current War",
+        "rating": 6.8,
+        "genres": [
+            "Drama",
+            "History"
+        ],
+        "duration": 105,
+        "releaseDate": "October 15, 2017",
+        "description": "Electricity titans Thomas Edison and George Westinghouse compete to create a sustainable system and market it to the American people.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/z6vDqTz4fQb60QRcMLNbeJ1IMVq.jpg"
+    },
+    {
+        "movieID": 431580,
+        "title": "Abominable",
+        "rating": 7.4,
+        "genres": [
+            "Adventure",
+            "Animation",
+            "Comedy",
+            "Family"
+        ],
+        "duration": 92,
+        "releaseDate": "September 29, 2019",
+        "description": "Trekking the 3000-mile journey from Shanghai to the Himalayan snowscapes, a group of misfits encounter a young Yeti named Everest, and they set off to reunite the magical creature with his family on the mountain of his namesake.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/iK0Q7VWxHsXU1uMzpkf3VjAd6yE.jpg"
+    },
+    {
+        "movieID": 456646,
+        "title": "Wallflower",
+        "rating": 0.0,
+        "genres": [
+            "Drama",
+            "Thriller"
+        ],
+        "duration": 84,
+        "releaseDate": "June  6, 2017",
+        "description": "A man planning to commit a mass shooting at a rave is befriended by an eccentric group of partiers and finds himself conflicted about his intentions. Based on the real-life 2006 Capitol Hill Massacre in Seattle.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/rTXyGqR0rBP13hRk8dneZVNCgd8.jpg"
+    },
+    {
+        "movieID": 475557,
+        "title": "Joker",
+        "rating": 0.0,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "duration": 118,
+        "releaseDate": "October  4, 2019",
+        "description": "During the 1980s, a failed stand-up comedian is driven insane and turns to a life of crime and chaos in Gotham City while becoming an infamous psychopathic crime figure.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/lbGzEyESjANpOeD48aROlc3X7aa.jpg"
+    },
+    {
+        "movieID": 481084,
+        "title": "The Addams Family",
+        "rating": 0.0,
+        "genres": [
+            "Animation",
+            "Comedy",
+            "Family",
+            "Fantasy",
+            "Horror"
+        ],
+        "duration": 105,
+        "releaseDate": "October 11, 2019",
+        "description": "The Addams family's lives begin to unravel when they face-off against a treacherous, greedy crafty reality-TV host while also preparing for their extended family to arrive for a major celebration.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/uaXNjRkDdjfxfVuKHo25wkA6CiA.jpg"
+    },
+    {
+        "movieID": 491283,
+        "title": "Judy",
+        "rating": 0.0,
+        "genres": [
+            "Drama",
+            "History",
+            "Romance"
+        ],
+        "duration": 118,
+        "releaseDate": "August 30, 2019",
+        "description": "Legendary performer Judy Garland arrives in London in the winter of 1968 to perform a series of sold-out concerts.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/p0aT7AS2Zb7rbTfEKvJR3faFfwC.jpg"
+    },
+    {
+        "movieID": 492190,
+        "title": "The Day Shall Come",
+        "rating": 0.0,
+        "genres": [
+            "Comedy"
+        ],
+        "duration": 87,
+        "releaseDate": "March 11, 2019",
+        "description": "An impoverished leader of a small religious commune in Miami, is offered cash to save his family from eviction. He has no idea his sponsor works for an FBI agent, who plans to turn him into a criminal by fueling his madcap revolutionary dreams.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/iNUHlL3w31dF1Iyp9knGOUkBkWa.jpg"
+    },
+    {
+        "movieID": 492613,
+        "title": "The Parts You Lose",
+        "rating": 0.0,
+        "genres": [
+            "Drama"
+        ],
+        "duration": 94,
+        "releaseDate": "October  4, 2019",
+        "description": "An unlikely friendship unfolds between a young deaf boy, Wesley, and a fugitive criminal who takes refuge in an abandoned barn on the family’s rural North Dakota farm.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/lKHal80Tfs8buiBctdLnEjqyShw.jpg"
+    },
+    {
+        "movieID": 496243,
+        "title": "Parasite",
+        "rating": 8.5,
+        "genres": [
+            "Comedy",
+            "Drama",
+            "Thriller"
+        ],
+        "duration": 132,
+        "releaseDate": "October 11, 2019",
+        "description": "All unemployed, Ki-taek's family takes peculiar interest in the wealthy and glamorous Parks for their livelihood until they get entangled in an unexpected incident.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/7IiTTgloJzvGI1TAYymCfbfl3vT.jpg"
+    },
+    {
+        "movieID": 503125,
+        "title": "Little Monsters",
+        "rating": 7.8,
+        "genres": [
+            "Comedy",
+            "Horror"
+        ],
+        "duration": 94,
+        "releaseDate": "January 27, 2019",
+        "description": "A washed-up musician teams up with a teacher and a kids show personality to protect young children from a sudden outbreak of zombies.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/oQvUq7UmumBTcAnvgFLFvegY47d.jpg"
+    },
+    {
+        "movieID": 504562,
+        "title": "Motherless Brooklyn",
+        "rating": 0.0,
+        "genres": [
+            "Crime",
+            "Drama"
+        ],
+        "duration": 144,
+        "releaseDate": "August 30, 2019",
+        "description": "Lionel Essrog, a private detective living with Tourette syndrome, ventures to solve the murder of his mentor and best friend — a mystery that carries him from the gin-soaked jazz clubs of Harlem to the slums of Brooklyn to the gilded halls of New York's power brokers.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/kFrxvdHSKLDHyBzMFGdjr0SSef8.jpg"
+    },
+    {
+        "movieID": 504949,
+        "title": "The King",
+        "rating": 0.0,
+        "genres": [
+            "Drama",
+            "History",
+            "War"
+        ],
+        "duration": 133,
+        "releaseDate": "October 11, 2019",
+        "description": "Hal, wayward prince and heir to the English throne, is crowned King Henry V after his tyrannical father dies. Now the young king must navigate palace politics, the war his father left behind, and the emotional strings of his past life.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/8u0QBGUbZcBW59VEAdmeFl9g98N.jpg"
+    },
+    {
+        "movieID": 515724,
+        "title": "Semper Fi",
+        "rating": 0.0,
+        "genres": [
+            "Drama",
+            "War"
+        ],
+        "duration": 100,
+        "releaseDate": "October  4, 2019",
+        "description": "A police officer who serves in the Marine Corps Reserves is faced with an ethical dilemma when it comes to helping his brother in prison.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/nY3CyXmS5FxK8p37RyitUH8rfyl.jpg"
+    },
+    {
+        "movieID": 517909,
+        "title": "The Laundromat",
+        "rating": 5.6,
+        "genres": [
+            "Comedy",
+            "Crime",
+            "Drama"
+        ],
+        "duration": 96,
+        "releaseDate": "September 27, 2019",
+        "description": "A widow investigating insurance fraud uncovers two lawyers in Panama exploiting the world's financial system.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/38pvoB5JeRPrsK9JRznLgwtSh2X.jpg"
+    },
+    {
+        "movieID": 519010,
+        "title": "Pain and Glory",
+        "rating": 7.6,
+        "genres": [
+            "Drama"
+        ],
+        "duration": 114,
+        "releaseDate": "September 28, 2019",
+        "description": "Salvador Mallo, a filmmaker in the twilight of his career, remembers his life: his mother, his lovers, the actors he worked with. The sixties in a small village in Valencia, the eighties in Madrid, the present, when he feels an immeasurable emptiness, facing his mortality, the incapability of continuing filming, the impossibility of separating creation from his own life. The need of narrating his past can be his salvation.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/cMlueArJXXwZbeLpb4NhC3pxmBk.jpg"
+    },
+    {
+        "movieID": 540158,
+        "title": "High Strung Free Dance",
+        "rating": 7.3,
+        "genres": [
+            "Romance"
+        ],
+        "duration": 103,
+        "releaseDate": "October 11, 2019",
+        "description": "Zander Raines, a dazzling and tempestuous young choreographer, gives the break of a lifetime to two hopeful artists when he casts a stunning contemporary dancer, Barlow, and innovative pianist, Charlie, in New York’s most-anticipated new Broadway show: Free Dance. But the move throws off the show’s delicate creative balance when Charlie falls hard for Barlow while Zander embraces her as his muse.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/zMwr9vNMHNCNatIPm7Oter0NVw.jpg"
+    },
+    {
+        "movieID": 554967,
+        "title": "Varda by Agnès",
+        "rating": 8.2,
+        "genres": [
+            "Documentary"
+        ],
+        "duration": 115,
+        "releaseDate": "September 28, 2019",
+        "description": "An unpredictable documentary from a fascinating storyteller, Agnès Varda’s last film sheds light on her experience as a director, bringing a personal insight to what she calls “cine-writing,” traveling from Rue Daguerre in Paris to Los Angeles and Beijing.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/99xU63PePSbtffV5CUqPQYu84XY.jpg"
+    },
+    {
+        "movieID": 559969,
+        "title": "El Camino: A Breaking Bad Movie",
+        "rating": 0.0,
+        "genres": [
+            "Crime",
+            "Drama",
+            "Thriller"
+        ],
+        "duration": 122,
+        "releaseDate": "October 11, 2019",
+        "description": "In the wake of his dramatic escape from captivity, Jesse Pinkman must come to terms with his past in order to forge some kind of future.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/pVhzxWiz00WfRTw2sMMhOihx79S.jpg"
+    },
+    {
+        "movieID": 565383,
+        "title": "The Death of Dick Long",
+        "rating": 0.0,
+        "genres": [
+            "Comedy",
+            "Crime",
+            "Drama"
+        ],
+        "duration": 100,
+        "releaseDate": "January 26, 2019",
+        "description": "Dick died last night, and Zeke and Earl don’t want anybody finding out how. That’s too bad though, cause news travels fast in small-town Alabama.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/vURitOcmtcH8Dr1bWryTvfkeyJX.jpg"
+    },
+    {
+        "movieID": 594304,
+        "title": "Cuck",
+        "rating": 0.0,
+        "genres": [
+            "Drama"
+        ],
+        "duration": 115,
+        "releaseDate": "October  4, 2019",
+        "description": "Ronnie is a young white male, struggling with the pressures of life. He’s unemployed, rejected from the military for being mentally unstable, and lives at home with his ailing and nagging mother. Ronnie finds an outlet for his frustration online. The alt-right community gives him a place to belong and absolves his personal responsibility.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/nxkOa2HYVMXa2PEHmSmE4RiZKsk.jpg"
+    },
+    {
+        "movieID": 612502,
+        "title": "Mister America",
+        "rating": 0.0,
+        "genres": [
+            "Comedy"
+        ],
+        "duration": 88,
+        "releaseDate": "October  9, 2019",
+        "description": "Heidecker beats a murder charge for selling faulty e-cigarettes at an EDM festival, and mounts a campaign to unseat the San Bernardino District Attorney. His effort to win voters tries to overcome a lack of experience and funding by leaning into the candidate’s personal likability. It does not go well.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/cYpjLxgJmNH7jKMrFWSwVVYE4I1.jpg"
+    },
+    {
+        "movieID": 617072,
+        "title": "(tourism studies)",
+        "rating": 0.0,
+        "genres": [
+            "Documentary"
+        ],
+        "duration": 7,
+        "releaseDate": "September 28, 2019",
+        "description": "Joshua Gen Solondz assmbles footage shot around the world over the past decade and manipulates it into a blurred compendium that privileges darkness and abstraction over the picturesque to an intense, strobing degree.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/l3j4bWhrrFmP7eWQmFMjyRfc4S2.jpg"
+    },
+    {
+        "movieID": 621268,
+        "title": "The Moneychanger",
+        "rating": 0.0,
+        "genres": [
+            "Comedy",
+            "Drama"
+        ],
+        "duration": 97,
+        "releaseDate": "September 29, 2019",
+        "description": "Set largely in Montevideo, The Moneychanger stars Daniel Hendler as Humberto Brause, who takes advantage of Uruguay’s poor economy by specializing in offshore money laundering. Spanning the fifties to the seventies, the film follows Humberto as he gets increasingly in over his head with multiple shady book-cooking schemes throughout South America, leading to an ultimate life-or-death decision.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/dUwpZl6QJUFoqkhEcu10Hzbd5Bn.jpg"
+    },
+    {
+        "movieID": 621949,
+        "title": "Metallica & San Francisco Symphony: S&M2",
+        "rating": 0.0,
+        "genres": [
+            "Documentary",
+            "Music"
+        ],
+        "duration": 150,
+        "releaseDate": "October  9, 2019",
+        "description": "On October 9th, 2019, Trafalgar Releasing presents S&M2, a celebration of the 20th anniversary of Metallica’s groundbreaking S&M concerts and album recorded with the San Francisco Symphony. See them once again perform with the Symphony as legendary conductor Michael Tilson Thomas leads a portion of the show, kicking off his final season in San Francisco. Recorded live on September 6th and 8th, the shows also commemorate the opening of the state-of-the-art Chase Center, a historic addition to the city’s waterfront. Including Metallica classics from the 1999 S&M release as well symphonic versions of new songs, this theatrical release gives millions of fans around the world the chance to eclipse time and experience the show as a modern-day big-screen concert.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/i47kIjqWutrO6UNglkKzXpeRLQD.jpg"
+    },
+    {
+        "movieID": 622990,
+        "title": "Elvis Unleashed",
+        "rating": 0.0,
+        "genres": [
+            "Documentary"
+        ],
+        "duration": 110,
+        "releaseDate": "October  7, 2019",
+        "description": "Solid outtakes and a few rehearsal moments from the original Elivs ‘68 special with never before seen footage on the big screen of a charming side of Elvis for 70 minutes intertwined with some what promises to be some amazing newly created footage for 30-40 minutes of added value featuring Randy Lewis, Dennis Quaid and others.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/gipd40fIR7TLwefXAKyNUQjbXeJ.jpg"
+    },
+    {
+        "movieID": 627019,
+        "title": "College Behind Bars",
+        "rating": 0.0,
+        "genres": [
+            "Documentary"
+        ],
+        "duration": 222,
+        "releaseDate": "September 28, 2019",
+        "description": "Out of the more than 50,000 men and 2500 women incarcerated in New York State, only a tiny fraction have access to higher education. The Bard Prison Initiative (BPI) enrolls incarcerated men and women earning Associate and Bachelor’s degrees; it’s a program with wide-ranging benefits, including lower rates of recidivism, and it challenges our prioritization of punishment over education.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/viIVpVR2BeNRXa0YXUeLQydVtz0.jpg"
+    },
+    {
+        "movieID": 628959,
+        "title": "Lady Belladonna's Tales From The Inferno",
+        "rating": 0.0,
+        "genres": [
+            "Horror"
+        ],
+        "duration": 93,
+        "releaseDate": "October  5, 2019",
+        "description": "Lady Belladonna is back with another round of suspenseful tales from Pandora's Box, including a vengeful vampire, a misplaced curse, an alien invasion and more tantalizing trips beyond the veil.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/cAhJi03mtZAEq0IC6yK2BdirHBB.jpg"
+    },
+    {
+        "movieID": 629191,
+        "title": "Urban Fears",
+        "rating": 0.0,
+        "genres": [
+            "Horror"
+        ],
+        "duration": 70,
+        "releaseDate": "September 30, 2019",
+        "description": "Most horror stories take place in suburban areas, but these three teenagers are about to realize that those are not the only places where these things happen.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/dP7JG2LWYhWPpeIVO9GJhTuibOz.jpg"
+    },
+    {
+        "movieID": 631893,
+        "title": "Rehearsal",
+        "rating": 0.0,
+        "genres": [],
+        "duration": 8,
+        "releaseDate": "April  6, 2019",
+        "description": "A film crew pushes the boundaries of consent during a courtesy rehearsal for its female lead.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/jd39Dsg6EZcFWIfkK5JaEsWaBkk.jpg"
+    },
+    {
+        "movieID": 633159,
+        "title": "Art of the Dead",
+        "rating": 0.0,
+        "genres": [
+            "Horror"
+        ],
+        "duration": 97,
+        "releaseDate": "October  4, 2019",
+        "description": "When Dylan Wilson purchases a collection of seven paintings to hang in his wealthy estate, he has no idea what horrors he has unleashed for himself, his wife; Gina, his college son; Louis, his teen-age daughter; Donna, and his two little kids. Only Father Mendale knows what evils lurk inside this deadly art and the history of Dorian Wilde; the artist who made a pact with dark forces when he created these paintings that represent the seven deadly sins. Now, anyone who comes in contact with these pictures are corrupted by Pride, Lust, Gluttony, Sloth, Greed, Envy, and Wrath! It's up to Father Mendale and Louis' girlfriend; Kim to save Dylan and his family before they are all destroyed by the art of the dead.",
+        "poster": "https://image.tmdb.org/t/p/w300_and_h450_bestv2_filter(blur)/aVrwmweA5LOXW7ke9lDLs6ilPyP.jpg"
+    }
+]

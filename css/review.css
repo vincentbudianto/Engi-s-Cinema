@@ -1,0 +1,21 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    color:rgb(0,193,236);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+label {
+    padding: 5px;
+    font-size: 0.75rem;
+    font-weight: bold;
+    color: #878787;
+}
+
+button {
+    border: none;
+    border-radius: 5px;
+}

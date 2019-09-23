@@ -1,5 +1,4 @@
 import json
-
 import mysql.connector
 from mysql.connector import Error
  
@@ -21,16 +20,16 @@ def month_convert(month):
 
 def insert_movies(id, title, rating, genre, duration, date, desc, poster):
     conn = None
+
     try:
-        conn = mysql.connector.connect(host='localhost',
-        database='engi_cinema',user='root',password='')
+        conn = mysql.connector.connect(host='localhost', database='engi_cinema',user='root',password='')
+
         if (conn.is_connected()):
-            print('Connected')
-            query = "INSERT INTO movies(id, title, rating, genre, duration, date, description, poster) " \
-            "VALUES(%s,%s,%s,%s,%s,%s,%s,%s)"
+            print('%5d: Connected' % id)
+            query = "INSERT INTO movies(movieID, title, rating, genre, duration, date, description, poster) VALUES(%s, %s, %s, %s, %s, %s, %s, %s)"
             args = (id, title, rating, genre, duration, date, desc, poster)
             cursor = conn.cursor()
-            result = cursor.execute(query, args)
+            cursor.execute(query, args)
             conn.commit()
             cursor.close()
 
@@ -42,25 +41,32 @@ def insert_movies(id, title, rating, genre, duration, date, desc, poster):
             conn.close()
 
 def main():
-    f = open("Database/movies.json", "r", encoding="utf8")
+    filename = 'nowPlaying'
+    f = open('../database/' + filename +'.json', "r", encoding="utf8")
+
     if (f.mode == "r"):
         contents = f.read()
-        data = json.loads(contents)
-        for i in data:
-            genre = ''
-            hour = int(i['duration'].split("h")[0])
-            minute = int(i['duration'].split("m")[0].split(" ")[1])
-            duration = hour * 60 + minute
+        datas = json.loads(contents)
 
-            day = i['releaseDate'].split(" ")[1].split(",")[0]
-            month = i['releaseDate'].split(" ")[0]
-            year = i['releaseDate'].split(" ")[2]
+        for data in datas:
+            genre = ''
+            d = data['releaseDate'].split(" ")
+            
+            if (d[1] == ''):
+                day = d[2].split(",")[0]
+                month = d[0]
+                year = d[3]
+            else:
+                day = d[1].split(",")[0]
+                month = d[0]
+                year = d[2]
+        
             date = year + '-' + month_convert(month) + '-' + day
 
-            for j in i['genres']:
+            for j in data['genres']:
                 genre += j + ', '
 
-            insert_movies(i['movieID'],i['title'],i['rating'],genre[:-2],duration,date,i['description'],i['poster'])
+            insert_movies(data['movieID'], data['title'], data['rating'], genre[:-2], data['duration'], date, data['description'], data['poster'])
 
 if __name__ == '__main__':
     main()
