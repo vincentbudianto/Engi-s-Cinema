@@ -1,3 +1,10 @@
+nowPlaying:
+https://www.themoviedb.org/movie/477962
+https://www.themoviedb.org/movie/511613
+https://www.themoviedb.org/movie/513310
+https://www.themoviedb.org/movie/521844
+
+upcoming:
 https://www.themoviedb.org/movie/419706
 https://www.themoviedb.org/movie/453405
 https://www.themoviedb.org/movie/528360

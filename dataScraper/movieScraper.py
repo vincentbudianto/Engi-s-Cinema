@@ -20,7 +20,7 @@ email = '13517137@std.stei.itb.ac.id'
 header = {'user-agent' : useragent, 'from': email}
 movie_link = []
 failed_link = []
-filename = 'movieLink'
+filename = 'moviesLink'
 result = []
 
 #Function and Procedure
@@ -80,8 +80,9 @@ def get_result():
 		j += 1
 		print()
 	
-	f = open('failedLink.txt', 'w')
+	f = open('failedLink.txt', 'a+')
 
+	f.write('\n%s:\n' % filename)
 	print('FAILED LINK:')
 	for i in range(len(failed_link)):
 		print('%5d: %s' % ((i + 1), failed_link[i]))
@@ -121,7 +122,7 @@ def get_data(url):
 
 		for temp in temp_duration:
 			if ('Runtime' in temp.get_text(strip = True)):
-				durations = temp.get_text(strip = True).replace('Runtime','')
+				durations = temp.get_text(strip = True).replace('Runtime', '')
 				time = durations.split("h")
 				hour = int(time[0])
 				time2 = time[1].split("m")
@@ -135,7 +136,7 @@ def get_data(url):
 		description = soup.find(attrs = {'class': 'overview'}).get_text(strip = True)
 
 		#Get movie's poster link
-		poster = soup.find(attrs = {'class': 'image_content'}).find('a', href = True).find(attrs = {'class': 'poster preview'})['src']
+		poster = soup.find(attrs = {'class': 'image_content'}).find('a', href = True).find(attrs = {'class': 'poster preview'})['src'].replace('_filter(blur)', '')
 
 		#Get movie's review
 	#	avatars = []
