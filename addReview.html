@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="css/pageTemplate.css">
+        <link rel="stylesheet" type="text/css" href="css/addReview.css">
+        <script src="js/addReview.js" defer></script>
+    </head>
+
+    <body>
+        <div class="navbar">
+            <div class="navbar-wrapper">
+                <label class="navbar-button" id="navbar-title" onclick="location.href='homepage.html'"><span
+                        id="homepage-title">Engi</span>ma</label>
+                <div class="search-bar">
+                    <input id="search-input" type="search" placeholder="Search movie">
+                    <img class="navbar-button" id="search-icon" src="assets/search_icon.png" alt="Search icon">
+                </div>
+                <label class="navbar-button" id="transactions-button"
+                    onclick="location.href='transactions.html'">Transactions</label>
+                <label class="navbar-button" id="logout-button" onclick="location.href='php/logout.php'">Logout</label>
+            </div>
+        </div>
+        </div>
+        <div class="content">
+            <div class="grid-container">
+                <div class="grid-item">
+                    <div class="ticket-info-container">
+                        <div class="back-icon">
+                            <img src="assets/back_icon.png">
+                        </div>
+                        <div class="ticket-info">
+                            <label id="title">Avengers: Endgame</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid-item">
+                    <div class="grid-body">
+                        <div class="grid-rating">
+                            <label id="rating">Add Rating</label>
+                        </div>
+                        <div class="star-container">
+                            <div class="star">
+                                <img id="star0" class="star-icon" num="0" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                <img id="star1" class="star-icon" num="1" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                <img id="star2" class="star-icon" num="2" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                <img id="star3" class="star-icon" num="3" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                <img id="star4" class="star-icon" num="4" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                <img id="star5" class="star-icon" num="5" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                <img id="star6" class="star-icon" num="6" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                <img id="star7" class="star-icon" num="7" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                <img id="star8" class="star-icon" num="8" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                <img id="star9" class="star-icon" num="9" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                <input type="hidden" id="ratingStar" name="ratingStar" value=0>
+                            </div>
+                        </div>
+
+                        <label id="review">Add Review</label>
+                        <div class="grid-review">
+
+                            <!-- <div></div> -->
+                            <textarea id="reviewUser"
+                            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+                            name="review" required></textarea>
+                        </div>
+
+                        <div class="grid-button">
+                            <div>
+                                <button id="cancel" onclick="cancel();">Cancel</button>
+                                <button id="submit" onclick="submit();">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

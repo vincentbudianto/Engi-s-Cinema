@@ -46,7 +46,7 @@ input[type="file"] {
     white-space: nowrap;
     width: 1px;
   }
-   
+
 input[type="file"] + label {
     background-color: #a1a1a1;
     text-align: center;
@@ -62,7 +62,7 @@ input[type="file"] + label {
     display: inline-block;
     padding-left: 2rem 4rem;
 }
-    
+
 input[type="file"] + label:hover {
       opacity: 0.8;
 }

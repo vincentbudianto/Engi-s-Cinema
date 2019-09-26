@@ -11,7 +11,7 @@ function unameValidate() {
         document.getElementById('false-username-msg').style.color = 'red';
         document.getElementById('false-username-msg').innerHTML = 'Username can only be combination of characters, numbers, or underscore';
     } else {
-        let getData = new FormData(document.forms.registerForm); 
+        let getData = new FormData(document.forms.registerForm);
         let request = new XMLHttpRequest();
         request.open("POST", "php/regValidation.php", true);
         request.send(getData);
@@ -25,7 +25,7 @@ function unameValidate() {
                     document.getElementById('false-username-msg').style.color = 'red';
                     document.getElementById('false-username-msg').innerHTML = 'Username ' + unameInput + ' already exist! Please use another username.';
                     break;
-            
+
                 default :
                     document.getElementById('username-input').style.borderColor = 'green';
                     document.getElementById('username-input').style.borderWidth = '1.5px';
@@ -44,7 +44,7 @@ function emailValidate() {
         document.getElementById('false-email-msg').style.color = 'red';
         document.getElementById('false-email-msg').innerHTML = 'Please input a correct email format';
     } else {
-        let getData = new FormData(document.forms.registerForm); 
+        let getData = new FormData(document.forms.registerForm);
         let request = new XMLHttpRequest();
         request.open("POST", "php/regValidation.php", true);
         request.send(getData);
@@ -65,7 +65,7 @@ function emailValidate() {
                     break;
             }
         }
-    } 
+    }
 }
 
 function phoneValidate() {
@@ -76,7 +76,7 @@ function phoneValidate() {
         document.getElementById('false-phone-msg').style.color = 'red';
         document.getElementById('false-phone-msg').innerHTML = 'Phone number must be between 9-12 numbers';
     } else {
-        let getData = new FormData(document.forms.registerForm); 
+        let getData = new FormData(document.forms.registerForm);
         let request = new XMLHttpRequest();
         request.open("POST", "php/regValidation.php", true);
         request.send(getData);
@@ -90,7 +90,7 @@ function phoneValidate() {
                     document.getElementById('false-phone-msg').innerHTML = 'Phone number already existed';
                     break;
 
-                default : 
+                default :
                     document.getElementById('phone-input').style.borderColor = 'green';
                     document.getElementById('phone-input').style.borderWidth = '1.5px';
                     document.getElementById('false-phone-msg').innerHTML = '';
@@ -129,7 +129,7 @@ function getFileName() {
 }
 
 function register(e) {
-    let getData = new FormData(document.forms.registerForm); 
+    let getData = new FormData(document.forms.registerForm);
     let request = new XMLHttpRequest();
     request.open("POST", "php/register.php", true);
     request.send(getData);
@@ -169,7 +169,7 @@ function register(e) {
                 break;
         }
     }
-    
+
     e.preventDefault();
 }
 
