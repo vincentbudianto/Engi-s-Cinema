@@ -33,68 +33,61 @@ img {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
-    /* margin-right: 25%; */
     height: 100%;
     min-height: 0;
     min-width: 0;
-    /* overflow: auto; */
 }
 
 .grid-body {
     box-sizing: border-box;
     display: inline-grid;
     grid-template-rows: 40px 130px 100px;
-    grid-template-columns: 150px auto;
-    /* grid-area:
-    "a b"
-    "c d"
-    "e e"; */
-    /* gap: 15px; */
-    /* margin-left: minmax(10%, 22%); */
+    grid-template-columns: 150px calc(100vw - 1000px);
     margin-top: -15%;
-    /* padding: 20%; */
     width: fit-content;
     min-height: 0;
     min-width: 100%;
 }
 
+@media only screen and (max-width: 1287px) {
+    .grid-body {
+        box-sizing: border-box;
+        display: inline-grid;
+        grid-template-rows: 40px 130px 100px;
+        grid-template-columns: 150px auto;
+        margin-top: -15%;
+        width: fit-content;
+        min-height: 0;
+        min-width: 100%;
+    }
+}
+
 .grid-rating {
-    /* display: grid;
-    grid-template-columns: 115px 390px; */
     display: flex;
     flex-direction: wrap;
     justify-content: space-between;
     white-space: nowrap;
-    /* margin-bottom: 10px; */
-    /* margin-left: 42%; */
     margin-right: 30px;
     min-height: 0;
     min-width: 0;
 }
 
 .grid-review {
-    /* display: grid;
-    grid-template-columns: 125px 40px 410px; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     white-space: nowrap;
     margin-top: 4.5%;
-    /* margin-left: 42%; */
-    /* margin-left: 20px; */
     min-height: 0;
     min-width: 0;
 }
 
 .grid-button {
-    /* position: relative; */
     display: grid;
     grid-area: 3 / 1 / span 1 / span 2;
     flex-wrap: row;
-    /* justify-content: space-between; */
     justify-content: flex-end;
     margin-top: 5%;
-    /* margin-right: -6.9%; */
     height: auto;
     width: auto;
     min-height: 0;
@@ -104,9 +97,6 @@ img {
 .star-container {
     height: 100%;
     cursor: pointer;
-    /* width: 100px; */
-    /* margin-left: 8%; */
-    /* margin-left: 30px; */
 }
 
 .star {
@@ -126,7 +116,7 @@ img {
     width: 100%;
 }
 
-#review-user{
+#reviewUser{
     position: relative;
     width: calc(100%);
     height: calc(100%);
@@ -159,8 +149,6 @@ img {
 }
 
 #review {
-    /* display: flex;
-    justify-content: flex-end; */
     font-size: 1.25rem;
     font-weight: bold;
     margin-top: 20px;
@@ -169,11 +157,8 @@ img {
 }
 
 #cancel {
-    /* position: absolute; */
-    /* right: 130px; */
     background-color: #FFFFFF;
     border: 1px solid #ccc;
-    /* margin-right: -6.9%; */
     margin-right: 10px;
     border-radius: 5px;
     color: grey;
@@ -182,11 +167,8 @@ img {
 }
 
 #submit {
-    /* position: absolute; */
-    /* right: 0px; */
     background-color: #12abde;
     border-radius: 5px;
-    /* margin-right: -6.9%; */
     color: white;
     width: 100px;
     height: 35px;

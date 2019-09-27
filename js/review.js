@@ -1,8 +1,5 @@
 function changeImage(e) {
     let num = e.getAttribute('num');
-    // console.log(num)
-    // let rating = document.getElementById('star' + num);
-    // console.log(rating.src);
 
     for (i = 0; i <= num; i++) {
         if (document.getElementById('star' + i).src.includes("star_icon.png")) {
