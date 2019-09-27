@@ -35,42 +35,43 @@
                     </div>
                 </div>
                 <div class="grid-item">
-                    <div class="grid-body">
-                        <div class="grid-rating">
-                            <label id="rating">Add Rating</label>
-                        </div>
-                        <div class="star-container">
-                            <div class="star">
-                                <img id="star0" class="star-icon" num="0" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
-                                <img id="star1" class="star-icon" num="1" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
-                                <img id="star2" class="star-icon" num="2" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
-                                <img id="star3" class="star-icon" num="3" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
-                                <img id="star4" class="star-icon" num="4" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
-                                <img id="star5" class="star-icon" num="5" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
-                                <img id="star6" class="star-icon" num="6" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
-                                <img id="star7" class="star-icon" num="7" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
-                                <img id="star8" class="star-icon" num="8" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
-                                <img id="star9" class="star-icon" num="9" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
-                                <input type="hidden" id="ratingStar" name="ratingStar" value=0>
+                    <form enctype="multipart/form-data" id="registerForm" class="register-form" method="POST">
+                        <div class="grid-body">
+                            <div class="grid-rating">
+                                <label id="rating">Add Rating</label>
+                            </div>
+                            <div class="star-container">
+                                <div class="star">
+                                    <img id="star0" class="star-icon" num="0" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                    <img id="star1" class="star-icon" num="1" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                    <img id="star2" class="star-icon" num="2" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                    <img id="star3" class="star-icon" num="3" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                    <img id="star4" class="star-icon" num="4" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                    <img id="star5" class="star-icon" num="5" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                    <img id="star6" class="star-icon" num="6" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                    <img id="star7" class="star-icon" num="7" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                    <img id="star8" class="star-icon" num="8" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                    <img id="star9" class="star-icon" num="9" src="assets/star_icon_grey.png" onmouseover="changeImage(this)" onmouseout="reset()" onclick="setRating(this)">
+                                    <input type="hidden" id="ratingStar" name="ratingStar" value=0>
+                                </div>
+                            </div>
+
+                            <label id="review">Add Review</label>
+                            <div class="grid-review">
+                                <textarea id="reviewUser"
+                                placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
+                                name="review" required></textarea>
+                            </div>
+                            <input type="hidden" id="reviewInput" name="reviewInput" value="">
+
+                            <div class="grid-button">
+                                <div>
+                                    <button id="cancel" onclick="cancel();">Cancel</button>
+                                    <button id="submit" onclick="submit();">Submit</button>
+                                </div>
                             </div>
                         </div>
-
-                        <label id="review">Add Review</label>
-                        <div class="grid-review">
-
-                            <!-- <div></div> -->
-                            <textarea id="reviewUser"
-                            placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam."
-                            name="review" required></textarea>
-                        </div>
-
-                        <div class="grid-button">
-                            <div>
-                                <button id="cancel" onclick="cancel();">Cancel</button>
-                                <button id="submit" onclick="submit();">Submit</button>
-                            </div>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>

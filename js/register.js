@@ -1,5 +1,6 @@
 function unameValidate() {
-    var uname = document.getElementById('username-input').value;
+    let uname = document.getElementById('username-input').value;
+
     if (uname.length < 5 || uname.length > 16) {
         document.getElementById('username-input').style.borderColor = 'red';
         document.getElementById('username-input').style.borderWidth = '1.5px';
@@ -19,7 +20,7 @@ function unameValidate() {
         request.onload = function() {
             switch (request.response.substr(-3)) {
                 case '401':
-                    var unameInput = document.getElementById('username-input').value;
+                    let unameInput = document.getElementById('username-input').value;
                     document.getElementById('username-input').style.borderColor = 'red';
                     document.getElementById('username-input').style.borderWidth = '1.5px';
                     document.getElementById('false-username-msg').style.color = 'red';
@@ -37,7 +38,8 @@ function unameValidate() {
 }
 
 function emailValidate() {
-    var email = document.getElementById('email-input').value;
+    let email = document.getElementById('email-input').value;
+
     if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
         document.getElementById('email-input').style.borderColor = 'red';
         document.getElementById('email-input').style.borderWidth = '1.5px';
@@ -69,7 +71,8 @@ function emailValidate() {
 }
 
 function phoneValidate() {
-    var phone = document.getElementById('phone-input').value;
+    let phone = document.getElementById('phone-input').value;
+
     if (phone.length < 9 || phone.length > 12) {
         document.getElementById('phone-input').style.borderColor = 'red';
         document.getElementById('phone-input').style.borderWidth = '1.5px';
@@ -101,7 +104,8 @@ function phoneValidate() {
 }
 
 function passValidate() {
-    var pass = document.getElementById('password').value;
+    let pass = document.getElementById('password').value;
+
     if (pass.length < 6 || pass.length > 16) {
         document.getElementById('password').style.borderColor = 'red';
         document.getElementById('password').style.borderWidth = '1.5px';

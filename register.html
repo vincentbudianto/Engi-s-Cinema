@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="css/register.css">
         <script src="js/register.js" defer></script>
     </head>
-    
+
     <body>
         <form enctype="multipart/form-data" id="registerForm" class="register-form" method="POST">
             <div class="container">
@@ -16,11 +16,11 @@
                 <span id="false-username-msg" class="input-message"></span>
 
                 <div class="space"></div>
-                
+
                 <label for="email">Email Address</label>
                 <input id="email-input" type="email" placeholder="joe@email.com" name="email" onchange="emailValidate();" required>
                 <span id="false-email-msg" class="input-message"></span>
-                
+
                 <div class="space"></div>
 
                 <label for="phone">Phone Number</label>
@@ -32,27 +32,27 @@
                 <label for="password">Password</label>
                 <input type="password" placeholder="make as strong as possible" id="password" name="password" required>
                 <span id="false-password-msg" class="input-message"></span>
-                
+
                 <div class="space"></div>
 
                 <label>Confirm Password</label>
                 <input type="password" placeholder="same as above" id="confirm-password" name="confirm-password" onkeyup='passValidate();' required>
 
                 <div class="space"></div>
-                
+
                 <label for="profilePicture">Profile Picture</label>
                 <div class="profile-picture-container">
                     <input id="profile-picture-name" type="text" value="" disabled>
                     <input type="file" id="browser-button" name="profilePicture" onchange="getFileName();" accept=".jpg, .jpeg, .png, .svg"/>
                     <label for="browser-button">Browse</label>
                 </div>
-                
+
                 <input id="register-button" type="submit" name="register" value="Register" />
 
                 <div class="space"></div>
 
                 <div class="center-text"><span id="register-text"><b>Already have an account? </b><a href="login.html">Login Here</a></span></div>
-                
+
                 <div class="space"></div>
             </div>
         </form>

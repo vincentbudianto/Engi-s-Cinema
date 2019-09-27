@@ -32,7 +32,7 @@ img {
 .grid-item {
     box-sizing: border-box;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     /* margin-right: 25%; */
     height: 100%;
     min-height: 0;
@@ -52,7 +52,7 @@ img {
     /* gap: 15px; */
     /* margin-left: minmax(10%, 22%); */
     margin-top: -15%;
-    padding: 20%;
+    /* padding: 20%; */
     width: fit-content;
     min-height: 0;
     min-width: 100%;
