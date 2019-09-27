@@ -17,7 +17,7 @@ function changeImage(e) {
 }
 
 function reset() {
-    let num = document.getElementById('ratingStar').value;
+    let num = document.getElementById('rating-star').value;
 
     for (i = 0; i <= num; i++) {
         document.getElementById('star' + i).src = "assets/star_icon.png";
@@ -31,21 +31,25 @@ function reset() {
 function setRating(e) {
     let num = e.getAttribute('num');
     let ratingSrc = document.getElementById('star' + num).src;
-    let ratingValue = Number(document.getElementById('ratingStar').value);
+    let ratingValue = Number(document.getElementById('rating-star').value);
 
     if (ratingSrc.includes("star_icon.png") && ((Number(num) + 1) == ratingValue)) {
         for (i = 0; i <= 9; i++) {
             document.getElementById('star' + i).src = "assets/star_icon_grey.png";
         }
 
-        document.getElementById('ratingStar').value = 0;
+        document.getElementById('rating-star').value = 0;
     } else {
         for (i = 0; i <= num; i++) {
             document.getElementById('star' + i).src = "assets/star_icon.png";
         }
 
-        document.getElementById('ratingStar').value = Number(num) + 1;
+        document.getElementById('rating-star').value = Number(num) + 1;
     }
+}
+
+function setReview() {
+    document.getElementById('review-input').value = document.getElementById('review-user').value;
 }
 
 function cancel() {
@@ -53,7 +57,7 @@ function cancel() {
 }
 
 function submit() {
-    let review = document.getElementById('reviewUser').value;
+    let review = document.getElementById('review-user').value;
     let request = new XMLHttpRequest();
     request.open("POST", "php/register.php", true);
     request.send(review);
