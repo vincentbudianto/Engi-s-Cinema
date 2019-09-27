@@ -1,12 +1,12 @@
-var payment = function() {
+function payment() {
     document.getElementById('modal').style.display = 'block';
 }
 
-var close = function() {
+function close() {
     document.getElementById('modal').style.display='none';
 }
 
-var modal = document.getElementById('modal');
+let modal = document.getElementById('modal');
 
 window.onclick = function(event) {
     if (event.target == modal) {

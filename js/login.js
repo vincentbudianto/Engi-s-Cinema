@@ -1,4 +1,4 @@
-var input = document.getElementById('password');
+let input = document.getElementById('password');
 
 //To execute login button if enter key pressed on password input
 input.addEventListener("keyup", function(event) {
@@ -9,7 +9,6 @@ input.addEventListener("keyup", function(event) {
 });
 
 function login(e) {
-    console.log(100);
     let getData = new FormData(document.forms.loginForm);
     console.log(getData);
     let request = new XMLHttpRequest();
