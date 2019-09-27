@@ -1,31 +1,33 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="css/pageTemplate.css">
         <link rel="stylesheet" type="text/css" href="css/homepage.css">
     </head>
     <body>
         <div class="navbar">
             <div class="navbar-wrapper">
                 <label class="navbar-button" id="navbar-title" onclick="location.href='homepage.html'"><span id="homepage-title">Engi</span>ma</label>
-                <div class ="search-bar">
-                    <input id="search-input" type="search" placeholder="Search movie">
-                    <img class="navbar-button" id="search-icon" src="assets/search_icon.png" alt="Search icon">
-                </div>
-                    <label class="navbar-button" id="transactions-button" onclick="location.href='transactions.html'">Transactions</label>
-                    <label class="navbar-button" id="logout-button" onclick="location.href='php/logout.php'">Logout</label>
-                </div>
+                <form action="searchresults.php" method="post" class ="search-bar">
+                    <input id="search-input" name="search" type="search" placeholder="Search movie"/>
+                    <input type="image" class="navbar-button" id="search-icon" src="assets/search_icon.png" alt="Search icon"/>
+                </form>
+                <label class="navbar-button" id="transactions-button" onclick="location.href='transactions.html'">Transactions</label>
+                <label class="navbar-button" id="logout-button" onclick="location.href='php/logout.php'">Logout</label>
             </div>
+            
         </div>
         <div class="content">
-            <label id="welcome">Hello, <span id="username">test</span>!</label>
+            <label id="welcome">Hello, <span id="username"></span>!</label>
+            <br>
             <p>Now Playing</p>
+            <br>
             <div class="grid-container">
                 <div class="grid-item">
                     <div class="grid-content">
                         <div class="poster">
                             <img src="assets/infinity.jpg">
                         </div>
+                        
                     </div>
                     <div class="grid-content">
                         <div class="title">Avengers: Infinity War</div>
@@ -33,7 +35,7 @@
                     <div class="grid-content">
                         <div class="rating">
                             <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">9.85</span>
+                            <span class="rating-value">4.85</span>
                         </div>
                     </div>
                 </div>
@@ -50,7 +52,7 @@
                     <div class="grid-content">
                         <div class="rating">
                             <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">8.55</span>
+                            <span class="rating-value">4.25</span>
                         </div>
                     </div>
                 </div>
@@ -66,7 +68,7 @@
                     <div class="grid-content">
                         <div class="rating">
                             <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">8.25</span>
+                            <span class="rating-value">4.25</span>
                         </div>
                     </div>
                 </div>
@@ -83,7 +85,7 @@
                     <div class="grid-content">
                         <div class="rating">
                             <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">7.80</span>
+                            <span class="rating-value">3.80</span>
                         </div>
                     </div>
                 </div>
@@ -99,7 +101,7 @@
                     <div class="grid-content">
                         <div class="rating">
                             <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">8.45</span>
+                            <span class="rating-value">4.45</span>
                         </div>
                     </div>
                 </div>
@@ -116,7 +118,7 @@
                     <div class="grid-content">
                         <div class="rating">
                             <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">8.65</span>
+                            <span class="rating-value">4.65</span>
                         </div>
                     </div>
                 </div>
@@ -132,7 +134,7 @@
                     <div class="grid-content">
                         <div class="rating">
                             <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">7.10</span>
+                            <span class="rating-value">4.10</span>
                         </div>
                     </div>
                 </div>
@@ -149,7 +151,7 @@
                     <div class="grid-content">
                         <div class="rating">
                             <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">6.93<span>
+                            <span class="rating-value">3.93<span>
                         </div>
                     </div>
                 </div>
@@ -166,7 +168,7 @@
                     <div class="grid-content">
                         <div class="rating">
                             <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">7.20<span>
+                            <span class="rating-value">4.20<span>
                         </div>
                     </div>
                 </div>
