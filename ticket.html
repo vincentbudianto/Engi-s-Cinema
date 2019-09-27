@@ -28,7 +28,7 @@
                             <img src="assets/back_icon.png">
                         </div>
                         <div class="ticket-info">
-                            <label id="title">Gundala</label>
+                            <label id="title" value="Avengers">Gundala</label>
                             <label id="schedule">August 29, 2019 - 04.00 PM</label>
                         </div>
                     </div>
@@ -98,10 +98,12 @@
 
         <div id="modal" class="modal">
             <span onclick="close();"></span>
-            <div class="modal-content">
-                <p id="success">Payment Success!</p>
-                <p id="thanks">Thank you for purchasing! You can view your purchase now.</p>
-                <button id="modal-button" onclick="location.href='transactions.html'">Go to transaction history</button>
+            <div class="modal-content-container">
+                <div class="modal-content">
+                    <p id="success">Payment Success!</p>
+                    <p id="thanks">Thank you for purchasing! You can view your purchase now.</p>
+                    <button id="modal-button" onclick="location.href='transactions.html'">Go to transaction history</button>
+                </div>
             </div>
         </div>
     </body>

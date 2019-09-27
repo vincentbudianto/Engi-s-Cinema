@@ -1,0 +1,276 @@
+img {
+    border-radius: 8px;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.grid-container {
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 300px auto;
+    margin-top: 5%;
+    margin-right: 10%;
+    height: inherit;
+    min-height: 0;
+    min-width: 0;
+}
+
+.grid-item-top {
+    background-size: cover;
+    background-position: center;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: 200px auto;
+    height: 100%;
+}
+
+.grid-item-bottom {
+    display: grid;
+    grid-template-columns: 60% auto;
+    grid-gap: 10px;
+    margin-top: 50px;
+    height: 100%;
+}
+
+@media only screen and (max-width: 1024px) {
+    .grid-item-bottom {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(60%, 1fr));
+        grid-gap: 10px;
+        margin-top: 50px;
+        height: inherit;    
+    }
+}
+
+.movie-info {
+    display: grid;
+    grid-template-rows: auto auto auto auto auto;
+    margin-top: 20px;
+    margin-left: 25px;
+    min-width: 0;
+    min-height: 0;
+    height: inherit;
+    overflow: hidden;
+}
+
+.rating-container {
+    display: grid;
+    grid-template-columns: 25px auto;
+}
+
+.desc-container {
+    box-sizing: content-box;
+    height: 100%;
+    width: 100%;
+    padding-right: 17px;
+    margin-top: 8px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.schedule-container {
+    overflow-x: hidden;
+    width: inherit;
+}
+
+.schedule {
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    margin: 10px;
+    width: inherit;
+    height: auto;
+    overflow: auto;
+}
+
+.review-container {
+    width: inherit;
+}
+
+.review {
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding-top: 40px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    margin: 10px;
+    width: inherit;
+    height: auto;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.bottom-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.schedule-content {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 20px);
+    grid-gap: 10px;
+    margin-top: 20px;
+}
+
+.schedule-item-header {
+    color: #6b6b6b;
+    display: grid;
+    font-size: 0.9rem;
+    font-weight: bold;
+    grid-template-columns: 30% 20% 20% 30%;
+}
+
+.schedule-item {
+    border-top: 1.5px solid #dbdbdb;
+    color: grey;
+    display: grid;
+    grid-template-rows: repeat(auto-fill, auto);
+    padding-bottom: 10px;
+}
+
+.schedule-item-content {
+    border-bottom: 1.5px solid #dbdbdb;
+    color: #a6a6a6;
+    display: grid;
+    font-size: 0.9rem;
+    font-weight: bold;
+    grid-template-columns: 30% 20% 20% 30%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 50%;
+}
+
+.schedule-item-status {
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.seats-available {
+    color: #4d4d4d;
+}
+
+.available {
+    color: #12abde;
+}
+
+.available-icon {
+    height: 20px;
+    width: 20px;
+    margin-top: -2px;
+    margin-left: 10px;
+}
+
+.review-content {
+    display: grid;
+    grid-template-rows: repeat(auto-fill, 100px);
+    grid-gap: 10px;
+    margin-top: 20px;
+}
+
+.review-item {
+    border-bottom: 1.5px solid #dbdbdb;
+    display: grid;
+    grid-template-columns: 60px auto;
+    height: 100px;
+    padding-bottom: 3px;
+}
+
+.profile {
+    width: 100%;
+}
+
+.profile-pic {
+    border-radius: 50%;
+    display: inline-block; 
+    width: 50px;
+    height: 50px;
+    text-align: center;
+}
+
+.user-review {
+    margin-top: 5px;
+    /* margin-left: 20px; */
+}
+
+.uname {
+    color: #a6a6a6;
+    font-weight: bold;
+}
+
+.user-rating {
+    display: grid;
+    grid-template-columns: 20px auto;
+}
+
+.rating-star {
+    width: 20px;
+}
+
+.rating-value-container {
+    color: #666666;
+    font-weight: bold;
+    margin-top: 5px;
+    margin-left: 3px;
+}
+
+.rating-out-10 {
+    color: grey;
+    font-size: 0.75rem;
+}
+
+.user-review-container {
+    box-sizing: content-box;
+    width: 100%;
+    height: 50px;
+    padding-right: 37px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.user-review-content {
+    color: #6b6b6b;
+    margin-top: 5px;
+    font-size: 0.8rem;
+}
+
+#title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#genre-duration {
+    color: #12abde;
+    font-weight: bold;
+}
+
+#release {
+    color: grey;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#rating {
+    margin-top: 5px;
+    margin-left: 8px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+#out-ten {
+    color: grey;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#desc {
+    color: #424242;
+}
