@@ -8,7 +8,7 @@
         <title>Search</title>
     </head>
 
-    <body onload="getMovie()">
+    <body onload="getSearchResult()">
         <div class="navbar">
             <div class="navbar-wrapper">
                 <label class="navbar-button" id="navbar-title" onclick="location.href='homepage.html'"><span
@@ -31,7 +31,7 @@
             <p id="search-available"><span id="search-result">14</span> results available</p>
 
             <grid class="grid-container">
-                <div class="grid-item">
+           <!-- <div class="grid-item">
                     <div class="poster">
                         <img src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/uNWk5HZfVBHpARcV1z9cwUAbtpF.jpg">
                     </div>
@@ -78,12 +78,12 @@
                 <button id="back-button" onclick="onePage(-1);">Back</button>
                 <button class="page-button" num="1" onclick="changePage(this);">1</button>
                 <span id="next-page">
-                    <!-- <button class="page-button" num="2" onclick="changePage(this);">2</button>
-                    <button class="page-button" num="3" onclick="changePage(this);">3</button> -->
+                    <button class="page-button" num="2" onclick="changePage(this);">2</button>
+                    <button class="page-button" num="3" onclick="changePage(this);">3</button>
                 </span>
                 <button id="next-button" onclick="onePage(1);">Next</button>
                 <input type="hidden" id="current-page" name="current-page" value=1>
             </div>
-        </div>
+        </div> -->
     </body>
 </html>

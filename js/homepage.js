@@ -89,17 +89,3 @@ function getMovies() {
         }
     }
 }
-
-function viewDetail(e) {
-    id = e.lastElementChild.value;
-
-    // let request = new XMLHttpRequest();
-    let params = "movie=" + id;
-    // request.open("GET", "php/page.php" + "?" + params, true);
-    // request.send(null);
-
-    window.location.replace('detail.html' + "?" + params);
-
-    // request.onload = function() {
-    // }
-}

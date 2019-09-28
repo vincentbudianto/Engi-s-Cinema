@@ -84,44 +84,69 @@ function renderMovies(e) {
 
     let item = document.createElement('div');
     item.className = 'grid-item';
-    item.setAttribute('onclick', 'viewDetail(this)');
-
-    let contentPoster = document.createElement('div');
-    contentPoster.className = 'grid-content';
 
     let poster = document.createElement('div');
     poster.className = 'poster';
 
     let posterImage = document.createElement('img');
+    posterImage.className = 'posterImage';
     posterImage.src = e['poster'];
+    posterImage.setAttribute('onclick', 'viewDetail(this)');
 
     poster.appendChild(posterImage);
-    contentPoster.appendChild(poster);
-    item.appendChild(contentPoster);
+    item.appendChild(poster);
 
-    let contentInfo = document.createElement('div');
-    contentInfo.className = 'grid-content';
+    let movieInfo = document.createElement('div');
+    movieInfo.className = 'movie-info';
 
-    let title = document.createElement('div');
+    let title = document.createElement('label');
     title.className = 'title';
     title.innerHTML = e['title'];
+    title.setAttribute('onclick', 'viewDetail(this)');
 
     let rating = document.createElement('div');
-    rating.className = 'rating';
+    rating.className = 'rating-container';
 
     let starIcon = document.createElement('img');
     starIcon.src = "assets/star_icon.png";
 
-    let ratingValue = document.createElement('span');
-    ratingValue.className = 'rating-value';
+    let ratingValue = document.createElement('label');
+    ratingValue.className = 'rating';
     ratingValue.innerHTML = e['rating'];
 
     rating.appendChild(starIcon);
     rating.appendChild(ratingValue);
-    contentInfo.appendChild(title);
-    contentInfo.appendChild(rating);
+    movieInfo.appendChild(title);
+    movieInfo.appendChild(rating);
 
-    item.appendChild(contentInfo);
+    let description = document.createElement('div');
+    description.className = 'desc-container';
+
+    let desc = document.createElement('p');
+    desc.className = 'desc';
+    desc.innerHTML = e['description'];
+
+    description.appendChild(desc);
+    movieInfo.appendChild(description)
+
+    item.appendChild(movieInfo);
+
+    let detail = document.createElement('div');
+    detail.className = 'detail-container';
+    detail.setAttribute('onclick', 'viewDetail(this)');
+
+    let view = document.createElement('label');
+    view.className = 'view';
+    view.innerHTML = 'View details';
+
+    let detailIcon = document.createElement('img');
+    detailIcon.className = 'detail-icon';
+    detailIcon.src = "assets/next_icon.png";
+
+    detail.appendChild(view);
+    detail.appendChild(detailIcon);
+
+    item.appendChild(detail);
 
     let target = document.createElement('input');
     target.type = 'hidden';
@@ -133,20 +158,22 @@ function renderMovies(e) {
     container.appendChild(item);
 }
 
-function getMovie() {
+function getSearchResult() {
     let url = new URL(window.location.href);
     let input = new URLSearchParams(url.search).get("search");
-    let request = new XMLHttpRequest();
     let params = "search=" + input;
-
+    let request = new XMLHttpRequest();
     request.open("GET", "php/searchFunction.php" + "?" + params, true);
     request.send();
 
     request.onload = function () {
         data = JSON.parse(request.response);
 
+        document.getElementById("search-key").innerHTML = input;
+        document.getElementById("search-result").innerHTML = data.length;
+
         for (i = 0; i < data.length; i++) {
-            renderMovies(movie_list[i]);
+            renderMovies(data[i]);
         }
     }
 }
