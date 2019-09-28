@@ -23,7 +23,7 @@ $logoutStatus = $stmt->execute($params);
 if ($logoutStatus)
 {
     //Delete cookie
-    setcookie($cookieName, "", time() - 86400);
+    setcookie($cookieName, "", time() - 86400, "/");
     header("location:../login.html");
 }
 ?>

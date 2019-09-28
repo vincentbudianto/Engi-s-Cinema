@@ -42,7 +42,7 @@ if ($_POST) {
             // Password verification
             if (password_verify($password, $user["password"])) {
                 //Setting cookie
-                setcookie($cookieName, $user["token"], time() + 86400);
+                setcookie($cookieName, $user["token"], time() + 86400, "/");
                 
                 if (isset($_COOKIE[$cookieName])) {
                     // Preparing insertQuery

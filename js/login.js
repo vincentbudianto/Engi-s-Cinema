@@ -1,4 +1,5 @@
 let input = document.getElementById('password');
+console.log(document.cookie);
 
 //To execute login button if enter key pressed on password input
 input.addEventListener("keyup", function(event) {
@@ -10,15 +11,17 @@ input.addEventListener("keyup", function(event) {
 
 function login(e) {
     let getData = new FormData(document.forms.loginForm);
-    console.log(getData);
     let request = new XMLHttpRequest();
     request.open("POST", "php/login.php", true);
     request.send(getData);
 
     request.onload = function() {
-        console.log(request.response.substr(-3));
+        console.log('aaaaaaaaaaaaaaaa');
+        // console.log(request.response.substr(-3));
         switch (request.response.substr(-3)) {
             case '200':
+                alert('Login success');
+                console.log(document.cookie);
                 window.location.replace('homepage.html');
                 break;
 
