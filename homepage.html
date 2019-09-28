@@ -12,10 +12,10 @@
         <div class="navbar">
             <div class="navbar-wrapper">
                 <label class="navbar-button" id="navbar-title" onclick="location.href='homepage.html'"><span id="homepage-title">Engi</span>ma</label>
-                <div class ="search-bar">
-                    <input id="search-input" type="search" placeholder="Search movie">
-                    <img class="navbar-button" id="search-icon" src="assets/search_icon.png" alt="Search icon" onclick="search()">
-                </div>
+                <form enctype="multipart/form-data" id="searchForm"  method="GET" class ="search-bar" action="php/searchresults.php"> 
+                    <input id="search-input" name="search-input" type="search" placeholder="Search movie"/>
+                    <input type="image" class="navbar-button" id="search-icon" name="search-input" src="assets/search_icon.png" alt="Search icon"/> 
+                </form>
                     <label class="navbar-button" id="transactions-button" onclick="location.href='transactions.html'">Transactions</label>
                 <label class="navbar-button" id="logout-button" onclick="logout()">Logout</label>
                 </div>
