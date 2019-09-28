@@ -12,23 +12,28 @@ if ($_GET) {
 	$getMovieByTitle = "SELECT * FROM movies WHERE (title LIKE CONCAT('% ', :searching)) OR (title LIKE CONCAT(:searching, ' %')) OR (title LIKE CONCAT('% ', :searching, ' %')) OR (title LIKE CONCAT('% ', :searching, '.')) OR (title LIKE CONCAT('% ', :searching, '!')) OR (title LIKE CONCAT('% ', :searching, '?'))";
 	$stmt1 = $db->prepare($getMovieByTitle);
 
-	// Preparing getMovieByGenre
-	$getMovieByGenre = "SELECT * FROM movies WHERE (genre LIKE CONCAT('% ', :searching)) OR (genre LIKE CONCAT(:searching, ' %')) OR (genre LIKE CONCAT('% ', :searching, ' %')) OR (genre LIKE CONCAT('% ', :searching, '.')) OR (genre LIKE CONCAT('% ', :searching, ',')) OR (genre LIKE CONCAT('% ', :searching, '!')) OR (genre LIKE CONCAT('% ', :searching, '?'))";
-	$stmt2 = $db->prepare($getMovieByGenre);
-
-	// Preparing getMovieByDescription
-	$getMovieByDescription = "SELECT * FROM movies WHERE (description LIKE CONCAT('% ', :searching)) OR (description LIKE CONCAT(:searching, ' %')) OR (description LIKE CONCAT('% ', :searching, ' %')) OR (description LIKE CONCAT('% ', :searching, '.')) OR (description LIKE CONCAT('% ', :searching, '!')) OR (description LIKE CONCAT('% ', :searching, '?'))";
-	$stmt3 = $db->prepare($getMovieByDescription);
-
 	// Bind getMovieByTitle parameters
 	$params1 = array(
 		":searching" => $searching
 	);
 
+	$foundTitle = $stmt1->execute($params1);
+
+	// Preparing getMovieByGenre
+	$getMovieByGenre = "SELECT * FROM movies WHERE (genre LIKE CONCAT('% ', :searching)) OR (genre LIKE CONCAT(:searching, ' %')) OR (genre LIKE CONCAT('% ', :searching, ' %')) OR (genre LIKE CONCAT('% ', :searching, '.')) OR (genre LIKE CONCAT('% ', :searching, ',')) OR (genre LIKE CONCAT('% ', :searching, '!')) OR (genre LIKE CONCAT('% ', :searching, '?'))";
+	$stmt2 = $db->prepare($getMovieByGenre);
+
 	// Bind getMovieByGenre parameters
 	$params2 = array(
 		":searching" => $searching
 	);
+
+	$foundGenre = $stmt2->execute($params2);
+
+	// Preparing getMovieByDescription
+	$getMovieByDescription = "SELECT * FROM movies WHERE (description LIKE CONCAT('% ', :searching)) OR (description LIKE CONCAT(:searching, ' %')) OR (description LIKE CONCAT('% ', :searching, ' %')) OR (description LIKE CONCAT('% ', :searching, '.')) OR (description LIKE CONCAT('% ', :searching, '!')) OR (description LIKE CONCAT('% ', :searching, '?'))";
+
+	$stmt3 = $db->prepare($getMovieByDescription);
 
 	// Bind getMovieByDescription parameters
 	$params3 = array(
@@ -36,8 +41,6 @@ if ($_GET) {
 	);
 
 	// Execute getMovieBy
-	$foundTitle = $stmt1->execute($params1);
-	$foundGenre = $stmt2->execute($params2);
 	$foundDescription = $stmt3->execute($params3);
 
 	echo $foundTitle;

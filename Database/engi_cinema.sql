@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2019 at 06:26 PM
+-- Generation Time: Sep 28, 2019 at 06:29 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -21,6 +21,23 @@ SET time_zone = "+00:00";
 --
 -- Database: `engi_cinema`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cookies`
+--
+
+CREATE TABLE `cookies` (
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `cookies`
+--
+
+INSERT INTO `cookies` (`token`) VALUES
+('$2y$10$qaBLh/6tzzw12Xa4hxjmkOgkrulHNMD0nScJZVaQSf1hxhLSxusuu');
 
 -- --------------------------------------------------------
 
@@ -125,15 +142,164 @@ INSERT INTO `movies` (`movieID`, `title`, `rating`, `genre`, `duration`, `date`,
 (629442, '3 Days with Dad', 8, 'Comedy', 94, '2019-09-13', 'The last thing Eddie Mills wants to do is go home to deal with his dying Dad. But the Catholic guilt gnaws at him, and he returns home to his crazy family, an overbearing step-mother, and his bear of a father. Once there, Eddie is confronted with a revelation that forces him to deal with the past he has always avoided.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/8EGxLSCW8GJ1ryvLeNV2GMCJurO.jpg'),
 (630106, '1/2 New Year', 7.3, 'Comedy, Drama', 75, '2019-09-10', 'At their annual 1/2 New Year Party, relationships are tested among a group of friends.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/x2ZFDcfgjD5a6RTlGCkrpErg98k.jpg');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `showing`
+--
+
+CREATE TABLE `showing` (
+  `movieID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `showing`
+--
+
+INSERT INTO `showing` (`movieID`) VALUES
+(291867),
+(413453),
+(419704),
+(460064),
+(472674),
+(474350),
+(482034),
+(483096),
+(517116),
+(522938),
+(523077),
+(535544),
+(537734),
+(537739),
+(539892),
+(540901),
+(553600),
+(554993),
+(567409),
+(574370),
+(590050),
+(590978),
+(602703),
+(613667),
+(616584),
+(620210),
+(629442),
+(630106);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transactions_history`
+--
+
+CREATE TABLE `transactions_history` (
+  `transactionID` int(11) NOT NULL,
+  `userID` int(11) NOT NULL,
+  `movieID` int(11) NOT NULL,
+  `userRate` int(11) DEFAULT NULL,
+  `userReview` longtext COLLATE utf8_unicode_ci
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `userID` int(11) NOT NULL,
+  `username` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `profilePicture` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`userID`, `username`, `email`, `phone`, `password`, `profilePicture`, `token`) VALUES
+(1, 'test', 'test@gmail.com', '081123456789', '$2y$10$BGoBkEuiMk48rRUrNg/mO.blpLRjPx5KYVR.US5QZVDCnG43a7Xdm', '../assets/profilePicture/test.png', '$2y$10$PaD6D4My3XZQ6MP2ge0w/..2HHka1om6WPXCvCxyHlENhF1U61rBK'),
+(2, 'vincentbudianto', '13517137@std.stei.itb.ac.id', '081321554136', '$2y$10$ogyxir5H0awV3kznBgPzUOt/HtbwiJzFXwn576gjOzyAsRyAr3sBu', '../assets/profilePicture/Rimuru Tempest.jpeg', '$2y$10$qaBLh/6tzzw12Xa4hxjmkOgkrulHNMD0nScJZVaQSf1hxhLSxusuu');
+
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `cookies`
+--
+ALTER TABLE `cookies`
+  ADD PRIMARY KEY (`token`);
 
 --
 -- Indexes for table `movies`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`movieID`);
+
+--
+-- Indexes for table `showing`
+--
+ALTER TABLE `showing`
+  ADD KEY `movieID` (`movieID`);
+
+--
+-- Indexes for table `transactions_history`
+--
+ALTER TABLE `transactions_history`
+  ADD PRIMARY KEY (`transactionID`),
+  ADD KEY `transactions_history_ibfk_1` (`userID`),
+  ADD KEY `transactions_history_ibfk_2` (`movieID`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`userID`),
+  ADD UNIQUE KEY `username` (`username`),
+  ADD KEY `token` (`token`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `transactions_history`
+--
+ALTER TABLE `transactions_history`
+  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `cookies`
+--
+ALTER TABLE `cookies`
+  ADD CONSTRAINT `cookies_ibfk_1` FOREIGN KEY (`token`) REFERENCES `users` (`token`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `showing`
+--
+ALTER TABLE `showing`
+  ADD CONSTRAINT `showing_ibfk_1` FOREIGN KEY (`movieID`) REFERENCES `movies` (`movieID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `transactions_history`
+--
+ALTER TABLE `transactions_history`
+  ADD CONSTRAINT `transactions_history_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `transactions_history_ibfk_2` FOREIGN KEY (`movieID`) REFERENCES `movies` (`movieID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
