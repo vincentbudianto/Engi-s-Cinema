@@ -10,13 +10,11 @@ input.addEventListener("keyup", function(event) {
 
 function login(e) {
     let getData = new FormData(document.forms.loginForm);
-    console.log(getData);
     let request = new XMLHttpRequest();
     request.open("POST", "php/login.php", true);
     request.send(getData);
 
     request.onload = function() {
-        console.log(request.response.substr(-3));
         switch (request.response.substr(-3)) {
             case '200':
                 window.location.replace('homepage.html');
