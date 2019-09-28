@@ -24,7 +24,7 @@ if ($_POST) {
 		$movieData = $stmt->fetch(PDO::FETCH_ASSOC);
 		echo json_encode($movieData);
 	} else {
-		$movieData = array("movieID" => "", "title" => "Movie Not Found", "rating" => "", "genre" => "", "duration" => "", "date" => "", "description" => "", "poster" => "")
+		$movieData = array("movieID" => "", "title" => "Movie Not Found", "rating" => "", "genre" => "", "duration" => "", "date" => "", "description" => "", "poster" => "");
 		echo json_encode($movieData);
 	}
 }

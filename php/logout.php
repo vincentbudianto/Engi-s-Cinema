@@ -19,11 +19,12 @@ $params = array(
 // Execute deleteQuery
 $logoutStatus = $stmt->execute($params);
 
-// Go to homepage
-if ($logoutStatus)
-{
+// Go to loginpage
+if ($logoutStatus) {
     //Delete cookie
     setcookie($cookieName, "", time() - 86400, "/");
-    header("location:../login.html");
+    echo 200;
+} else {
+    echo 201;
 }
 ?>

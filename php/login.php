@@ -17,7 +17,7 @@ if ($_POST) {
         echo 401;
   	    array_push($errors, "Username/email is required");
     }
-    
+
     if (empty($password)) {
         echo 402;
         array_push($errors, "Password is required");
@@ -27,7 +27,7 @@ if ($_POST) {
         // Preparing searchQuery
         $searchQuery = "SELECT * FROM users WHERE (username = :username) OR (email = :email)";
         $stmt = $db->prepare($searchQuery);
-        
+
         // Bind searchQuery parameters
         $params = array(
             ":username" => $username,
@@ -43,12 +43,12 @@ if ($_POST) {
             if (password_verify($password, $user["password"])) {
                 //Setting cookie
                 setcookie($cookieName, $user["token"], time() + 86400, "/");
-                
+
                 if (isset($_COOKIE[$cookieName])) {
                     // Preparing insertQuery
                     $insertQuery = "INSERT INTO cookies (token) VALUES (:token)";
                     $stmt = $db->prepare($insertQuery);
-                    
+
                     // Bind insertQuery parameters
                     $params = array(
                         ":token" => $user["token"]
@@ -56,7 +56,7 @@ if ($_POST) {
 
                     // Execute insertQuery
                     $loginStatus = $stmt->execute($params);
-                    
+
                     // Go to homepage
                     if ($loginStatus) {
                         echo 200;
@@ -64,7 +64,7 @@ if ($_POST) {
                     else {
                         echo 201;
                     }
-                }                
+                }
             }
             else {
                 echo 301;

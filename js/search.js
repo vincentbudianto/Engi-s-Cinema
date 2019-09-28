@@ -1,9 +1,3 @@
-let userCookie = (document.cookie.match(/^(?:.*;)?\s*user\s*=\s*([^;]+)(?:.*)?$/)||[,null])[1];
-
-if (userCookie == null) {
-    window.location.replace('login.html');
-}
-
 function changeBackButton(e) {
     if (e == 0) {
         document.getElementById('back-button').style.color = '#a6a6a6';
