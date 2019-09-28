@@ -59,19 +59,21 @@ function setReview() {
 }
 
 function cancel() {
-    window.location.replace('review.html');
+    window.location.replace('transactions.html');
 }
 
-function submit() {
-    let review = document.getElementById('review-user').value;
+function addReview(e) {
+    let getData = new FormData(document.forms.reviewForm);
+    console.log(getData);
+
     let request = new XMLHttpRequest();
-    request.open("POST", "php/register.php", true);
-    request.send(review);
+    request.open("POST", "php/review.php", true);
+    request.send(getData);
 
     request.onload = function () {
         switch (request.response.substr(-3)) {
             case '200':
-                window.location.replace('review.html');
+                window.location.replace('transactions.html');
                 break;
 
             case '201':
@@ -82,3 +84,5 @@ function submit() {
 
     e.preventDefault();
 }
+
+document.getElementById('reviewForm').addEventListener('submit', addReview);
