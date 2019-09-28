@@ -3,11 +3,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="css/pageTemplate.css">
         <link rel="stylesheet" type="text/css" href="css/detail.css">
+        <script src="js/detail.js" defer></script>
         <script src="js/navFunction.js" defer></script>
         <title>Judul Film</title>
     </head>
 
-    <body>
+    <body onload="getMovie(); convertDate();">
         <div class="navbar">
             <div class="navbar-wrapper">
                 <label class="navbar-button" id="navbar-title" onclick="location.href='homepage.html'"><span id="homepage-title">Engi</span>ma</label>
@@ -24,7 +25,14 @@
         <div class="content">
             <div class="grid-container">
                 <div class="grid-item-top">
-                    <div class="poster">
+                </div>
+                <div class="grid-item-bottom">
+                    <div class="schedule-container">
+                    </div>
+                    <div class="review-container">
+                    </div>
+                </div>
+                    <!-- <div class="poster">
                         <img src="assets/Gundala-post.jpg">
                     </div>
                     <div class="movie-info">
@@ -34,7 +42,7 @@
                             <label> | </label>
                             <label class="duration"> 120 mins</label>
                         </label>
-                        <label class="release">Release date: <span id="class">August 29 2019</span></label>
+                        <label class="release">Release date: <span class="date">August 29 2019</span></label>
                         <div class="rating-container">
                             <img src="assets/star_icon.png">
                             <label class="rating">8.90 <span class="out-ten">/10</span></label>
@@ -45,8 +53,8 @@
                             </p>
                         </div>
                     </div>
-                </div>
-                <div class="grid-item-bottom">
+                </div> -->
+                <!-- <div class="grid-item-bottom">
                     <div class="schedule-container">
                         <div class="schedule">
                             <label class="bottom-title">Schedules</label>
@@ -155,7 +163,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </body>

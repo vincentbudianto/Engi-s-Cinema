@@ -4,9 +4,11 @@
         <link rel="stylesheet" type="text/css" href="css/pageTemplate.css">
         <link rel="stylesheet" type="text/css" href="css/homepage.css">
         <script src="js/navFunction.js" defer></script>
+        <script src="js/detail.js" defer></script>
+        <script src="js/homepage.js" defer></script>
         <title>Engi's Cinema</title>
     </head>
-    <body>
+    <body onload="getUsername(); getMovies();">
         <div class="navbar">
             <div class="navbar-wrapper">
                 <label class="navbar-button" id="navbar-title" onclick="location.href='homepage.html'"><span id="homepage-title">Engi</span>ma</label>
@@ -20,10 +22,10 @@
             </div>
         </div>
         <div class="content">
-            <label id="welcome">Hello, <span id="username">test</span>!</label>
+            <label id="welcome">Hello, <span id="username"></span>!</label>
             <p>Now Playing</p>
             <div class="grid-container">
-                <div class="grid-item">
+                <!-- <div class="grid-item"  onclick="viewDetail(this);">
                     <div class="grid-content">
                         <div class="poster">
                             <img src="assets/infinity.jpg">
@@ -31,147 +33,13 @@
                     </div>
                     <div class="grid-content">
                         <div class="title">Avengers: Infinity War</div>
-                    </div>
-                    <div class="grid-content">
                         <div class="rating">
                             <img class="star-img" src="assets/star_icon.png">
                             <span class="rating-value">9.85</span>
                         </div>
                     </div>
-                </div>
-                <div class="grid-item">
-                    <div class="grid-content">
-                        <div class="poster">
-                            <img src="assets/Gundala-post.jpg">
-                        </div>
-
-                    </div>
-                    <div class="grid-content">
-                        <div class="title">Gundala</div>
-                    </div>
-                    <div class="grid-content">
-                        <div class="rating">
-                            <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">8.55</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <div class="grid-content">
-                        <div class="poster">
-                            <img src="assets/images.jpg">
-                        </div>
-                    </div>
-                    <div class="grid-content">
-                        <div class="title">IT: Chapter Two</div>
-                    </div>
-                    <div class="grid-content">
-                        <div class="rating">
-                            <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">8.25</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <div class="grid-content">
-                        <div class="poster">
-                            <img src="assets/Say I Love You-post.jpg">
-                        </div>
-
-                    </div>
-                    <div class="grid-content">
-                        <div class="title">Say I Love You</div>
-                    </div>
-                    <div class="grid-content">
-                        <div class="rating">
-                            <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">7.80</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <div class="grid-content">
-                        <div class="poster">
-                            <img src="assets/ToyStory4.jpg">
-                        </div>
-                    </div>
-                    <div class="grid-content">
-                        <div class="title">Toy Story 4</div>
-                    </div>
-                    <div class="grid-content">
-                        <div class="rating">
-                            <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">8.45</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <div class="grid-content">
-                        <div class="poster">
-                            <img src="assets/OnePieceStampede-post.jpg">
-                        </div>
-
-                    </div>
-                    <div class="grid-content">
-                        <div class="title">One Piece Stampede</div>
-                    </div>
-                    <div class="grid-content">
-                        <div class="rating">
-                            <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">8.65</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <div class="grid-content">
-                        <div class="poster">
-                            <img src="assets/WarkopDKIReborn-post.jpg">
-                        </div>
-                    </div>
-                    <div class="grid-content">
-                        <div class="title">Warkop DKI Reborn</div>
-                    </div>
-                    <div class="grid-content">
-                        <div class="rating">
-                            <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">7.10</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <div class="grid-content">
-                        <div class="poster">
-                            <img src="assets/Abigail-post.jpg">
-                        </div>
-
-                    </div>
-                    <div class="grid-content">
-                        <div class="title">Abigail</div>
-                    </div>
-                    <div class="grid-content">
-                        <div class="rating">
-                            <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">6.93<span>
-                        </div>
-                    </div>
-                </div>
-                <div class="grid-item">
-                    <div class="grid-content">
-                        <div class="poster">
-                            <img src="assets/AdAstra.jpg">
-                        </div>
-
-                    </div>
-                    <div class="grid-content">
-                        <div class="title">Ad Astra</div>
-                    </div>
-                    <div class="grid-content">
-                        <div class="rating">
-                            <img class="star-img" src="assets/star_icon.png">
-                            <span class="rating-value">7.20<span>
-                        </div>
-                    </div>
-                </div>
+                    <input type="hidden" class="target-movie" name="target-movie" value="1234">
+                </div> -->
             </div>
         </div>
     </body>
