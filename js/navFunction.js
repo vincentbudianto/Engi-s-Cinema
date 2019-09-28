@@ -38,17 +38,7 @@ function logout() {
 }
 
 function viewDetail(e) {
-	let id = e.lastElementChild.value;
-
-	console.log(id);
-
-	// let request = new XMLHttpRequest();
-	let params = "movie=" + id;
-	// request.open("GET", "php/page.php" + "?" + params, true);
-	// request.send(null);
-
-	window.location.replace('detail.html' + "?" + params);
-
-	// request.onload = function() {
-	// }
+    id = e.lastElementChild.value;
+    let params = "movie=" + id;
+    window.location.replace('detail.html' + "?" + params);
 }
