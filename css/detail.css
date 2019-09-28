@@ -43,8 +43,8 @@ img {
 }
 
 .movie-info {
-    display: grid;
-    grid-template-rows: auto auto auto auto auto;
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
     margin-left: 25px;
     min-width: 0;
@@ -56,6 +56,7 @@ img {
 .rating-container {
     display: grid;
     grid-template-columns: 25px auto;
+    margin-top: 10px;
 }
 
 .desc-container {
@@ -245,7 +246,7 @@ img {
 .title {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .genre-duration {
@@ -256,7 +257,7 @@ img {
 .release {
     color: grey;
     font-weight: bold;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .rating {

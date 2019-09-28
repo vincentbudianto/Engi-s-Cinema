@@ -24,16 +24,18 @@ img {
     background-position: center;
     cursor: pointer;
     display: grid;
-    grid-template-rows: [poster] 270px [title] 30px [rating] 30px;
+    grid-template-rows: [poster] 270px auto;
     font-size: 30px;
     width: 180px;
     height: 330px;
 }
 
 .grid-content {
+    display: flex;
+    flex-direction: column;
     font-size: 1rem;
     font-weight: bold;
-    width: 100%;
+    width: inherit;
     height: 100%;
 }
 
