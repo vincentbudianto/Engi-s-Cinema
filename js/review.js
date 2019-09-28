@@ -8,6 +8,16 @@ let url = new URL(window.location.href);
 let movieID = new URLSearchParams(url.search).get("movie");
 document.getElementById('movie-id').value = movieID;
 
+let getData = new FormData(document.forms.reviewForm);
+let request = new XMLHttpRequest();
+console.log(getData);
+request.open("POST", "php/getMovieData.php", true);
+request.send(getData);
+
+request.onload = function () {
+    data = JSON.parse(request.response)
+    document.getElementById('title').innerHTML = data.title
+}
 
 function changeImage(e) {
     let num = e.getAttribute('num');
@@ -37,6 +47,8 @@ function reset() {
     for (j = 9; j >= num; j--) {
         document.getElementById('star' + j).src = "assets/star_icon_grey.png";
     }
+
+    document.getElementById('review-user').value = document.getElementById('review-input').value;
 }
 
 function setRating(e) {
@@ -57,6 +69,8 @@ function setRating(e) {
 
         document.getElementById('rating-star').value = Number(num) + 1;
     }
+
+    document.getElementById('review-user').value = document.getElementById('review-input').value;
 }
 
 function setReview() {
@@ -64,14 +78,15 @@ function setReview() {
 }
 
 function cancel() {
+    document.getElementById('rating-star').value = 0;
+    document.getElementById('review-input').value = "";
     window.location.replace('transactions.html');
 }
 
 function addReview(e) {
     let getData = new FormData(document.forms.reviewForm);
-    console.log(getData);
-
     let request = new XMLHttpRequest();
+    console.log(getData);
     request.open("POST", "php/review.php", true);
     request.send(getData);
 

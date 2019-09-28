@@ -10,14 +10,14 @@ $cookieName = "user";
 
 if ($_POST) {
     // Get input data
+	$movieID = filter_input(INPUT_POST, 'movie-id', FILTER_SANITIZE_STRING);
     $rating = filter_input(INPUT_POST, 'rating-star', FILTER_SANITIZE_STRING);
 	$review = filter_input(INPUT_POST, 'review-input', FILTER_SANITIZE_STRING);
-	$movieID = filter_input(INPUT_POST, 'movie-id', FILTER_SANITIZE_STRING);
 	$token = $_COOKIE[$cookieName];
-	// echo nl2br("rating   : ". $rating . "\n\n");
-	// echo nl2br("review   : ". $review . "\n\n");
-	// echo nl2br("movieID  : ". $movieID . "\n\n");
-	// echo nl2br("token    : ". $token . "\n\n");
+	echo nl2br("movieID  : ". $movieID . "\n\n");
+	echo nl2br("rating   : ". $rating . "\n\n");
+	echo nl2br("review   : ". $review . "\n\n");
+	echo nl2br("token    : ". $token . "\n\n");
 
 	//Get userID
 	// Preparing getUserQuery
@@ -25,12 +25,12 @@ if ($_POST) {
 	$stmt1 = $db->prepare($getUserQuery);
 
 	// Bind getUserQuery parameters
-	$params = array(
+	$params1 = array(
 		":token" => $token
 	);
 
 	// Execute getUserQuery
-	$stmt1->execute($params);
+	$stmt1->execute($params1);
 	$userID = $stmt1->fetch(PDO::FETCH_ASSOC)["userID"];
 	// echo nl2br("userID   : ". $userID . "\n\n");
 
@@ -57,4 +57,3 @@ if ($_POST) {
 		echo 201;
 	}
 }
-    
