@@ -257,3 +257,10 @@ img {
     height: 50px;
     margin-top: 2%;
 }
+
+#filled {
+    background-color: rgb(240,240,240);
+    border: 1px solid rgb(165, 165, 165);
+    border-radius: 3px;
+    color: rgb(165, 165, 165);
+}

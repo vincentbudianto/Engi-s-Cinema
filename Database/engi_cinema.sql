@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.9.0.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2019 at 06:49 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.4
+-- Generation Time: Sep 28, 2019 at 08:19 PM
+-- Server version: 10.4.6-MariaDB
+-- PHP Version: 7.3.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -37,6 +37,7 @@ CREATE TABLE `cookies` (
 --
 
 INSERT INTO `cookies` (`token`) VALUES
+('$2y$10$PaD6D4My3XZQ6MP2ge0w/..2HHka1om6WPXCvCxyHlENhF1U61rBK'),
 ('$2y$10$qaBLh/6tzzw12Xa4hxjmkOgkrulHNMD0nScJZVaQSf1hxhLSxusuu');
 
 -- --------------------------------------------------------
@@ -141,6 +142,53 @@ INSERT INTO `movies` (`movieID`, `title`, `rating`, `genre`, `duration`, `date`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `seat`
+--
+
+CREATE TABLE `seat` (
+  `id` int(11) NOT NULL,
+  `filled` tinyint(1) NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `seat`
+--
+
+INSERT INTO `seat` (`id`, `filled`) VALUES
+(1, 0),
+(2, 0),
+(3, 1),
+(4, 0),
+(5, 0),
+(6, 0),
+(7, 0),
+(8, 0),
+(9, 0),
+(10, 0),
+(11, 0),
+(12, 0),
+(13, 0),
+(14, 0),
+(15, 0),
+(16, 0),
+(17, 0),
+(18, 0),
+(19, 0),
+(20, 0),
+(21, 0),
+(22, 0),
+(23, 0),
+(24, 0),
+(25, 0),
+(26, 0),
+(27, 0),
+(28, 0),
+(29, 0),
+(30, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `showing`
 --
 
@@ -189,7 +237,7 @@ CREATE TABLE `transactions_history` (
   `userID` int(11) NOT NULL,
   `movieID` int(11) NOT NULL,
   `userRate` int(11) DEFAULT NULL,
-  `userReview` longtext COLLATE utf8_unicode_ci
+  `userReview` longtext COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -231,6 +279,12 @@ ALTER TABLE `cookies`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`movieID`);
+
+--
+-- Indexes for table `seat`
+--
+ALTER TABLE `seat`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `showing`
