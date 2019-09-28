@@ -1,5 +1,8 @@
+if (document.cookie != "") {
+    window.location.replace('homepage.html');
+}
+
 let input = document.getElementById('password');
-console.log(document.cookie);
 
 //To execute login button if enter key pressed on password input
 input.addEventListener("keyup", function(event) {
@@ -16,13 +19,8 @@ function login(e) {
     request.send(getData);
 
     request.onload = function() {
-        console.log('aaaaaaaaaaaaaaaa');
-        // console.log(request.response.substr(-3));
-
         switch (request.response.substr(-3)) {
             case '200':
-                alert('Login success');
-                console.log(document.cookie);
                 window.location.replace('homepage.html');
                 break;
 

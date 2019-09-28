@@ -1,17 +1,10 @@
 <?php
 
-$request = $_SERVER['REQUEST_URI'];
+$cookieName = "user";
 
-switch ($request) {
-	case '/':
-		require __DIR__ . 'login.html';
-		break;
-
-	case '':
-		require __DIR__ . 'login.html';
-		break;
-
-	default:
-		require __DIR__ . 'pageNotFound.html';
-		break;
+if (empty($_COOKIE[$cookieName])) {
+	header("Location: http://localhost/engiscinema/engi-s-cinema/login.html");
+}
+else {
+	header("Location: http://localhost/engiscinema/engi-s-cinema/homepage.html");
 }
