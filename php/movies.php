@@ -19,7 +19,7 @@ foreach ($showingList as $id) {
     $params = array(
         ":id" => $id["movieID"]
     );
-    
+
     $stmt->execute($params);
 
     $movie = $stmt->fetch(PDO::FETCH_ASSOC);

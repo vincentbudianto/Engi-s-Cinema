@@ -38,10 +38,10 @@ if ($_POST) {
     // Existing data validation
     $result = $stmt1->fetch(PDO::FETCH_ASSOC);
 
-    if ($result) {        
+    if ($result) {
         if ($result['username'] === $username) {
             echo 401;
-        } 
+        }
 
         if ($result['email'] === $email) {
             echo 402;

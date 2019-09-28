@@ -4,7 +4,7 @@
 require_once("config.php");
 
 // Variables
-$directory = "../assets/profilePicture/";
+$directory = "assets/profilePicture/";
 $errors = array();
 $fileType = array('image/jpg', 'image/jpeg', 'image/png', 'image/svg');
 

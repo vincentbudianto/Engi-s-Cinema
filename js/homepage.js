@@ -5,7 +5,7 @@ function getUsername() {
         alert("You haven't login");
         window.location.replace('login.html');
     }
-    
+
     let request = new XMLHttpRequest();
     request.open("POST", "php/username.php", true);
     request.send();
@@ -58,7 +58,7 @@ function renderMovies(e) {
     contentInfo.appendChild(rating);
 
     item.appendChild(contentInfo);
-    
+
     let target = document.createElement('input');
     target.type = 'hidden';
     target.className = 'target-movie';
