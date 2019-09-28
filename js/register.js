@@ -1,3 +1,7 @@
+if (document.cookie != "") {
+    window.location.replace('homepage.html');
+}
+
 function unameValidate() {
     let uname = document.getElementById('username-input').value;
 

@@ -1,3 +1,7 @@
+if (document.cookie == "") {
+    window.location.replace('login.html');
+}
+
 function payment() {
     document.getElementById('modal').style.display = 'block';
 }

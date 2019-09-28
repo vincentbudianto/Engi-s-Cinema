@@ -1,3 +1,7 @@
+if (document.cookie == "") {
+    window.location.replace('login.html');
+}
+
 function changeBackButton(e) {
     if (e == 0) {
         document.getElementById('back-button').style.color = '#a6a6a6';

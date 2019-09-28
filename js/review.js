@@ -1,3 +1,7 @@
+if (document.cookie == "") {
+    window.location.replace('login.html');
+}
+
 function changeImage(e) {
     let num = e.getAttribute('num');
 
