@@ -1,8 +1,13 @@
-userCookie = (document.cookie.match(/^(?:.*;)?\s*user\s*=\s*([^;]+)(?:.*)?$/)||[,null])[1];
+let userCookie = (document.cookie.match(/^(?:.*;)?\s*user\s*=\s*([^;]+)(?:.*)?$/)||[,null])[1];
 
 if (userCookie == null) {
     window.location.replace('login.html');
 }
+
+let url = new URL(window.location.href);
+let movieID = new URLSearchParams(url.search).get("movie");
+document.getElementById('movie-id').value = movieID;
+
 
 function changeImage(e) {
     let num = e.getAttribute('num');

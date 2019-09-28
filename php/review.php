@@ -12,7 +12,7 @@ if ($_POST) {
     // Get input data
     $rating = filter_input(INPUT_POST, 'rating-star', FILTER_SANITIZE_STRING);
 	$review = filter_input(INPUT_POST, 'review-input', FILTER_SANITIZE_STRING);
-	$movieID = filter_input(INPUT_POST, 'review-input', FILTER_SANITIZE_STRING);
+	$movieID = filter_input(INPUT_POST, 'movie-id', FILTER_SANITIZE_STRING);
 	$token = $_COOKIE[$cookieName];
 	// echo nl2br("rating   : ". $rating . "\n\n");
 	// echo nl2br("review   : ". $review . "\n\n");

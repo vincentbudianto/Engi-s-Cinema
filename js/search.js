@@ -1,4 +1,4 @@
-userCookie = (document.cookie.match(/^(?:.*;)?\s*user\s*=\s*([^;]+)(?:.*)?$/)||[,null])[1];
+let userCookie = (document.cookie.match(/^(?:.*;)?\s*user\s*=\s*([^;]+)(?:.*)?$/)||[,null])[1];
 
 if (userCookie == null) {
     window.location.replace('login.html');
@@ -48,7 +48,7 @@ function changePage(e) {
     } else {
         changeNextButton(1);
     }
-    
+
     pages[destinationPage - 1].style.color = '#a6a6a6';
     pages[destinationPage - 1].style.borderColor = '#a6a6a6';
 
@@ -86,7 +86,7 @@ function onePage(e) {
 
 if (document.getElementById('current-page').value == 1) {
     changeBackButton(0);
-    document.getElementsByClassName('page-button')[0].style.color = '#a6a6a6'; 
+    document.getElementsByClassName('page-button')[0].style.color = '#a6a6a6';
     document.getElementsByClassName('page-button')[0].style.borderColor = '#a6a6a6';
 } else {
     changeBackButton(1);
