@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2019 at 06:29 PM
+-- Generation Time: Sep 28, 2019 at 06:49 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -90,7 +90,6 @@ INSERT INTO `movies` (`movieID`, `title`, `rating`, `genre`, `duration`, `date`,
 (517116, 'Haunt', 6.3, 'Horror, Thriller', 92, '2019-09-13', 'On Halloween, a group of friends encounter an \"extreme\" haunted house that promises to feed on their darkest fears. The night turns deadly as they come to the horrifying realization that some nightmares are real.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/haQSrjFlq30I60UVN1VsB6uRwKM.jpg'),
 (520016, 'Driven', 6.4, 'Comedy, Crime, Drama, Thriller', 113, '2019-08-16', 'FBI informant Jim Hoffman lures troubled automobile magnate John DeLorean to an undercover sting for cocaine trafficking.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/5szS3NXiycrTL67AunS7TLG0EE0.jpg'),
 (521777, 'Good Boys', 6.5, 'Comedy', 89, '2019-03-11', 'A group of young boys on the cusp of becoming teenagers embark on an epic quest to fix their broken drone before their parents get home.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/jIthqo2tQmW8TFN1fYpF8FmVL0o.jpg'),
-(522938, 'Rambo: Last Blood', 6.3, 'Action, Thriller', 100, '2019-09-20', 'When his housekeeper’s granddaughter is kidnapped, Rambo crosses the U.S.-Mexican border to bring her home but finds himself up against the full might of one of Mexico’s most ruthless cartels.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/kTQ3J8oTTKofAVLYnds2cHUz9KO.jpg'),
 (523077, 'Running with the Devil', 5.3, 'Crime, Drama, Thriller', 100, '2019-09-20', 'A leader of a drug cartel sends his two toughest henchmen to investigate why a shipment was botched.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/qJ2H94PpXxZgiGGUNkyLSKZzm8u.jpg'),
 (527659, 'One Last Night', 7, 'Comedy, Romance', 84, '2019-08-16', 'A man and a woman start to fall for each other after they get locked inside a movie theater on their first date.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/6tIMfVIhOymZmY66rOcznmREl6S.jpg'),
 (527776, 'Overcomer', 7.8, 'Drama', 119, '2019-08-23', 'After reluctantly agreeing to coach cross-country, high school basketball Coach John Harrison helps the least likely runner attempt the impossible in the biggest race of the year.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/rVR3uN1yPRqYBBtNFSrEKCpRhaK.jpg'),
@@ -99,7 +98,6 @@ INSERT INTO `movies` (`movieID`, `title`, `rating`, `genre`, `duration`, `date`,
 (534259, 'Blinded by the Light', 7.5, 'Comedy, Drama, Music', 114, '2019-01-27', 'In 1987, during the austere days of Thatcher’s Britain, a teenager learns to live life, understand his family, and find his own voice through the music of Bruce Springsteen.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/vdWzIFpiUcV2uNGUrmgbtyNK2I0.jpg'),
 (535544, 'Downton Abbey', 7.3, 'Drama', 122, '2019-09-20', 'The beloved Crawleys and their intrepid staff prepare for the most important moment of their lives. A royal visit from the King and Queen of England will unleash scandal, romance and intrigue that will leave the future of Downton hanging in the balance.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/pWt1iRuhNpeVDNP2QiUT2C5OiBt.jpg'),
 (537734, 'The Weekend', 5, 'Comedy', 86, '2019-09-13', 'An acerbic comedian becomes romantically entangled with her ex, his new girlfriend, and another guest during a weekend getaway.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/6IJ9UcJjUjMW6UOvQ99MllDZhoN.jpg'),
-(537739, 'Can You Keep a Secret?', 6.2, 'Comedy, Romance', 94, '2019-09-13', 'Emma Corrigan, a girl with a few secrets on a turbulent plane ride, thinks she’s about to die, Emma spills them all to the handsome stranger sitting next to her. At least, she thought he was a stranger. But then, her company’s young and elusive CEO, arrives at the office. It’s him. And he knows every single humiliating detail about Emma.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/uNWk5HZfVBHpARcV1z9cwUAbtpF.jpg'),
 (539016, 'Aquarela', 8, 'Documentary', 90, '2019-08-16', 'From massive waves to melting ice, filmmaker Victor Kossakovsky travels around the world to capture stunning images of the beauty and raw power of water.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/Aq4z0BOwqLWljb2SRQXu1fpGTco.jpg'),
 (539651, 'Don\'t Let Go', 7.1, 'Horror, Science Fiction, Thriller', 107, '2019-01-27', 'After a man\'s family dies in what appears to be a murder, he gets a phone call from one of the dead, his niece. He\'s not sure if she’s a ghost or if he\'s going mad - but as it turns out, he\'s not. Instead, her calls help him rewrite history.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/ahETZlOXCPIUVhp1HBW4X7KefiS.jpg'),
 (539892, 'Freaks', 5.9, 'Drama, Science Fiction, Thriller', 104, '2019-09-13', 'A bold girl discovers a bizarre, threatening, and mysterious new world beyond her front door after she escapes her father\'s protective and paranoid control.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/kc2cvuqESIiRX5QoZOoMTBq18kQ.jpg'),
@@ -133,8 +131,6 @@ INSERT INTO `movies` (`movieID`, `title`, `rating`, `genre`, `duration`, `date`,
 (602703, 'Rapid Response', 6.2, 'Documentary', 99, '2019-09-06', 'Dr. Stephen Olvey and his team develop revolutionary procedures to make motor sports safer for the drivers.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/zAquZV7cMZwObrkmi1f05QhBAOF.jpg'),
 (603055, 'Bennett\'s War', 3.8, 'Drama', 95, '2019-08-30', 'After surviving an IED explosion in combat overseas, a young soldier with the Army Motorcycle Unit is medically discharged with a broken back and leg. Against all odds he trains to make an impossible comeback as a motocross racer in order to support his family.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/8RWBqk1NFlOr28gmzKc6etgznQ3.jpg'),
 (608504, 'Fiddler: A Miracle of Miracles', 7.2, 'Documentary', 92, '2019-07-18', 'The origin story behind one of Broadway\'s most beloved musicals, Fiddler on The Roof, and its creative roots in early 1960s New York, when \"tradition\" was on the wane as gender roles, sexuality, race relations and religion were evolving.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/kpSmPJJ53kFpblb8I0dhF658PNS.jpg'),
-(613667, 'Send Me to the Clouds', 6.6, 'Comedy, Drama', 98, '2019-09-20', 'Diagnosed with ovarian cancer, iron-willed journalist Sheng Nan (“Surpass Men” in Chinese) is pressured to make a quick fortune and find mind-blowing sex before the costly surgery numbs her senses. Taking on a businessman’s biography writing job, she hikes into the misty mountains, where a chain of outbursts with her dysfunctional family, grumpy client, misogynistic co-worker and dreamlike romantic interest hilariously unfold. As deeply moving as it is luminously witty, writer-director Teng Cong', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/dX81xXvhCuyDsA17GlVZS6fniQl.jpg'),
-(616584, 'K-12', 8, 'Fantasy, Horror, Music', 92, '2019-09-03', 'Cry Baby, a strong and sensitive girl, is sent off to a disturbing sleepaway school that’s hidden underneath a grandiose façade. Luckily, she has a sweet and unapologetic best friend who sticks up for her when she gets bullied by the other students whose brains are under control by the Principal and his wicked staff. With the help of the magical friends they meet along the way, as well as an Angelic Spirit Guide, they are able to gain the strength they need to fight off the school’s belligerent ', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/nVi0yBBPj5Z96JgGWVIg94kv7bR.jpg'),
 (619798, '7 Days to Vegas', 6.7, 'Comedy', 92, '2019-01-11', 'Inspired by a true story about Hollywood big shots who will bet on anything.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/7UTJRJazrgUozExesHONCecA9iZ.jpg'),
 (620210, 'Fagara', 7.3, 'Drama, Family', 119, '2019-09-13', 'After her father died, a Hong Kong girl discovers she has two hitherto unknown sisters, one in Taiwan and one in China. To settle her father\'s debt, she must reunite with them to run the family\'s hot pot restaurant.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/jIyAHuIjRjYZwAGymH9FvTXieSq.jpg'),
 (623582, 'Already Gone', 10, 'Drama', 93, '2019-08-16', 'A lonely teenager runs away from home, bringing his abusive stepfather\'s girlfriend with him.', 'https://image.tmdb.org/t/p/w300_and_h450_bestv2/yuDXE3Wkutr5Clh8C2afsn3IVzu.jpg'),
@@ -166,11 +162,9 @@ INSERT INTO `showing` (`movieID`) VALUES
 (482034),
 (483096),
 (517116),
-(522938),
 (523077),
 (535544),
 (537734),
-(537739),
 (539892),
 (540901),
 (553600),
@@ -180,8 +174,6 @@ INSERT INTO `showing` (`movieID`) VALUES
 (590050),
 (590978),
 (602703),
-(613667),
-(616584),
 (620210),
 (629442),
 (630106);
