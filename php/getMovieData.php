@@ -3,14 +3,9 @@
 // Connecting to database engi_cinema
 require_once("config.php");
 
-// Variables
-$directory = "../assets/profilePicture/";
-$errors = array();
-
 if ($_POST) {
     // Get input data
 	$movieID = filter_input(INPUT_POST, 'movie-id', FILTER_SANITIZE_STRING);
-	// echo nl2br("movieID  : ". $movieID . "\n\n");
 
 	//Get movie data
 	// Preparing getMovieQuery
@@ -23,8 +18,13 @@ if ($_POST) {
 	);
 
 	// Execute getMovieQuery
-	$stmt->execute($params);
-	$movieData = $stmt->fetch(PDO::FETCH_ASSOC);
+	$found = $stmt->execute($params);
 
-	echo json_encode($movieData);
+	if($found) {
+		$movieData = $stmt->fetch(PDO::FETCH_ASSOC);
+		echo json_encode($movieData);
+	} else {
+		$movieData = array("movieID" => "", "title" => "Movie Not Found", "rating" => "", "genre" => "", "duration" => "", "date" => "", "description" => "", "poster" => "")
+		echo json_encode($movieData);
+	}
 }

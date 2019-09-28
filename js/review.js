@@ -7,16 +7,15 @@ if (userCookie == null) {
 let url = new URL(window.location.href);
 let movieID = new URLSearchParams(url.search).get("movie");
 document.getElementById('movie-id').value = movieID;
-
 let getData = new FormData(document.forms.reviewForm);
 let request = new XMLHttpRequest();
-console.log(getData);
+
 request.open("POST", "php/getMovieData.php", true);
 request.send(getData);
 
 request.onload = function () {
-    data = JSON.parse(request.response)
-    document.getElementById('title').innerHTML = data.title
+    let data = JSON.parse(request.response);
+    document.getElementById('title').innerHTML = data.title;
 }
 
 function changeImage(e) {
@@ -86,7 +85,6 @@ function cancel() {
 function addReview(e) {
     let getData = new FormData(document.forms.reviewForm);
     let request = new XMLHttpRequest();
-    console.log(getData);
     request.open("POST", "php/review.php", true);
     request.send(getData);
 
