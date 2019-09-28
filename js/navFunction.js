@@ -38,7 +38,19 @@ function logout() {
 }
 
 function viewDetail(e) {
-    id = e.lastElementChild.value;
+	let id = e.lastElementChild.value;
     let params = "movie=" + id;
     window.location.replace('detail.html' + "?" + params);
+}
+
+function viewDetail1(e) {
+	let id = e.parentNode.lastElementChild.value;
+	let params = "movie=" + id;
+	window.location.replace('detail.html' + "?" + params);
+}
+
+function viewDetail2(e) {
+	let id = e.parentNode.parentNode.lastElementChild.value;
+	let params = "movie=" + id;
+	window.location.replace('detail.html' + "?" + params);
 }

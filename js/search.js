@@ -91,7 +91,7 @@ function renderMovies(e) {
     let posterImage = document.createElement('img');
     posterImage.className = 'posterImage';
     posterImage.src = e['poster'];
-    posterImage.setAttribute('onclick', 'viewDetail(this)');
+    posterImage.setAttribute('onclick', 'viewDetail2(this)');
 
     poster.appendChild(posterImage);
     item.appendChild(poster);
@@ -102,7 +102,7 @@ function renderMovies(e) {
     let title = document.createElement('label');
     title.className = 'title';
     title.innerHTML = e['title'];
-    title.setAttribute('onclick', 'viewDetail(this)');
+    title.setAttribute('onclick', 'viewDetail2(this)');
 
     let rating = document.createElement('div');
     rating.className = 'rating-container';
@@ -133,7 +133,7 @@ function renderMovies(e) {
 
     let detail = document.createElement('div');
     detail.className = 'detail-container';
-    detail.setAttribute('onclick', 'viewDetail(this)');
+    detail.setAttribute('onclick', 'viewDetail1(this)');
 
     let view = document.createElement('label');
     view.className = 'view';
