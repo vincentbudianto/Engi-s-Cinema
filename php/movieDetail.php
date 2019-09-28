@@ -7,6 +7,8 @@ if ($_GET) {
     //Get movie id
     $id = $_GET["id"];
 
+    // echo $id;
+
     $query = "SELECT * FROM movies WHERE (movieID = :id)";
     $stmt = $db->prepare($query);
 
@@ -18,7 +20,9 @@ if ($_GET) {
 
     $movie = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $target = json_encode($movie);
+    // var_dump($movie);
+
+    $target = json_encode($movie, JSON_INVALID_UTF8_IGNORE);
 
     echo $target;
 }

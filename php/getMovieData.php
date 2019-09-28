@@ -22,9 +22,9 @@ if ($_POST) {
 
 	if($found) {
 		$movieData = $stmt->fetch(PDO::FETCH_ASSOC);
-		echo json_encode($movieData);
+		echo json_encode($movieData, JSON_INVALID_UTF8_IGNORE);
 	} else {
 		$movieData = array("movieID" => "", "title" => "Movie Not Found", "rating" => "", "genre" => "", "duration" => "", "date" => "", "description" => "", "poster" => "");
-		echo json_encode($movieData);
+		echo json_encode($movieData, JSON_INVALID_UTF8_IGNORE);
 	}
 }

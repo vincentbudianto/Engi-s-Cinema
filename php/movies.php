@@ -26,5 +26,5 @@ foreach ($showingList as $id) {
     array_push($movieList, $movie);
 }
 
-echo json_encode($movieList);
+echo json_encode($movieList, JSON_INVALID_UTF8_IGNORE);
 ?>
