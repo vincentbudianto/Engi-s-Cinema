@@ -36,3 +36,9 @@ function logout() {
 		}
 	}
 }
+
+function viewDetail(e) {
+    id = e.lastElementChild.value;
+    let params = "movie=" + id;
+    window.location.replace('detail.html' + "?" + params);
+}

@@ -136,18 +136,18 @@ function renderScheduleItemContent(e) {
 
     let date = document.createElement('div');
     date.className = 'schedule-item-date';
-    date.innerHTML = convertDate(e['date']);
+    date.innerHTML = convertDate(e['scheduleDate']);
 
     let time = document.createElement('div');
     time.className = 'schedule-item-time';
-    time.innerHTML = e['time'];
+    time.innerHTML = e['scheduleTime'];
 
     let seats = document.createElement('div');
     seats.className = 'schedule-item-seats';
 
     let seatsAvailable = document.createElement('span');
     seatsAvailable.className = 'seats-available';
-    seatsAvailable.innerHTML = e['available'];
+    seatsAvailable.innerHTML = e['seat'] + ' seats';
 
     seats.appendChild(seatsAvailable);
 
@@ -156,15 +156,22 @@ function renderScheduleItemContent(e) {
 
     let available = document.createElement('label');
     available.className = 'available';
-    if (e['available'] > 0) {
-        available.innerHTMl = 'Book Now';
+    if (parseInt(e['seat'], 10) > 0) {
+        available.setAttribute('style', 'color: #12abde;');
+        available.innerHTML = 'Book Now';
+        status.setAttribute('onclick', 'book(this)');
     } else {
-        available.innerHTMl = 'Not Available';
+        available.setAttribute('style', 'color: red');
+        available.innerHTML = 'Not Available';
     }
 
     let availableIcon = document.createElement('img');
     availableIcon.className = 'available-icon';
-    availableIcon.src = 'assets/unavailable_icon.png';
+    if (parseInt(e['seat'], 10) > 0) {
+        availableIcon.src = 'assets/next_icon.png';
+    } else {
+        availableIcon.src = 'assets/unavailable_icon.png';
+    }
 
     status.appendChild(available);
     status.appendChild(availableIcon);
@@ -198,8 +205,6 @@ function renderScheduleContainer(e) {
     bottomTitle.className = 'bottom-title';
     bottomTitle.innerHTML = 'Schedules';
 
-    schedule.appendChild(bottomTitle);
-
     let scheduleContent = document.createElement('div');
     scheduleContent.className = 'schedule-content';
 
@@ -225,6 +230,7 @@ function renderScheduleContainer(e) {
     scheduleContent.appendChild(scheduleItemHeader);
     scheduleContent.appendChild(renderScheduleItem(e));
 
+    schedule.appendChild(bottomTitle);
     schedule.appendChild(scheduleContent);
 
     scheduleContainer.appendChild(schedule);
@@ -239,7 +245,7 @@ function renderReviewItem(e) {
 
     let profilePic = document.createElement('img');
     profilePic.className = 'profile-pic';
-    profilePic.src = 'assets/profilePicture/' + e['profilePicture'];
+    profilePic.src = e['profilePicture'];
 
     profile.appendChild(profilePic);
 
@@ -277,6 +283,8 @@ function renderReviewItem(e) {
     userReviewContent.className = 'user-review-content';
     userReviewContent.innerHTML = e['userReview']
 
+    userReviewContainer.appendChild(userReviewContent);
+
     userReview.appendChild(uname);
     userReview.appendChild(userRating);
     userReview.appendChild(userReviewContainer);
@@ -309,23 +317,34 @@ function renderReviewContainer(e) {
     bottomTitle.innerHTML = 'Review';
 
     review.appendChild(bottomTitle);
-    review.appendChild(renderReviewContent(e));
+    review.appendChild(e);
 
     reviewContainer.appendChild(review);
 }
 
-function renderBottom(e) {
-    // let itemBottom = document.getElementsByClassName('grid-item-bottom')[0];
-
-    renderScheduleContainer(e);
-    renderReviewContainer(e);
-}
-
 function renderPage(e) {
-    // let container = document.getElementsByClassName("grid-container")[0];
-
     renderTop(e);
-    renderBottom(e);
+
+    let params1 = "id=" + e['movieID'];
+    let request1 = new XMLHttpRequest();
+    request1.open("GET", "php/getMovieSchedule.php" + "?" + params1, true);
+    request1.send();
+
+    request1.onload = function() {
+        let schedule = JSON.parse(request1.response);
+        renderScheduleContainer(schedule);
+    }
+
+    let params2 = "id=" + e['movieID'];
+    let request2 = new XMLHttpRequest();
+    request2.open("GET", "php/getMovieReview.php" + "?" + params2, true);
+    request2.send();
+
+    request2.onload = function() {
+        let review = JSON.parse(request2.response);
+        let reviewContent = renderReviewContent(review);
+        renderReviewContainer(reviewContent);
+    }
 }
 
 function getMovie() {
@@ -341,4 +360,16 @@ function getMovie() {
         let movie = JSON.parse(request.response);
         renderPage(movie);
     }
+}
+
+function book(e) {
+    let parent = e.parentNode;
+    children = parent.children;
+
+    let date = children[0].innerHTML;
+    let time = children[1].innerHTML;
+    let seats = children[2].firstElementChild.innerHTML.split(" ")[0];
+    let params = "date=" + date + "&time=" + time + "&seats=" + seats;
+
+    window.location.replace('ticket.html' + "?" + params);
 }

@@ -131,6 +131,7 @@ img {
     display: grid;
     grid-template-rows: repeat(auto-fill, auto);
     padding-bottom: 10px;
+    height: 100%;
 }
 
 .schedule-item-content {
@@ -141,8 +142,7 @@ img {
     font-weight: bold;
     grid-template-columns: 30% 20% 20% 30%;
     padding-top: 10px;
-    padding-bottom: 10px;
-    height: 50%;
+    padding-bottom: 8px;
 }
 
 .schedule-item-status {
@@ -160,7 +160,6 @@ img {
 }
 
 .available {
-    color: #12abde;
     cursor: pointer;
 }
 
@@ -183,7 +182,7 @@ img {
     display: grid;
     grid-template-columns: 60px auto;
     height: 100px;
-    padding-bottom: 3px;
+    margin-top: 3px;
 }
 
 .profile {
