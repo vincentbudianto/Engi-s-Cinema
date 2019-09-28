@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2019 at 08:19 PM
+-- Generation Time: Sep 28, 2019 at 08:44 PM
 -- Server version: 10.4.6-MariaDB
 -- PHP Version: 7.3.9
 
@@ -147,6 +147,8 @@ INSERT INTO `movies` (`movieID`, `title`, `rating`, `genre`, `duration`, `date`,
 
 CREATE TABLE `seat` (
   `id` int(11) NOT NULL,
+  `cinema_no` int(11) NOT NULL,
+  `seat_no` int(11) NOT NULL,
   `filled` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -154,37 +156,37 @@ CREATE TABLE `seat` (
 -- Dumping data for table `seat`
 --
 
-INSERT INTO `seat` (`id`, `filled`) VALUES
-(1, 0),
-(2, 0),
-(3, 1),
-(4, 0),
-(5, 0),
-(6, 0),
-(7, 0),
-(8, 0),
-(9, 0),
-(10, 0),
-(11, 0),
-(12, 0),
-(13, 0),
-(14, 0),
-(15, 0),
-(16, 0),
-(17, 0),
-(18, 0),
-(19, 0),
-(20, 0),
-(21, 0),
-(22, 0),
-(23, 0),
-(24, 0),
-(25, 0),
-(26, 0),
-(27, 0),
-(28, 0),
-(29, 0),
-(30, 0);
+INSERT INTO `seat` (`id`, `cinema_no`, `seat_no`, `filled`) VALUES
+(1, 1, 1, 0),
+(2, 1, 2, 0),
+(3, 1, 3, 1),
+(4, 1, 4, 0),
+(5, 1, 5, 0),
+(6, 1, 6, 0),
+(7, 1, 7, 0),
+(8, 1, 8, 0),
+(9, 1, 9, 0),
+(10, 1, 10, 0),
+(11, 1, 11, 0),
+(12, 1, 12, 0),
+(13, 1, 13, 0),
+(14, 1, 14, 0),
+(15, 1, 15, 0),
+(16, 1, 16, 0),
+(17, 1, 17, 0),
+(18, 1, 18, 0),
+(19, 1, 19, 0),
+(20, 1, 20, 0),
+(21, 1, 21, 0),
+(22, 1, 22, 0),
+(23, 1, 23, 0),
+(24, 1, 24, 0),
+(25, 1, 25, 0),
+(26, 1, 26, 0),
+(27, 1, 27, 0),
+(28, 1, 28, 0),
+(29, 1, 29, 0),
+(30, 1, 30, 0);
 
 -- --------------------------------------------------------
 
@@ -311,6 +313,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `seat`
+--
+ALTER TABLE `seat`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `transactions_history`
