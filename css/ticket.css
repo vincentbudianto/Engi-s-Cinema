@@ -210,11 +210,11 @@ img {
     color: grey;
     font-size: 0.75rem;
     margin-top: 10px;
-    display: default;
+    display: none;
 }
 
 #seat-selected {
-    display: none;
+    display: default;
 }
 
 #seat-summary {

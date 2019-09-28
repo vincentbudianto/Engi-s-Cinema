@@ -49,7 +49,7 @@ img {
     margin-left: 25px;
     min-width: 0;
     min-height: 0;
-    height: inherit;
+    height: auto;
     overflow: hidden;
 }
 
@@ -147,6 +147,7 @@ img {
 .schedule-item-status {
     background-size: cover;
     background-position: center;
+    cursor: pointer;
     display: flex;
     justify-content: flex-end;
     margin-left: 20px;
@@ -159,6 +160,7 @@ img {
 
 .available {
     color: #12abde;
+    cursor: pointer;
 }
 
 .available-icon {
@@ -197,7 +199,6 @@ img {
 
 .user-review {
     margin-top: 5px;
-    /* margin-left: 20px; */
 }
 
 .uname {
@@ -241,36 +242,36 @@ img {
     font-size: 0.8rem;
 }
 
-#title {
+.title {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 10px;
 }
 
-#genre-duration {
+.genre-duration {
     color: #12abde;
     font-weight: bold;
 }
 
-#release {
+.release {
     color: grey;
     font-weight: bold;
     margin-top: 10px;
 }
 
-#rating {
+.rating {
     margin-top: 5px;
     margin-left: 8px;
     font-size: 1.25rem;
     font-weight: bold;
 }
 
-#out-ten {
+.out-ten {
     color: grey;
     font-size: 1rem;
     font-weight: bold;
 }
 
-#desc {
+.desc {
     color: #424242;
 }

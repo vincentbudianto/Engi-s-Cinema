@@ -18,6 +18,7 @@ function login(e) {
     request.onload = function() {
         console.log('aaaaaaaaaaaaaaaa');
         // console.log(request.response.substr(-3));
+
         switch (request.response.substr(-3)) {
             case '200':
                 alert('Login success');
