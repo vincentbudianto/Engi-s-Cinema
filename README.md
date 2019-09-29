@@ -1,4 +1,3 @@
-
 <h1 align="center">
     <b>
         <br>
@@ -102,13 +101,13 @@ Website ini dibuat dengan menggunakan Javascript, HTML dan CSS untuk frontend da
 
 ### Buy Ticket page
 
-![](screenshots/BookTicket-Noticketselected.png)
+![](screenshots/buyTicket1.png)
 <br>
 <br>
-![](screenshots/BookTicket-Selectedticket.png)
+![](screenshots/buyTicket2.png)
 <br>
 <br>
-![](screenshots/BookTicket-Success.png)
+![](screenshots/buyTicket3.png)
 <br>
 <br>
 
@@ -120,10 +119,7 @@ Website ini dibuat dengan menggunakan Javascript, HTML dan CSS untuk frontend da
 
 ### User Review page
 
-![](screenshots/addReview1.png)
-<br>
-<br>
-![](screenshots/addReview2.png)
+![](screenshots/addReview.png)
 <br>
 <br>
 
@@ -170,12 +166,19 @@ Beberapa teknik yang digunakan pada pengerjaan tugas kali ini
 | 5.     | Register    | 13517137           |
 | 6.     | Review      | 13517137           |
 | 7.     | Search      | 13517137           |
-| 8.     | Ticket      | 13517044           |
+| 8.     | Ticket      | 13517059           |
 | 9.     | Transaction | 13517059           |
 
 ### README
-1. 13517059
-2. 13517137
+| Number | Feature                 | Assignment         |
+|:------:|:------------------------|:-------------------|
+| 1.     | Deskripsi               | 13517137           |
+| 2.     | Requirement             | 13517059, 13517137 |
+| 3.     | Cara Installasi         | 13517059, 13517137 |
+| 4.     | Cara Menjalankan Server | 13517137           |
+| 5.     | Screenshots             | 13517137           |
+| 6.     | Keterangan Tambahan     | 13517137           |
+| 7.     | Knowledge               | 13517137           |
 
 
 <p align="center">

@@ -1,11 +1,13 @@
-function renderTicketInfoContainer(movieTitle, movieDate, movieTime) {
+function renderTicketInfoContainer(movieID, movieTitle, movieDate, movieTime) {
     let ticketInfoContainer = document.getElementsByClassName('ticket-info-container')[0];
 
     let backIconContainer = document.createElement('div');
     backIconContainer.className = 'back-icon';
 
     let backIcon = document.createElement('img');
+    let link = "location.href = 'detail.html?movie=" + movieID + "'";
     backIcon.src = "assets/back_icon.png";
+    backIcon.setAttribute("onclick", link);
 
     backIconContainer.appendChild(backIcon);
 
@@ -93,7 +95,7 @@ function getMovie() {
 
     request.onload = function() {
         let title = request.response;
-        renderTicketInfoContainer(title, date, time);
+        renderTicketInfoContainer(id, title, date, time);
     }
 
     let seatsTaken = parseInt(seats, 10);
