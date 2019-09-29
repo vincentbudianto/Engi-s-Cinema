@@ -5,6 +5,7 @@ require_once("config.php");
 
 // Variables
 $directory = "../assets/profilePicture/";
+$tmp_dir = "engi_cinema/assets/profilePicture/";
 $errors = array();
 $fileType = array('image/jpg', 'image/jpeg', 'image/png', 'image/svg');
 
@@ -45,7 +46,7 @@ if ($_POST) {
     }
 
     if (move_uploaded_file($tempProfilePicture, $directory . $nameProfilePicture)) {
-        $profilePicture = $directory . $nameProfilePicture;
+        $profilePicture = $tmp_dir . $nameProfilePicture;
     }
     else {
         echo 501;

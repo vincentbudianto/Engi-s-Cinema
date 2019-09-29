@@ -15,18 +15,8 @@ input.addEventListener("keyup", function (event) {
 });
 
 function search() {
-	let searchInput = input.value;
-	console.log(searchInput);
-
-	let request = new XMLHttpRequest();
 	let params = "search=" + input.value;
-
-	request.open("GET", "php/searchFunction.php" + "?" + params, true);
-	request.send();
-
-	// request.onload = function () {
-	// 	let data = JSON.parse(request.response);
-	// }
+	window.location.replace('search.html' + "?" + params);
 }
 
 function logout() {
@@ -45,4 +35,22 @@ function logout() {
 				break;
 		}
 	}
+}
+
+function viewDetail(e) {
+	let id = e.lastElementChild.value;
+    let params = "movie=" + id;
+    window.location.replace('detail.html' + "?" + params);
+}
+
+function viewDetail1(e) {
+	let id = e.parentNode.lastElementChild.value;
+	let params = "movie=" + id;
+	window.location.replace('detail.html' + "?" + params);
+}
+
+function viewDetail2(e) {
+	let id = e.parentNode.parentNode.lastElementChild.value;
+	let params = "movie=" + id;
+	window.location.replace('detail.html' + "?" + params);
 }
