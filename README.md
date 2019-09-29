@@ -171,7 +171,15 @@ Beberapa teknik yang digunakan pada pengerjaan tugas kali ini
 | 9.     | Transaction | 13517059           |
 
 ### README
-1. 13517137
+| Number | Feature                 | Assignment         |
+|:------:|:------------------------|:-------------------|
+| 1.     | Deskripsi               | 13517137           |
+| 2.     | Requirement             | 13517059, 13517137 |
+| 3.     | Cara Installasi         | 13517059, 13517137 |
+| 4.     | Cara Menjalankan Server | 13517137           |
+| 5.     | Screenshots             | 13517137           |
+| 6.     | Keterangan Tambahan     | 13517137           |
+| 7.     | Knowledge               | 13517137           |
 
 
 <p align="center">
