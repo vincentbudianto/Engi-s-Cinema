@@ -4,9 +4,10 @@
         <link rel="stylesheet" type="text/css" href="css/pageTemplate.css">
         <link rel="stylesheet" type="text/css" href="css/transactions.css">
         <script src="js/navFunction.js" defer></script>
+        <script src="js/transactions.js" defer></script>
         <title>Transaction</title>
     </head>
-    <body>
+    <body onload="getHistory();">
         <div class="navbar">
             <div class="navbar-wrapper">
                 <label class="navbar-button" id="navbar-title" onclick="location.href='homepage.html'"><span id="homepage-title">Engi</span>ma</label>
@@ -23,7 +24,7 @@
         <div class="content">
             <p>Transaction History</p>
             <div class="grid-container">
-                <div class="grid-item">
+                <!-- <div class="grid-item">
                     <div class="grid-content">
                         <div class="poster">
                             <img src="assets/images.jpg">
@@ -75,7 +76,7 @@
                     </div>
                     <div class="grid-content">
                         <div class="history">
-                                <div class="title">Say I Love You</div>
+                            <div class="title">Say I Love You</div>
                             <div class="schedule">
                                 <span id="schedule-text">Schedule:</span>
                                 <span id="schedule-time">July 4, 2019 - 03.00 PM</span>
@@ -88,7 +89,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
     </body>

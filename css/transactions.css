@@ -78,7 +78,30 @@ button {
     justify-content: flex-end;
 }
 
-.review-button:hover {
+.delete-review {
+    background-color: #e31212;
+    /* display: none; */
+}
+
+.delete-review:hover {
+    opacity: 0.8;
+}
+
+.edit-review {
+    background-color: #35b056;
+    /* display: none; */
+}
+
+.edit-review:hover {
+    opacity: 0.8;
+}
+
+.add-review {
+    background-color: #12abde;
+    /* display: none; */
+}
+
+.add-review:hover {
     opacity: 0.8;
 }
 
@@ -88,31 +111,4 @@ button {
 
 #schedule-time {
     margin-left: 2%;
-}
-
-#delete-review {
-    background-color: #e31212;
-    display: none;
-}
-
-#delete-review:hover {
-    opacity: 0.8;
-}
-
-#edit-review {
-    background-color: #35b056;
-    display: none;
-}
-
-#edit-review:hover {
-    opacity: 0.8;
-}
-
-#add-review {
-    background-color: #12abde;
-    display: default;
-}
-
-#add-review:hover {
-    opacity: 0.8;
 }

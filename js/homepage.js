@@ -78,14 +78,6 @@ function getMovies() {
         let movie_list = JSON.parse(request.response)
         for (i = 0; i < movie_list.length; i++) {
             renderMovies(movie_list[i]);
-            // let html = "<div class='grid-item'><div class='grid-content'><div class='poster'>";
-            // html += "<img src='" + movie_list[i]["poster"] + "'></div></div><div class='grid-content'>";
-            // html += "<div class='title'>" + movie_list[i]["title"] + "</div>";
-            // html += "<div class='rating'>";
-            // html += "<img class='star-img' src='assets/star_icon.png'>";
-            // html += "<span class='rating-value'>" + movie_list[i]["rating"] + "</span>";
-            // html += "</div></div></div>";
-            // document.getElementsByClassName("grid-container")[0].innerHTML += html;
         }
     }
 }

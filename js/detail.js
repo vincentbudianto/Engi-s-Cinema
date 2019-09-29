@@ -1,5 +1,5 @@
-function convertDate() {
-    let tempDate = "2019-08-07".split('-');
+function convertDate(e) {
+    let tempDate = e.split('-');
     let month = tempDate[1];
     let day = tempDate[2];
     let year = tempDate[0];
@@ -161,7 +161,7 @@ function renderScheduleItemContent(e) {
         available.innerHTML = 'Book Now';
         status.setAttribute('onclick', 'book(this)');
     } else {
-        available.setAttribute('style', 'color: red');
+        available.setAttribute('style', 'color: #e31212;');
         available.innerHTML = 'Not Available';
     }
 
