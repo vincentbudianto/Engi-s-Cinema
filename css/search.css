@@ -112,7 +112,7 @@ label {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-right: 10%;
+    /* margin-right: 10%; */
 }
 
 .page-button {
@@ -120,6 +120,7 @@ label {
     border: 1px solid #12abde;
     color: #12abde;
     margin: 5px;
+    border-radius: 3px;
 }
 
 #search-available {

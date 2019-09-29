@@ -51,7 +51,7 @@ if ($_GET) {
 	$foundDescription = $stmt3->execute($params3);
 
 	// Preparing getMovieByOthers
-	$getMovieByOthers = "SELECT * FROM movies WHERE (title LIKE CONCAT('%', :searching, '%')) OR (genre LIKE CONCAT('%', :searching, '%')) OR (description LIKE CONCAT('%', :searching, '%'))";
+	$getMovieByOthers = "SELECT * FROM movies WHERE (title LIKE CONCAT('%', :searching, '%'))";
 
 	$stmt4 = $db->prepare($getMovieByOthers);
 
