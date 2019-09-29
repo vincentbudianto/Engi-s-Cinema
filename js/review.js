@@ -1,15 +1,25 @@
 let url = new URL(window.location.href);
-let movieID = new URLSearchParams(url.search).get("movie");
-document.getElementById('movie-id').value = movieID;
+let title = new URLSearchParams(url.search).get("title");
+document.getElementById('title').innerHTML = title;
+document.getElementById('movie-title').value = title;
 let getData = new FormData(document.forms.reviewForm);
 let request = new XMLHttpRequest();
 
-request.open("POST", "php/getMovieData.php", true);
+request.open("POST", "php/editReview.php", true);
 request.send(getData);
 
 request.onload = function () {
-    let data = JSON.parse(request.response);
-    document.getElementById('title').innerHTML = data.title;
+    console.log(request.response);
+    if (request.response != null) {
+        data = JSON.parse(request.response);
+        console.log(data.userReview);
+        console.log(data.userRate);
+        document.getElementById('review-input').value = data.userReview;
+        document.getElementById('review-user').value = data.userReview;
+        document.getElementById('rating-star').value = data.userRate;
+    }
+
+    reset();
 }
 
 function changeImage(e) {
@@ -68,12 +78,6 @@ function setRating(e) {
 
 function setReview() {
     document.getElementById('review-input').value = document.getElementById('review-user').value;
-}
-
-function cancel() {
-    document.getElementById('rating-star').value = 0;
-    document.getElementById('review-input').value = "";
-    window.location.replace('transactions.html');
 }
 
 function addReview(e) {

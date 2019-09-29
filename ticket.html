@@ -8,7 +8,7 @@
         <title>Buy Ticket</title>
     </head>
 
-    <body>
+    <body onload="getMovie();">
         <div class="navbar">
             <div class="navbar-wrapper">
                 <label class="navbar-button" id="navbar-title" onclick="location.href='homepage.html'"><span id="homepage-title">Engi</span>ma</label>
@@ -24,53 +24,46 @@
 
         <div class="content">
             <div class="grid-container">
-                <div class="grid-item">
+                <div class="grid-item" id="top">
                     <div class="ticket-info-container">
-                        <div class="back-icon">
-                            <img src="assets/back_icon.png">
-                        </div>
-                        <div class="ticket-info">
-                            <label id="title" value="Avengers">Gundala</label>
-                            <label id="schedule">August 29, 2019 - 04.00 PM</label>
-                        </div>
-                        <span id="false-username-msg" class="input-message"></span>
                     </div>
                 </div>
-                <div class="grid-item">
+                <div class="grid-item" id="bottom">
                     <div class="seat-container">
                         <div class="seat">
                             <div class="seat-number-container">
-                                <div class="seat-number">1</div>
-                                <div class="seat-number">2</div>
-                                <div class="seat-number">3</div>
-                                <div class="seat-number">4</div>
-                                <div class="seat-number">5</div>
-                                <div class="seat-number">6</div>
-                                <div class="seat-number">7</div>
-                                <div class="seat-number">8</div>
-                                <div class="seat-number">9</div>
-                                <div class="seat-number">10</div>
-                                <div class="seat-number">11</div>
-                                <div class="seat-number">12</div>
-                                <div class="seat-number">13</div>
-                                <div class="seat-number">14</div>
-                                <div class="seat-number">15</div>
-                                <div class="seat-number">16</div>
-                                <div class="seat-number">17</div>
-                                <div class="seat-number">18</div>
-                                <div class="seat-number">19</div>
-                                <div class="seat-number">20</div>
-                                <div class="seat-number">21</div>
-                                <div class="seat-number">22</div>
-                                <div class="seat-number">23</div>
-                                <div class="seat-number">24</div>
-                                <div class="seat-number">25</div>
-                                <div class="seat-number">26</div>
-                                <div class="seat-number">27</div>
-                                <div class="seat-number">28</div>
-                                <div class="seat-number">29</div>
-                                <div class="seat-number">30</div>
+                                <div class="seat-number" id="seat-1" num="1" onclick="select(this);">1</div>
+                                <div class="seat-number" id="seat-2" num="1" onclick="select(this);">2</div>
+                                <div class="seat-number" id="seat-3" num="1" onclick="select(this);">3</div>
+                                <div class="seat-number" id="seat-4" num="1" onclick="select(this);">4</div>
+                                <div class="seat-number" id="seat-5" num="1" onclick="select(this);">5</div>
+                                <div class="seat-number" id="seat-6" num="1" onclick="select(this);">6</div>
+                                <div class="seat-number" id="seat-7" num="1" onclick="select(this);">7</div>
+                                <div class="seat-number" id="seat-8" num="1" onclick="select(this);">8</div>
+                                <div class="seat-number" id="seat-9" num="1" onclick="select(this);">9</div>
+                                <div class="seat-number" id="seat-10" num="1" onclick="select(this);">10</div>
+                                <div class="seat-number" id="seat-11" num="1" onclick="select(this);">11</div>
+                                <div class="seat-number" id="seat-12" num="1" onclick="select(this);">12</div>
+                                <div class="seat-number" id="seat-13" num="1" onclick="select(this);">13</div>
+                                <div class="seat-number" id="seat-14" num="1" onclick="select(this);">14</div>
+                                <div class="seat-number" id="seat-15" num="1" onclick="select(this);">15</div>
+                                <div class="seat-number" id="seat-16" num="1" onclick="select(this);">16</div>
+                                <div class="seat-number" id="seat-17" num="1" onclick="select(this);">17</div>
+                                <div class="seat-number" id="seat-18" num="1" onclick="select(this);">18</div>
+                                <div class="seat-number" id="seat-19" num="1" onclick="select(this);">19</div>
+                                <div class="seat-number" id="seat-20" num="1" onclick="select(this);">20</div>
+                                <div class="seat-number" id="seat-21" num="1" onclick="select(this);">21</div>
+                                <div class="seat-number" id="seat-22" num="1" onclick="select(this);">22</div>
+                                <div class="seat-number" id="seat-23" num="1" onclick="select(this);">23</div>
+                                <div class="seat-number" id="seat-24" num="1" onclick="select(this);">24</div>
+                                <div class="seat-number" id="seat-25" num="1" onclick="select(this);">25</div>
+                                <div class="seat-number" id="seat-26" num="1" onclick="select(this);">26</div>
+                                <div class="seat-number" id="seat-27" num="1" onclick="select(this);">27</div>
+                                <div class="seat-number" id="seat-28" num="1" onclick="select(this);">28</div>
+                                <div class="seat-number" id="seat-29" num="1" onclick="select(this);">29</div>
+                                <div class="seat-number" id="seat-30" num="1" onclick="select(this);">30</div>
                                 <div class="screen">Screen</div>
+                                <input type="hidden" id="seat-saved" name="seat-saved" value=0>
                             </div>
                         </div>
                         <div class="summary">
@@ -81,16 +74,6 @@
                             </span>
                             <span id="seat-selected">
                                 <span id="seat-summary">
-                                        <span id="summary-title">Gundala</span>
-                                        <span id="summary-schedule">August 29, 2019 - 04.00 PM</span>
-                                        <div class="summary-seat">
-                                            <span id="seat-text">Seat</span>
-                                            <span id="number-text">#18</span>
-                                            <span id="price-text">Rp 45.000</span>
-                                        </div>
-                                        <div class="summary-button">
-                                            <button id="buy-button" onclick="payment();">Buy Ticket</button>
-                                        </div>
                                 </span>
                             </span>
                         </div>

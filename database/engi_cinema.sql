@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2019 at 05:30 AM
+-- Generation Time: Sep 29, 2019 at 06:58 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -31,13 +31,6 @@ SET time_zone = "+00:00";
 CREATE TABLE `cookies` (
   `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `cookies`
---
-
-INSERT INTO `cookies` (`token`) VALUES
-('$2y$10$qaBLh/6tzzw12Xa4hxjmkOgkrulHNMD0nScJZVaQSf1hxhLSxusuu');
 
 -- --------------------------------------------------------
 
@@ -145,6 +138,27 @@ INSERT INTO `movies` (`movieID`, `title`, `rating`, `genre`, `duration`, `date`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `schedule`
+--
+
+CREATE TABLE `schedule` (
+  `movieID` int(11) NOT NULL,
+  `scheduleDate` date NOT NULL,
+  `scheduleTime` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
+  `seat` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `schedule`
+--
+
+INSERT INTO `schedule` (`movieID`, `scheduleDate`, `scheduleTime`, `seat`) VALUES
+(291867, '2019-09-30', '02.00 PM', 0),
+(291867, '2019-09-30', '03.00 PM', 20);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `showing`
 --
 
@@ -232,18 +246,18 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`userID`, `username`, `email`, `phone`, `password`, `profilePicture`, `token`) VALUES
-(1, 'test', 'test@gmail.com', '081123456789', '$2y$10$BGoBkEuiMk48rRUrNg/mO.blpLRjPx5KYVR.US5QZVDCnG43a7Xdm', 'engi_cinema/assets/profilePicture/test.png', '$2y$10$PaD6D4My3XZQ6MP2ge0w/..2HHka1om6WPXCvCxyHlENhF1U61rBK'),
-(2, 'vincentbudianto', '13517137@std.stei.itb.ac.id', '081321554136', '$2y$10$ogyxir5H0awV3kznBgPzUOt/HtbwiJzFXwn576gjOzyAsRyAr3sBu', 'engi_cinema/assets/profilePicture/Rimuru Tempest.jpeg', '$2y$10$qaBLh/6tzzw12Xa4hxjmkOgkrulHNMD0nScJZVaQSf1hxhLSxusuu'),
-(3, 'xio84', '13517020@std.stei.itb.ac.id', '08115128170', '$2y$10$DuESwipO1trUk8kNOM4LPeGNIlahc.tTISUE0Fz/ed3rS0Qf.rFUG', 'engi_cinema/assets/profilePicture/13517020.JPG', '$2y$10$WcdCOxayx0vMpsVw4OTun.PdDm6rHg2o50UQ2C1oKDV7B/Wx8b0Du'),
-(4, 'anakduaribu', '13517065@std.stei.itb.ac.id', '081573586855', '$2y$10$sLFfbi9dlb0hPgs2IQT.Tu/01N.3TCU1sH06.UY1ENkQuZ4CQw3qW', 'engi_cinema/assets/profilePicture/13517065.JPG', '$2y$10$uu4wge27H5QLrrZlIx1l9OEa/KW3npqvqFjxFfCrya1Q019QBRafS'),
-(5, 'willysantoso05', '13517066@std.stei.itb.ac.id', '087787612992', '$2y$10$DlDJmSTbQYoj2VMBgVuQauv4zUemW.PknDteFrYYDeOocTzf0cUT2', 'engi_cinema/assets/profilePicture/13517066.JPG', '$2y$10$czONFuI/6gOxm0lDphLYZ./IDuGLQZ1OXmC92Ff0SiKCCV6hrZMFO'),
-(6, 'Meyjan', '13517131@std.stei.itb.ac.id', '081223617228', '$2y$10$rS5VtbBMjbOfQ7/b.kS1Z.jDUnHBJZRlA5JlzpqTyjX7xQu2gfx/W', 'engi_cinema/assets/profilePicture/13517131.JPG', '$2y$10$9jqX8m48Rti5kbCoOqvFg.UsUTbHo2qoVRLBD6XhmniERHXx5pUYy'),
-(7, 'yoelsusanto', '13517014@std.stei.itb.ac.id', '085922835336', '$2y$10$qBKH7nGRgBoPzIA5hulvHu3C9BFwoe9NlGzBbCX.znFyRWg6V7/VG', 'engi_cinema/assets/profilePicture/13517014.JPG', '$2y$10$Ig5HdPc4ZUTunnRHaaMIKe65PncY3YrD7p9TVN7TUkyrKs7QiAZYm'),
-(8, 'lukaskurnia', '13517006@std.stei.itb.ac.id', '087816045752', '$2y$10$exCgQ1KKQ94kfZjO/2Qo9.sNYvMvDEk8yyN1YOdGMggEqljJj8p3i', 'engi_cinema/assets/profilePicture/13517006.JPG', '$2y$10$Yf.csdRJXFGwTKvD4hzIbexbRCpp/tvydqyFYvuYyrNt6XSE649QG'),
-(9, 'YangHansen', '13517146@std.stei.itb.ac.id', '087822135407', '$2y$10$mTGU8jVlgPb43Sdnr3ZvHOBY3TsHirlXPGh3vyxdHf2qSVgRrknYq', 'engi_cinema/assets/profilePicture/13517146.JPG', '$2y$10$y7Ft./pvvCf94uLtNmy0H.0.IsOat6tAnNVS..gmeybinxy1BOjam'),
-(10, 'KevinS27', '13517023@std.stei.itb.ac.id', '089611023888', '$2y$10$l5oNXXoaAxsR4sTwXvy2fOOj/oqOtib0ufdu2N8fN19RBINDX09YS', 'engi_cinema/assets/profilePicture/13517023.JPG', '$2y$10$IKwmIbnlkjXrLxCmndSkFeN4bNo6NIofcmYtkpve63A55.b9ykHS6'),
-(11, 'kumaken', '13517068@std.stei.itb.ac.id', '08971848770', '$2y$10$iRslvYHu4/pc6QeqvmQBH.E1FbKHXLAoW4k2oUnTjC8r3LcNPtKtG', 'engi_cinema/assets/profilePicture/13517068.JPG', '$2y$10$LEvw/aSGghcBYC8WZqRAU.jFai8ilmg67SXLIDjz4pntURARywNne'),
-(12, 'hidx1', '13517059@std.stei.itb.ac.id', '089634338403', '$2y$10$hLpV.OrjMp5te68f5H1.mu93An13453PmSCQrFWQzXIeJ2qYeXEK6', 'engi_cinema/assets/profilePicture/13517059.JPG', '$2y$10$LKMBgdEaicAnUyO1VsTOsOYfsvrV76DrFnFoOJWbk9AhjYchc0age');
+(1, 'test', 'test@gmail.com', '081123456789', '$2y$10$BGoBkEuiMk48rRUrNg/mO.blpLRjPx5KYVR.US5QZVDCnG43a7Xdm', 'assets/profilePicture/test.png', '$2y$10$PaD6D4My3XZQ6MP2ge0w/..2HHka1om6WPXCvCxyHlENhF1U61rBK'),
+(2, 'vincentbudianto', '13517137@std.stei.itb.ac.id', '081321554136', '$2y$10$ogyxir5H0awV3kznBgPzUOt/HtbwiJzFXwn576gjOzyAsRyAr3sBu', 'assets/profilePicture/Rimuru Tempest.jpeg', '$2y$10$qaBLh/6tzzw12Xa4hxjmkOgkrulHNMD0nScJZVaQSf1hxhLSxusuu'),
+(3, 'xio84', '13517020@std.stei.itb.ac.id', '08115128170', '$2y$10$DuESwipO1trUk8kNOM4LPeGNIlahc.tTISUE0Fz/ed3rS0Qf.rFUG', 'assets/profilePicture/13517020.JPG', '$2y$10$WcdCOxayx0vMpsVw4OTun.PdDm6rHg2o50UQ2C1oKDV7B/Wx8b0Du'),
+(4, 'anakduaribu', '13517065@std.stei.itb.ac.id', '081573586855', '$2y$10$sLFfbi9dlb0hPgs2IQT.Tu/01N.3TCU1sH06.UY1ENkQuZ4CQw3qW', 'assets/profilePicture/13517065.JPG', '$2y$10$uu4wge27H5QLrrZlIx1l9OEa/KW3npqvqFjxFfCrya1Q019QBRafS'),
+(5, 'willysantoso05', '13517066@std.stei.itb.ac.id', '087787612992', '$2y$10$DlDJmSTbQYoj2VMBgVuQauv4zUemW.PknDteFrYYDeOocTzf0cUT2', 'assets/profilePicture/13517066.JPG', '$2y$10$czONFuI/6gOxm0lDphLYZ./IDuGLQZ1OXmC92Ff0SiKCCV6hrZMFO'),
+(6, 'Meyjan', '13517131@std.stei.itb.ac.id', '081223617228', '$2y$10$rS5VtbBMjbOfQ7/b.kS1Z.jDUnHBJZRlA5JlzpqTyjX7xQu2gfx/W', 'assets/profilePicture/13517131.JPG', '$2y$10$9jqX8m48Rti5kbCoOqvFg.UsUTbHo2qoVRLBD6XhmniERHXx5pUYy'),
+(7, 'yoelsusanto', '13517014@std.stei.itb.ac.id', '085922835336', '$2y$10$qBKH7nGRgBoPzIA5hulvHu3C9BFwoe9NlGzBbCX.znFyRWg6V7/VG', 'assets/profilePicture/13517014.JPG', '$2y$10$Ig5HdPc4ZUTunnRHaaMIKe65PncY3YrD7p9TVN7TUkyrKs7QiAZYm'),
+(8, 'lukaskurnia', '13517006@std.stei.itb.ac.id', '087816045752', '$2y$10$exCgQ1KKQ94kfZjO/2Qo9.sNYvMvDEk8yyN1YOdGMggEqljJj8p3i', 'assets/profilePicture/13517006.JPG', '$2y$10$Yf.csdRJXFGwTKvD4hzIbexbRCpp/tvydqyFYvuYyrNt6XSE649QG'),
+(9, 'YangHansen', '13517146@std.stei.itb.ac.id', '087822135407', '$2y$10$mTGU8jVlgPb43Sdnr3ZvHOBY3TsHirlXPGh3vyxdHf2qSVgRrknYq', 'assets/profilePicture/13517146.JPG', '$2y$10$y7Ft./pvvCf94uLtNmy0H.0.IsOat6tAnNVS..gmeybinxy1BOjam'),
+(10, 'KevinS27', '13517023@std.stei.itb.ac.id', '089611023888', '$2y$10$l5oNXXoaAxsR4sTwXvy2fOOj/oqOtib0ufdu2N8fN19RBINDX09YS', 'assets/profilePicture/13517023.JPG', '$2y$10$IKwmIbnlkjXrLxCmndSkFeN4bNo6NIofcmYtkpve63A55.b9ykHS6'),
+(11, 'kumaken', '13517068@std.stei.itb.ac.id', '08971848770', '$2y$10$iRslvYHu4/pc6QeqvmQBH.E1FbKHXLAoW4k2oUnTjC8r3LcNPtKtG', 'assets/profilePicture/13517068.JPG', '$2y$10$LEvw/aSGghcBYC8WZqRAU.jFai8ilmg67SXLIDjz4pntURARywNne'),
+(12, 'hidx1', '13517059@std.stei.itb.ac.id', '089634338403', '$2y$10$hLpV.OrjMp5te68f5H1.mu93An13453PmSCQrFWQzXIeJ2qYeXEK6', 'assets/profilePicture/13517059.JPG', '$2y$10$LKMBgdEaicAnUyO1VsTOsOYfsvrV76DrFnFoOJWbk9AhjYchc0age');
 
 --
 -- Indexes for dumped tables
@@ -260,6 +274,12 @@ ALTER TABLE `cookies`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`movieID`);
+
+--
+-- Indexes for table `schedule`
+--
+ALTER TABLE `schedule`
+  ADD KEY `movieID` (`movieID`);
 
 --
 -- Indexes for table `showing`
@@ -308,6 +328,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `cookies`
   ADD CONSTRAINT `cookies_ibfk_1` FOREIGN KEY (`token`) REFERENCES `users` (`token`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `schedule`
+--
+ALTER TABLE `schedule`
+  ADD CONSTRAINT `schedule_ibfk_1` FOREIGN KEY (`movieID`) REFERENCES `movies` (`movieID`);
 
 --
 -- Constraints for table `showing`

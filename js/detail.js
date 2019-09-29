@@ -246,6 +246,8 @@ function renderReviewItem(e) {
     let profilePic = document.createElement('img');
     profilePic.className = 'profile-pic';
     profilePic.src = e['profilePicture'];
+    console.log(1);
+    console.log(profilePic.src);
 
     profile.appendChild(profilePic);
 
@@ -363,13 +365,16 @@ function getMovie() {
 }
 
 function book(e) {
+    let url = new URL(window.location.href);
+    let id = new URLSearchParams(url.search).get("movie");
+
     let parent = e.parentNode;
     children = parent.children;
 
     let date = children[0].innerHTML;
     let time = children[1].innerHTML;
     let seats = children[2].firstElementChild.innerHTML.split(" ")[0];
-    let params = "date=" + date + "&time=" + time + "&seats=" + seats;
+    let params = "movie=" + id + "&date=" + date + "&time=" + time + "&seats=" + seats;
 
     window.location.replace('ticket.html' + "?" + params);
 }

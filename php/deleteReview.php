@@ -35,7 +35,6 @@ $stmt2->execute($params2);
 $mID = $stmt2->fetch(PDO::FETCH_ASSOC);
 
 $movieID = $mID["movieID"];
-echo $movieID;
 
 $query = "UPDATE transactions_history SET userReview = NULL WHERE
 (userID = :userID) AND (movieID = :movieID)";
@@ -48,9 +47,5 @@ $params3 = array(
 );
 
 $status = $stmt3->execute($params3);
-
-if ($status) {
-    echo "nice";
-}
 
 ?>

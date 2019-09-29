@@ -116,10 +116,10 @@ function renderGridItem(e) {
     let date = e['historyDate'] + ' 00:00';
     let showDate = new Date(date);
     let today = new Date();
-    let temp = today.getFullYear() + '-' + (today.getMonth()+1) + 
+    let temp = today.getFullYear() + '-' + (today.getMonth()+1) +
     '-' + today.getDate() + ' ' + today.getHours() + ":" + today.getMinutes();
     let todayDate = new Date(temp);
-    
+
     if (e['userReview'] == null) {
         addReview.setAttribute('style', 'display: default;');
         addReview.setAttribute('style', 'background-color: #12abde;');
@@ -188,16 +188,11 @@ function delReview(e) {
 }
 
 function editReview(e) {
-    //In Development
     let parent = e.parentNode.parentNode;
     let title = parent.firstElementChild.innerHTML;
-
     let params = "title=" + title;
-    let request = new XMLHttpRequest();
-    request.open("GET", "php/editReview.php" + "?" + params, true);
-    request.send();
 
-    location.reload();
+    window.location.replace('review.html' + "?" + params);
 }
 
 function addReview(e) {

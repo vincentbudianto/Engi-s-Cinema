@@ -17,7 +17,7 @@ if ($_GET) {
     $stmt->execute($params);
 
     $data = $stmt->fetchall();
-    
+
     echo json_encode($data);
 }
 ?>

@@ -5,7 +5,7 @@ require_once("config.php");
 
 // Variables
 $directory = "../assets/profilePicture/";
-$tmp_dir = "engi_cinema/assets/profilePicture/";
+$tmp_dir = "assets/profilePicture/";
 $errors = array();
 $fileType = array('image/jpg', 'image/jpeg', 'image/png', 'image/svg');
 

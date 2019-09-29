@@ -197,11 +197,11 @@ img {
     color: grey;
     font-size: 0.75rem;
     margin-top: 10px;
-    display: none;
+    display: default;
 }
 
 #seat-selected {
-    display: default;
+    display: none;
 }
 
 #seat-summary {
