@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Sep 2019 pada 05.12
--- Versi server: 10.1.38-MariaDB
--- Versi PHP: 7.3.4
+-- Generation Time: Sep 29, 2019 at 05:30 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `cookies`
+-- Table structure for table `cookies`
 --
 
 CREATE TABLE `cookies` (
@@ -33,7 +33,7 @@ CREATE TABLE `cookies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `cookies`
+-- Dumping data for table `cookies`
 --
 
 INSERT INTO `cookies` (`token`) VALUES
@@ -42,7 +42,7 @@ INSERT INTO `cookies` (`token`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `movies`
+-- Table structure for table `movies`
 --
 
 CREATE TABLE `movies` (
@@ -57,7 +57,7 @@ CREATE TABLE `movies` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `movies`
+-- Dumping data for table `movies`
 --
 
 INSERT INTO `movies` (`movieID`, `title`, `rating`, `genre`, `duration`, `date`, `description`, `poster`) VALUES
@@ -145,7 +145,7 @@ INSERT INTO `movies` (`movieID`, `title`, `rating`, `genre`, `duration`, `date`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `showing`
+-- Table structure for table `showing`
 --
 
 CREATE TABLE `showing` (
@@ -153,7 +153,7 @@ CREATE TABLE `showing` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `showing`
+-- Dumping data for table `showing`
 --
 
 INSERT INTO `showing` (`movieID`) VALUES
@@ -189,21 +189,32 @@ INSERT INTO `showing` (`movieID`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transactions_history`
+-- Table structure for table `transactions_history`
 --
 
 CREATE TABLE `transactions_history` (
   `transactionID` int(11) NOT NULL,
   `userID` int(11) NOT NULL,
   `movieID` int(11) NOT NULL,
+  `historyDate` date NOT NULL,
+  `historyTime` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `userRate` int(11) DEFAULT NULL,
   `userReview` longtext COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `transactions_history`
+--
+
+INSERT INTO `transactions_history` (`transactionID`, `userID`, `movieID`, `historyDate`, `historyTime`, `userRate`, `userReview`) VALUES
+(1, 1, 291867, '2019-09-25', '03.00 PM', 7, 'Pretty standard movie. Had a few giggles here and there'),
+(2, 1, 474350, '2019-09-15', '11.00 AM', NULL, NULL),
+(3, 2, 291867, '2019-09-24', '04.00 PM', 8, 'Good movie');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -217,7 +228,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data untuk tabel `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`userID`, `username`, `email`, `phone`, `password`, `profilePicture`, `token`) VALUES
@@ -239,25 +250,25 @@ INSERT INTO `users` (`userID`, `username`, `email`, `phone`, `password`, `profil
 --
 
 --
--- Indeks untuk tabel `cookies`
+-- Indexes for table `cookies`
 --
 ALTER TABLE `cookies`
   ADD PRIMARY KEY (`token`);
 
 --
--- Indeks untuk tabel `movies`
+-- Indexes for table `movies`
 --
 ALTER TABLE `movies`
   ADD PRIMARY KEY (`movieID`);
 
 --
--- Indeks untuk tabel `showing`
+-- Indexes for table `showing`
 --
 ALTER TABLE `showing`
   ADD KEY `movieID` (`movieID`);
 
 --
--- Indeks untuk tabel `transactions_history`
+-- Indexes for table `transactions_history`
 --
 ALTER TABLE `transactions_history`
   ADD PRIMARY KEY (`transactionID`),
@@ -265,7 +276,7 @@ ALTER TABLE `transactions_history`
   ADD KEY `transactions_history_ibfk_2` (`movieID`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`userID`),
@@ -273,39 +284,39 @@ ALTER TABLE `users`
   ADD KEY `token` (`token`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `transactions_history`
+-- AUTO_INCREMENT for table `transactions_history`
 --
 ALTER TABLE `transactions_history`
-  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `userID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `cookies`
+-- Constraints for table `cookies`
 --
 ALTER TABLE `cookies`
   ADD CONSTRAINT `cookies_ibfk_1` FOREIGN KEY (`token`) REFERENCES `users` (`token`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `showing`
+-- Constraints for table `showing`
 --
 ALTER TABLE `showing`
   ADD CONSTRAINT `showing_ibfk_1` FOREIGN KEY (`movieID`) REFERENCES `movies` (`movieID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `transactions_history`
+-- Constraints for table `transactions_history`
 --
 ALTER TABLE `transactions_history`
   ADD CONSTRAINT `transactions_history_ibfk_1` FOREIGN KEY (`userID`) REFERENCES `users` (`userID`) ON DELETE CASCADE ON UPDATE CASCADE,
