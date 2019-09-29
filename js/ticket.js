@@ -39,13 +39,10 @@ function renderSeatSummary(movieTitle, movieDate, movieTime, seatNum) {
     title.id = 'summary-title';
     title.innerHTML = movieTitle;
 
-    console.log(title);
 
     let schedule = document.createElement('span');
     schedule.id = 'summary-schedule';
     schedule.innerHTML = movieDate + ' - ' + movieTime;
-
-    console.log(schedule);
 
     let summarySeat = document.createElement('div');
     summarySeat.className = 'summary-seat';
@@ -54,25 +51,17 @@ function renderSeatSummary(movieTitle, movieDate, movieTime, seatNum) {
     seatText.id = 'seat-text';
     seatText.innerHTML = 'Seat';
 
-    console.log(seatText);
-
     let numberText = document.createElement('span');
     numberText.id = 'number-text';
     numberText.innerHTML = '#' + seatNum;
-
-    console.log(numberText);
 
     let priceText = document.createElement('span');
     priceText.id = 'price-text';
     priceText.innerHTML = 'Rp 45.000';
 
-    console.log(priceText);
-
     summarySeat.appendChild(seatText);
     summarySeat.appendChild(numberText);
     summarySeat.appendChild(priceText);
-
-    console.log(summarySeat);
 
     let summaryButton = document.createElement('div');
     summaryButton.className = 'summary-button';
@@ -82,18 +71,12 @@ function renderSeatSummary(movieTitle, movieDate, movieTime, seatNum) {
     buyButton.setAttribute('onclick', 'payment()');
     buyButton.innerHTML = 'Buy Ticket';
 
-    console.log(buyButton)
-
     summaryButton.appendChild(buyButton);
-
-    console.log(summaryButton);
 
     seatSummary.appendChild(title);
     seatSummary.appendChild(schedule);
     seatSummary.appendChild(summarySeat);
     seatSummary.appendChild(summaryButton);
-
-    console.log(seatSummary);
 }
 
 function getMovie() {
@@ -115,7 +98,7 @@ function getMovie() {
 
     let seatsTaken = parseInt(seats, 10);
     for (i = 0; i < seatsTaken; i++) {
-        let num = Math.floor(Math.random() * 30) + 1;
+        let num = Math.floor(Math.random() * (30-seatsTaken)) + 1;
         let seatID = 'seat-' + num;
         document.getElementById(seatID).value = 0;
         document.getElementById(seatID).style.backgroundColor = '#cccccc';
@@ -163,6 +146,77 @@ function payment() {
 
 function close() {
     document.getElementById('modal').style.display='none';
+}
+
+function insertTransaction() {
+    let url = new URL(window.location.href);
+    let id = new URLSearchParams(url.search).get("movie");
+    let date = new URLSearchParams(url.search).get("date");
+    let day = date.split(' ')[1];
+    let month = date.split(' ')[0];
+    let year = date.split(' ')[2];
+
+    switch (month) {
+        case "January":
+            month = '01';
+            break;
+        case "February":
+            month = '02';
+            break;
+        case "March":
+            month = '03';
+            break;
+        case "April":
+            month = '04';
+            break;
+        case "May":
+            month = '05';
+            break;
+        case "June":
+            month = '06';
+            break;
+        case "July":
+            month = '07';
+            break;
+        case "August":
+            month = '08';
+            break;
+        case "September":
+            month = '09';
+            break;
+        case "October":
+            month = '10';
+            break;
+        case "November":
+            month = '1';
+            break;
+        case "December":
+            month = '12';
+            break;
+    }
+
+    histDate = year + '-' + month + '-' + day;
+
+    let time = new URLSearchParams(url.search).get("time");
+
+    let request = new XMLHttpRequest();
+    request.open("POST", "php/userID.php", true);
+    request.send()
+
+    request.onload = function() {
+        $userID = request.response;
+
+        let request2 = new XMLHttpRequest();
+        let params = "userID=" + $userID + "&movie=" + id + "&date=" + histDate + "&time=" + time;
+        request2.open("GET", "php/insertTransaction.php" + "?" + params, true);
+        request2.send();
+
+        request2.onload = function() {
+            if (request2.response.substr(-3) == '200'){
+                window.location.replace('transactions.html');
+            }
+        }
+    }
 }
 
 let modal = document.getElementById('modal');
