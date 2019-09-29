@@ -7,10 +7,10 @@ while($row = mysqli_fetch_array($query)) {
     $id = $row['id'];
     $filled = $row['filled'];
     if ($filled == 1) {
-        $output .= '<label for=\"'.$id.'\" class="seat-number" id="filled"><input type="checkbox" name="seat-number" id=\"'.$id.'\" style="display:none;" disabled="disabled"/>'.$countSeat.'</label>';
+        $output .= '<label for='.$id.' class="seat-number" id="filled"><input type="checkbox" name="seat-number" id='.$id.' style="display:none; disabled="disabled";/>'.$countSeat.'</label>';
     }
     else {
-        $output .= '<label for=\"'.$id.'\" class="seat-number" id="empty"><input type="checkbox" name="seat-number" id=\"'.$id.'\" style="display:auto;" />'.$countSeat.'</label>';
+        $output .= '<label for='.$id.' class="seat-number" id="empty"><input type="checkbox" name="seat-number" id='.$id.' style="display:none;"/>'.$countSeat.'</label>';
     }
     $countSeat = $countSeat+1; 
 }
@@ -25,7 +25,7 @@ while($row = mysqli_fetch_array($query)) {
         <title>Buy Ticket</title>
     </head>
 
-    <body>
+    <body onload="selected()">
         <div class="navbar">
             <div class="navbar-wrapper">
                 <label class="navbar-button" id="navbar-title" onclick="location.href='../homepage.html'"><span id="homepage-title">Engi</span>ma</label>
@@ -63,14 +63,14 @@ while($row = mysqli_fetch_array($query)) {
                         
                         <div class="summary">
                             <label id="summary-text">Booking Summary</label>
-                            <span id="change">
+                            <span id="changes">
                                 <span id="seat-selected">
                                     <span id="seat-summary">
                                             <span id="summary-title">Gundala</span>
                                             <span id="summary-schedule">August 29, 2019 - 04.00 PM</span>
                                             <div class="summary-seat">
                                                 <span id="seat-text">Seat</span>
-                                                <span id="number-text">#18</span>
+                                                <span id="number-text"></span>
                                                 <span id="price-text">Rp 45.000</span>
                                             </div>
                                             <div class="summary-button">
