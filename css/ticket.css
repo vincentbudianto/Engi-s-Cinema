@@ -264,3 +264,13 @@ img {
     border-radius: 3px;
     color: rgb(165, 165, 165);
 }
+
+.seat-number-container input {
+    display: none;
+}
+
+:checked+label{ 
+    background-color: #a6eaff; 
+    border: #a6eaff; 
+    opacity: 0.8; 
+} 

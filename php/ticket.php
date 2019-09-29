@@ -7,12 +7,12 @@ while($row = mysqli_fetch_array($query)) {
     $id = $row['id'];
     $filled = $row['filled'];
     if ($filled == 1) {
-        $output .= '<div class="seat-number" id="filled">'.$countSeat.'</div>';
+        $output .= '<label for=\"'.$id.'\" class="seat-number" id="filled"><input type="checkbox" name="seat-number" id=\"'.$id.'\" style="display:none;" disabled="disabled"/>'.$countSeat.'</label>';
     }
     else {
-        $output .= '<div class="seat-number">'.$countSeat.'</div>';
+        $output .= '<label for=\"'.$id.'\" class="seat-number" id="empty"><input type="checkbox" name="seat-number" id=\"'.$id.'\" style="display:auto;" />'.$countSeat.'</label>';
     }
-    $countSeat = $countSeat+1;
+    $countSeat = $countSeat+1; 
 }
 ?>
 <html>
@@ -60,25 +60,24 @@ while($row = mysqli_fetch_array($query)) {
                                 <div class="screen">Screen</div>
                             </div>
                         </div>
+                        
                         <div class="summary">
                             <label id="summary-text">Booking Summary</label>
-                            <span id="seat-not-selected">
-                                You haven't selected any seat yet.
-                                Please click on one of the seat provided
-                            </span>
-                            <span id="seat-selected">
-                                <span id="seat-summary">
-                                        <span id="summary-title">Gundala</span>
-                                        <span id="summary-schedule">August 29, 2019 - 04.00 PM</span>
-                                        <div class="summary-seat">
-                                            <span id="seat-text">Seat</span>
-                                            <span id="number-text">#18</span>
-                                            <span id="price-text">Rp 45.000</span>
-                                        </div>
-                                        <div class="summary-button">
-                                            <button id="buy-button" onclick="payment();">Buy Ticket</button>
-                                        </div>
-                                </span>
+                            <span id="change">
+                                <span id="seat-selected">
+                                    <span id="seat-summary">
+                                            <span id="summary-title">Gundala</span>
+                                            <span id="summary-schedule">August 29, 2019 - 04.00 PM</span>
+                                            <div class="summary-seat">
+                                                <span id="seat-text">Seat</span>
+                                                <span id="number-text">#18</span>
+                                                <span id="price-text">Rp 45.000</span>
+                                            </div>
+                                            <div class="summary-button">
+                                                <button id="buy-button" onclick="payment();">Buy Ticket</button>
+                                            </div>
+                                    </span>
+                                </span>  
                             </span>
                         </div>
                     </div>
