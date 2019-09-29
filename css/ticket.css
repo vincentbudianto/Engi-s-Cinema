@@ -200,10 +200,6 @@ img {
     display: default;
 }
 
-#seat-selected {
-    display: none;
-}
-
 #seat-summary {
     display: flex;
     flex-direction: column;
