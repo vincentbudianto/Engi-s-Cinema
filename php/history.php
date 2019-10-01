@@ -17,7 +17,7 @@ $stmt1->execute($params1);
 
 $uID = $stmt1->fetch(PDO::FETCH_ASSOC);
 
-$query = "SELECT movieID, historyDate, historyTime, userReview,
+$query = "SELECT transactionID, movieID, historyDate, historyTime, userReview,
 poster, title FROM transactions_history JOIN movies USING
 (movieID) WHERE (userID = :id)";
 

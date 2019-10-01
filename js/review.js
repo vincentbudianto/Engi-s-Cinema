@@ -1,7 +1,8 @@
 let url = new URL(window.location.href);
 let title = new URLSearchParams(url.search).get("title");
+let id = new URLSearchParams(url.search).get("id");
 document.getElementById('title').innerHTML = title;
-document.getElementById('movie-title').value = title;
+document.getElementById('transaction-id').value = id;
 let getData = new FormData(document.forms.reviewForm);
 let request = new XMLHttpRequest();
 
