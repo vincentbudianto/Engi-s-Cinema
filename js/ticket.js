@@ -7,7 +7,7 @@ function renderTicketInfoContainer(movieID, movieTitle, movieDate, movieTime) {
     let backIcon = document.createElement('img');
     let link = "location.href = 'detail.html?movie=" + movieID + "'";
     backIcon.src = "assets/back_icon.png";
-    backIcon.setAttribute("onclick", link);
+    backIcon.setAttribute("onclick", link); 
 
     backIconContainer.appendChild(backIcon);
 
@@ -81,32 +81,9 @@ function renderSeatSummary(movieTitle, movieDate, movieTime, seatNum) {
     seatSummary.appendChild(summaryButton);
 }
 
-function getMovie() {
-    let url = new URL(window.location.href);
-    let id = new URLSearchParams(url.search).get("movie");
-    let date = new URLSearchParams(url.search).get("date");
-    let time = new URLSearchParams(url.search).get("time");
-    let seats = new URLSearchParams(url.search).get("seats");
-
-    let params = "movie=" + id;
-    let request = new XMLHttpRequest();
-    request.open("GET", "php/title.php" + "?" + params, true);
-    request.send()
-
-    request.onload = function() {
-        let title = request.response;
-        renderTicketInfoContainer(id, title, date, time);
-    }
-
-    let seatsTaken = parseInt(seats, 10);
-    for (i = 0; i < seatsTaken; i++) {
-        let num = Math.floor(Math.random() * (30-seatsTaken)) + 1;
-        let seatID = 'seat-' + num;
-        document.getElementById(seatID).value = 0;
-        document.getElementById(seatID).style.backgroundColor = '#cccccc';
-        document.getElementById(seatID).style.borderColor = '#8f8f8f';
-        document.getElementById(seatID).style.color = '#8f8f8f';
-    }
+function start() {
+    requestTicketData();
+    getMovie();
 }
 
 function select(e) {
@@ -123,6 +100,7 @@ function select(e) {
         request.send()
 
         let seat = e.innerHTML;
+        alert(seat);    
         document.getElementById('seat-saved').value = seat;
 
         let seatID = "seat-" + seat;
@@ -144,6 +122,12 @@ function select(e) {
 
 function payment() {
     document.getElementById('modal').style.display = 'block';
+
+    //Store seat in seat database
+    /*let getData = new FormData(document.forms.seatForm);
+    let request = new XMLHttpRequest();
+    request.open("POST", "php/postSeat.php", true);
+    request.send(getData);*/
 }
 
 function close() {
@@ -190,7 +174,7 @@ function insertTransaction() {
             month = '10';
             break;
         case "November":
-            month = '1';
+            month = '11';
             break;
         case "December":
             month = '12';
@@ -227,4 +211,84 @@ window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
+}
+
+function requestTicketData() {
+    let request = new XMLHttpRequest();
+    request.open("POST", "php/ticket.php", true);
+    request.send();
+
+    request.onload = function () {
+        getTicketData(request);
+    }
+}
+
+function getTicketData(request) {
+    let data = JSON.parse(request.response);
+    alert(data[0][0]);
+
+    for (i = 0; i < data.length; i++) {
+        renderSeats(data[i], i+1);
+    }
+    renderSeatBottoms()
+}
+
+function renderSeatBottoms() {
+    let container = document.getElementsByClassName("seat-number-container")[0];
+
+    let item = document.createElement('div');
+    item.setAttribute("class", "Screen");
+    item.innerHTML = "Screen";
+
+    container.appendChild(item);
+
+    let itemInput = document.createElement('input');
+    itemInput.setAttribute("type", "hidden");
+    itemInput.setAttribute("id","seat-saved");
+    itemInput.setAttribute("name","seat-saved");
+    itemInput.setAttribute("value", 0);
+    
+    container.appendChild(itemInput);
+}
+
+function renderSeats(e, i) {
+    let container = document.getElementsByClassName("seat-number-container")[0];
+
+    let item = document.createElement('div');
+    if (e[1] == 1) {
+        item.setAttribute("class", "seat-number");
+        item.setAttribute("id", "seat-".concat(i));
+        item.setAttribute("num", 1);
+        item.setAttribute("onclick", "select(this);");
+        item.innerHTML = i;
+    }
+    else {
+        item.setAttribute("class", "seat-number");
+        item.setAttribute("id", "seat-".concat(i));
+        item.setAttribute("num", 0);
+        item.setAttribute("onclick", "select(this);");
+        item.setAttribute("style", "background-color: #cccccc; border: 1px solid #8f8f8f; color: #8f8f8f;");
+        item.innerHTML = i;
+    }
+
+    container.appendChild(item);
+}
+
+function getMovie() {
+    let url = new URL(window.location.href);
+    let id = new URLSearchParams(url.search).get("movie");
+    let date = new URLSearchParams(url.search).get("date");
+    let time = new URLSearchParams(url.search).get("time");
+    let seats = new URLSearchParams(url.search).get("seats");
+
+    let params = "movie=" + id;
+    let request = new XMLHttpRequest();
+    request.open("GET", "php/title.php" + "?" + params, true);
+    request.send()
+
+    request.onload = function() {
+        let title = request.response;
+        renderTicketInfoContainer(id, title, date, time);
+    }
+
 }
