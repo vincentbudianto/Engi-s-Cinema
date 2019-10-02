@@ -36,7 +36,7 @@ $mID = $stmt2->fetch(PDO::FETCH_ASSOC);
 
 $movieID = $mID["movieID"];
 
-$query = "UPDATE transactions_history SET userReview = NULL WHERE
+$query = "UPDATE transactions_history SET userRate = NULL, userReview = NULL WHERE
 (userID = :userID) AND (movieID = :movieID)";
 
 $stmt3 = $db->prepare($query);

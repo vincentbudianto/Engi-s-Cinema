@@ -8,7 +8,7 @@ $directory = "../assets/profilePicture/";
 $cookieName = "user";
 
 if ($_POST) {
-    // Get input data
+	// Get input data
 	$title = filter_input(INPUT_POST, 'movie-title', FILTER_SANITIZE_STRING);
     $rating = filter_input(INPUT_POST, 'rating-star', FILTER_SANITIZE_STRING);
 	$review = filter_input(INPUT_POST, 'review-input', FILTER_SANITIZE_STRING);
@@ -28,6 +28,8 @@ if ($_POST) {
 	$stmt1->execute($params1);
 	$userID = $stmt1->fetch(PDO::FETCH_ASSOC)["userID"];
 
+	echo nl2br($userID . "\n\n");
+
 	// Get movieID
 	// Preparing getMovieQuery
 	$getMovieQuery = "SELECT movieID FROM movies WHERE (title = :title)";
@@ -42,8 +44,10 @@ if ($_POST) {
 	$stmt2->execute($params2);
 	$movieID = $stmt2->fetch(PDO::FETCH_ASSOC)["movieID"];
 
+	echo nl2br($movieID . "\n\n");
+
 	// Preparing updateQuery
-	$updateQuery = "UPDATE `transaction_history` SET `userRate` = :userRate, `userReview` = :userReview WHERE (`userID` = :userID) AND (`movieID` = :movieID)";
+	$updateQuery = "UPDATE transactions_history SET userRate = :userRate, userReview = :userReview WHERE (userID = :userID) AND (movieID = :movieID)";
 	$stmt3 = $db->prepare($updateQuery);
 
 	// Bind updateQuery parameters
@@ -53,6 +57,8 @@ if ($_POST) {
 		":userID" => $userID,
 		":movieID" => $movieID
 	);
+
+	var_dump($params3);
 
 	// Execute updateQuery
 	$updated = $stmt3->execute($params3);

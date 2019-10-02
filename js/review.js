@@ -9,14 +9,17 @@ request.open("POST", "php/editReview.php", true);
 request.send(getData);
 
 request.onload = function () {
-    console.log(request.response);
     if (request.response != null) {
         data = JSON.parse(request.response);
-        console.log(data.userReview);
-        console.log(data.userRate);
-        document.getElementById('review-input').value = data.userReview;
-        document.getElementById('review-user').value = data.userReview;
-        document.getElementById('rating-star').value = data.userRate;
+
+        if (data.userReview != null) {
+            document.getElementById('review-input').value = data.userReview;
+            document.getElementById('review-user').value = data.userReview;
+        }
+
+        if (data.userRate != null) {
+            document.getElementById('rating-star').value = data.userRate;
+        }
     }
 
     reset();
@@ -89,6 +92,7 @@ function addReview(e) {
     request.onload = function () {
         switch (request.response.substr(-3)) {
             case '200':
+                alert('Submission success');
                 window.location.replace('transactions.html');
                 break;
 
