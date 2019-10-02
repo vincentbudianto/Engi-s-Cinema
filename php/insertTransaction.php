@@ -23,7 +23,7 @@ $time = $_GET["time"];
 $seat = $_GET["seat"];
 
 $query2 = "SELECT scheduleID FROM schedule WHERE (movieID = :movieID)
-AND (scheduleDate = :scheduleDate) AND (scheduleTime = :scheduleTime)"; 
+AND (scheduleDate = :scheduleDate) AND (scheduleTime = :scheduleTime)";
 $stmt2 = $db->prepare($query2);
 
 $params2 = array(
@@ -47,8 +47,8 @@ $params3 = array(
 
 $stmt3->execute($params3);
 
-$query4 = "INSERT INTO transactions_history (userID, movieID, 
-historyDate, historyTime) VALUES (:userID, 
+$query4 = "INSERT INTO transactions_history (userID, movieID,
+historyDate, historyTime) VALUES (:userID,
 :movieID, :historyDate, :historyTime)";
 
 $stmt4 = $db->prepare($query4);

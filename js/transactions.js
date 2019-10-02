@@ -77,6 +77,12 @@ function renderGridItem(e) {
     title.className = 'title';
     title.innerHTML = e['title'];
 
+    let transactionID = document.createElement('input');
+    transactionID.type = 'hidden';
+    transactionID.id = 'transaction-id';
+    transactionID.name = 'transaction-id';
+    transactionID.value = e['transactionID'];
+
     let schedule = document.createElement('div');
     schedule.className = 'schedule';
 
@@ -148,6 +154,7 @@ function renderGridItem(e) {
     history.appendChild(schedule);
     history.appendChild(reviewSubmit);
     history.appendChild(reviewButton);
+    history.appendChild(transactionID);
 
     infoContent.appendChild(history);
 
@@ -177,10 +184,10 @@ function getHistory() {
 
 function delReview(e) {
     let parent = e.parentNode.parentNode;
-    let title = parent.firstElementChild.innerHTML;
-
-    let params = "title=" + title;
+    let id = parent.lastElementChild.value;
+    let params = "id=" + id;
     let request = new XMLHttpRequest();
+
     request.open("GET", "php/deleteReview.php" + "?" + params, true);
     request.send();
 
@@ -190,7 +197,8 @@ function delReview(e) {
 function editReview(e) {
     let parent = e.parentNode.parentNode;
     let title = parent.firstElementChild.innerHTML;
-    let params = "title=" + title;
+    let id = parent.lastElementChild.value;
+    let params = "title=" + title + "&id=" + id;
 
     window.location.replace('review.html' + "?" + params);
 }
@@ -198,7 +206,8 @@ function editReview(e) {
 function addReview(e) {
     let parent = e.parentNode.parentNode;
     let title = parent.firstElementChild.innerHTML;
+    let id = parent.lastElementChild.value;
+    let params = "title=" + title + "&id=" + id;
 
-    let params = "title=" + title;
     window.location.replace("review.html" + "?" + params);
 }
