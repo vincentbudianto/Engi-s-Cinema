@@ -1,3 +1,51 @@
+function convertDateToFormat(e) {
+    let day = e.split(' ')[1];
+    let month = e.split(' ')[0];
+    let year = e.split(' ')[2];
+
+    switch (month) {
+        case "January":
+            month = '01';
+            break;
+        case "February":
+            month = '02';
+            break;
+        case "March":
+            month = '03';
+            break;
+        case "April":
+            month = '04';
+            break;
+        case "May":
+            month = '05';
+            break;
+        case "June":
+            month = '06';
+            break;
+        case "July":
+            month = '07';
+            break;
+        case "August":
+            month = '08';
+            break;
+        case "September":
+            month = '09';
+            break;
+        case "October":
+            month = '10';
+            break;
+        case "November":
+            month = '1';
+            break;
+        case "December":
+            month = '12';
+            break;
+    }
+
+    histDate = year + '-' + month + '-' + day;
+    return histDate;
+}
+
 function renderTicketInfoContainer(movieID, movieTitle, movieDate, movieTime) {
     let ticketInfoContainer = document.getElementsByClassName('ticket-info-container')[0];
 
@@ -35,7 +83,8 @@ function renderTicketInfoContainer(movieID, movieTitle, movieDate, movieTime) {
 }
 
 function renderSeatSummary(movieTitle, movieDate, movieTime, seatNum) {
-    let seatSummary = document.getElementById('seat-summary');
+    let seatSummary = document.createElement('span');
+    seatSummary.id = 'seat-summary';
 
     let title = document.createElement('span');
     title.id = 'summary-title';
@@ -79,6 +128,34 @@ function renderSeatSummary(movieTitle, movieDate, movieTime, seatNum) {
     seatSummary.appendChild(schedule);
     seatSummary.appendChild(summarySeat);
     seatSummary.appendChild(summaryButton);
+
+    return seatSummary;
+}
+
+function getSeatInfo() {
+    let url = new URL(window.location.href);
+    let id = new URLSearchParams(url.search).get("movie");
+    let date = new URLSearchParams(url.search).get("date");
+    let histDate = convertDateToFormat(date);
+    let time = new URLSearchParams(url.search).get("time");
+
+    let params = "movie=" + id + "&date=" + histDate + "&time=" + time;
+    let request = new XMLHttpRequest();
+    request.open("GET", "php/ticket.php" + "?" + params, true);
+    request.send()
+
+    request.onload = function() {
+        let seats = JSON.parse(request.response);
+        for (i = 0; i < 30; i++) {
+            let id = "seat-" + seats[i]["seatNo"];
+            document.getElementById(id).setAttribute("value", seats[i]["filled"]);
+            if(seats[i]["filled"] == 0) {
+                document.getElementById(id).style.backgroundColor = '#cccccc';
+                document.getElementById(id).style.borderColor = '#8f8f8f';
+                document.getElementById(id).style.color = '#8f8f8f';
+            }
+        }
+    }
 }
 
 function getMovie() {
@@ -97,20 +174,16 @@ function getMovie() {
         let title = request.response;
         renderTicketInfoContainer(id, title, date, time);
     }
-
-    let seatsTaken = parseInt(seats, 10);
-    for (i = 0; i < seatsTaken; i++) {
-        let num = Math.floor(Math.random() * (30-seatsTaken)) + 1;
-        let seatID = 'seat-' + num;
-        document.getElementById(seatID).value = 0;
-        document.getElementById(seatID).style.backgroundColor = '#cccccc';
-        document.getElementById(seatID).style.borderColor = '#8f8f8f';
-        document.getElementById(seatID).style.color = '#8f8f8f';
-    }
 }
 
 function select(e) {
-    if (e.getAttribute('num') == 1) {
+    if (document.getElementById("seat-saved").getAttribute("value") != 0) {
+        let seatBefore = "seat-" + document.getElementById("seat-saved").value
+        document.getElementById(seatBefore).style.backgroundColor = 'white';
+        document.getElementById(seatBefore).style.borderColor = '#12abde';
+        document.getElementById(seatBefore).style.color = '#12abde';
+    }
+    if (e.getAttribute('value') == 1) {
         let url = new URL(window.location.href);
         let id = new URLSearchParams(url.search).get("movie");
         let date = new URLSearchParams(url.search).get("date");
@@ -137,88 +210,41 @@ function select(e) {
 
         request.onload = function() {
             title = request.response;
-            renderSeatSummary(title, date, time, seat);
+            document.getElementById('seat-selected').replaceChild(renderSeatSummary(title, date, time, seat), document.getElementById('seat-summary'));
         }
     }
 }
 
 function payment() {
-    document.getElementById('modal').style.display = 'block';
+    let url = new URL(window.location.href);
+    let id = new URLSearchParams(url.search).get("movie");
+    let date = new URLSearchParams(url.search).get("date");
+    let histDate = convertDateToFormat(date)
+    let time = new URLSearchParams(url.search).get("time");
+    let seat = document.getElementById('seat-saved').value;
+    console.log(seat);
+
+    let request = new XMLHttpRequest();
+    let params = "movie=" + id + "&date=" + histDate + "&time=" + time + "&seat=" + seat;
+    request.open("GET", "php/insertTransaction.php" + "?" + params, true);
+    request.send()
+
+    request.onload = function() {
+        if (request.response.substr(-3) == '200'){
+            document.getElementById('modal').style.display = 'block';
+        } else {
+            alert("Payment failed");
+        }
+    }
+    
 }
 
 function close() {
     document.getElementById('modal').style.display='none';
 }
 
-function insertTransaction() {
-    let url = new URL(window.location.href);
-    let id = new URLSearchParams(url.search).get("movie");
-    let date = new URLSearchParams(url.search).get("date");
-    let day = date.split(' ')[1];
-    let month = date.split(' ')[0];
-    let year = date.split(' ')[2];
-
-    switch (month) {
-        case "January":
-            month = '01';
-            break;
-        case "February":
-            month = '02';
-            break;
-        case "March":
-            month = '03';
-            break;
-        case "April":
-            month = '04';
-            break;
-        case "May":
-            month = '05';
-            break;
-        case "June":
-            month = '06';
-            break;
-        case "July":
-            month = '07';
-            break;
-        case "August":
-            month = '08';
-            break;
-        case "September":
-            month = '09';
-            break;
-        case "October":
-            month = '10';
-            break;
-        case "November":
-            month = '1';
-            break;
-        case "December":
-            month = '12';
-            break;
-    }
-
-    histDate = year + '-' + month + '-' + day;
-
-    let time = new URLSearchParams(url.search).get("time");
-
-    let request = new XMLHttpRequest();
-    request.open("POST", "php/userID.php", true);
-    request.send()
-
-    request.onload = function() {
-        $userID = request.response;
-
-        let request2 = new XMLHttpRequest();
-        let params = "userID=" + $userID + "&movie=" + id + "&date=" + histDate + "&time=" + time;
-        request2.open("GET", "php/insertTransaction.php" + "?" + params, true);
-        request2.send();
-
-        request2.onload = function() {
-            if (request2.response.substr(-3) == '200'){
-                window.location.replace('transactions.html');
-            }
-        }
-    }
+function goToTransaction() {
+    window.location.replace('transactions.html');
 }
 
 let modal = document.getElementById('modal');

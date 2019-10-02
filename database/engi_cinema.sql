@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 01, 2019 at 05:59 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Oct 02, 2019 at 07:08 AM
+-- Server version: 10.1.38-MariaDB
+-- PHP Version: 7.3.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -37,7 +37,7 @@ CREATE TABLE `cookies` (
 --
 
 INSERT INTO `cookies` (`token`) VALUES
-('$2y$10$yLig2ZqVC7iVquQ1YXXEBuIo.lLqbVDjSosUR2eyl2pXJMoe4tbjy');
+('$2y$10$PaD6D4My3XZQ6MP2ge0w/..2HHka1om6WPXCvCxyHlENhF1U61rBK');
 
 -- --------------------------------------------------------
 
@@ -493,7 +493,8 @@ INSERT INTO `seat` (`seatID`, `scheduleID`, `seatNo`, `filled`) VALUES
 (27, 1, 27, 0),
 (28, 1, 28, 0),
 (29, 1, 29, 1),
-(30, 1, 30, 1);
+(30, 1, 30, 1),
+(31, 5, 8, 0);
 
 -- --------------------------------------------------------
 
@@ -552,7 +553,7 @@ CREATE TABLE `transactions_history` (
   `historyDate` date NOT NULL,
   `historyTime` varchar(11) COLLATE utf8_unicode_ci NOT NULL,
   `userRate` int(11) DEFAULT NULL,
-  `userReview` longtext COLLATE utf8_unicode_ci DEFAULT NULL
+  `userReview` longtext COLLATE utf8_unicode_ci
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -560,11 +561,12 @@ CREATE TABLE `transactions_history` (
 --
 
 INSERT INTO `transactions_history` (`transactionID`, `userID`, `movieID`, `historyDate`, `historyTime`, `userRate`, `userReview`) VALUES
-(1, 1, 291867, '2019-09-25', '03.00 PM', 7, 'Pretty standard movie. Had a few giggles here and there'),
+(1, 1, 291867, '2019-09-25', '03.00 PM', 8, 'Good movie'),
 (2, 1, 474350, '2019-09-15', '11.00 AM', NULL, NULL),
 (3, 2, 291867, '2019-09-24', '04.00 PM', 8, 'Good movie'),
-(4, 13, 291867, '2019-10-01', '02.00 PM', NULL, NULL),
-(5, 13, 291867, '2019-09-30', '02.00 PM', NULL, NULL);
+(5, 1, 291867, '2019-10-02', '02.00 PM', 8, 'Good movie'),
+(6, 1, 291867, '2019-10-02', '02.00 PM', 8, 'Good movie'),
+(7, 1, 291867, '2019-10-02', '02.00 PM', 8, 'Good movie');
 
 -- --------------------------------------------------------
 
@@ -664,10 +666,16 @@ ALTER TABLE `schedule`
   MODIFY `scheduleID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=285;
 
 --
+-- AUTO_INCREMENT for table `seat`
+--
+ALTER TABLE `seat`
+  MODIFY `seatID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+
+--
 -- AUTO_INCREMENT for table `transactions_history`
 --
 ALTER TABLE `transactions_history`
-  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `transactionID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `users`

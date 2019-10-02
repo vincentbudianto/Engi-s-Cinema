@@ -7,7 +7,8 @@ if ($_GET) {
     //Get movie ID
     $movieID = $_GET["id"];
 
-    $query = "SELECT scheduleDate, scheduleTime, seat FROM schedule WHERE (movieID = :movieID)";
+    $query = "SELECT scheduleDate, scheduleTime, seat FROM schedule WHERE (movieID = :movieID)
+    AND (scheduleDATE - CURRENT_DATE >= 0)";
     $stmt = $db->prepare($query);
 
     $params = array(

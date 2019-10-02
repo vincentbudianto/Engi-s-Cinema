@@ -246,8 +246,6 @@ function renderReviewItem(e) {
     let profilePic = document.createElement('img');
     profilePic.className = 'profile-pic';
     profilePic.src = e['profilePicture'];
-    console.log(1);
-    console.log(profilePic.src);
 
     profile.appendChild(profilePic);
 
