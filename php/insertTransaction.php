@@ -47,20 +47,29 @@ $params3 = array(
 
 $stmt3->execute($params3);
 
-$query4 = "INSERT INTO transactions_history (userID, movieID,
-historyDate, historyTime) VALUES (:userID,
-:movieID, :historyDate, :historyTime)";
-
+$query4 = "UPDATE schedule SET seat=seat - 1 WHERE (scheduleID = :scheduleID)";
 $stmt4 = $db->prepare($query4);
 
 $params4 = array(
+    ":scheduleID" => $scheduleID
+);
+
+$stmt4->execute($params4);
+
+$query5 = "INSERT INTO transactions_history (userID, movieID,
+historyDate, historyTime) VALUES (:userID,
+:movieID, :historyDate, :historyTime)";
+
+$stmt5 = $db->prepare($query5);
+
+$params5 = array(
     ":userID" => $userID,
     ":movieID" => $movieID,
     ":historyDate" => $date,
     ":historyTime" => $time
 );
 
-$status = $stmt4->execute($params4);
+$status = $stmt5->execute($params5);
 
 if ($status) {
     echo 200;
