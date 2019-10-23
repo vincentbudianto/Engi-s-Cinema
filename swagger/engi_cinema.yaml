@@ -1,0 +1,493 @@
+swagger: "2.0"
+info:
+  description: "This is a documentation for Engima, a web-based-application for booking tickets movie and reviewing movies in cinemas.\n\n
+                Created by\n
+                - 13517044 - Ignatius Timothy Manulang\n
+                - 13517059 - Nixon Andhika\n
+                - 13517137 - Vincent Budianto\n"
+  version: "1.0.0"
+  title: "Engima"
+  termsOfService: ""
+  contact:
+    email: "13517044@std.stei.itb.ac.id"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+host: "localhost"
+
+basePath: "/engi_cinema"
+
+tags:
+- name: "index"
+  description: "Index Page"
+- name: "login"
+  description: "Login Page"
+- name: "register"
+  description: "Register Page"
+- name: "homepage"
+  description: "Homepage"
+- name: "search"
+  description: "Search Page"
+- name: "details"
+  description: "Details Page"
+- name: "review"
+  description: "Review Page"
+- name: "ticket"
+  description: "Buy Tickets Page"
+- name: "transactions"
+  description: "Transactions Page"
+
+schemes:
+- "http"
+
+paths:
+  /engi_cinema/login:
+    post:
+      tags:
+      - "login"
+      summary: "Login using username/email and password"
+      description: ""
+      operationId: "login"
+      produces:
+      - "application/json"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "username/email"
+        in: "formData"
+        description: "The user name for login"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "formData"
+        description: "The password for login in clear text"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/engi_cinema/homepage"
+          headers:
+            X-Expires-After:
+              type: "string"
+              format: "date-time"
+              description: "date when token expires"
+        201:
+          description: "login failed"
+        301:
+          description: "wrong password"
+        302:
+          description: "Username/email is not registered"
+        401:
+          description: "Username/email is empty"
+        402:
+          description: "Password is empty"
+
+
+  /engi_cinema/register:
+    post:
+      tags:
+      - "register"
+      summary: "Register"
+      description: ""
+      operationId: "register"
+      produces:
+      - "application/json"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "username"
+        in: "formData"
+        description: "The user name for login"
+        required: true
+        type: "string"
+      - name: "email"
+        in: "formData"
+        description: "user email"
+        required: true
+        type: "string"
+      - name: "phone"
+        in: "query"
+        description: "user phone number"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "formData"
+        description: "The password for login"
+        required: true
+        type: "string"
+      - name: "profile picture name"
+        in: "formData"
+        description: "User profile picture name"
+        required: true
+        type: "string"
+      - name: "profile picture type"
+        in: "formData"
+        description: "User profile picture type"
+        required: true
+        type: "string"
+      - name: "profile picture temp"
+        in: "formData"
+        description: "User profile picture temp"
+        required: true
+        type: "string"
+      - name: "profile picture size"
+        in: "formData"
+        description: "User profile picture size"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "operation success"
+        201:
+          description:
+            "register failed"
+        301:
+          description: "Username is invalid"
+        302:
+          description: "Phone number is invalid"
+        303:
+          description: "Profile picture can't be empty"
+        304:
+          description:
+            "File can't be more than 2 MB"
+        305:
+          description:
+            "File type is invalid"
+        401:
+          description:
+            "Username already exist"
+        402:
+          description:
+            "Email already exist"
+        403:
+          description:
+            "Phone number already exist"
+        501:
+          description:
+            "Failed to upload profile picture"
+
+
+  /engi_cinema/homepage/getMovies:
+    get:
+      tags:
+      - "homepage"
+      summary: "getMovies"
+      description: "get moves that are currently playing"
+      produces:
+      - "application/json"
+      consumes:
+      - "array"
+      parameters:
+      - name: "movieID"
+        in: "query"
+        description: "movie ID"
+        required: true
+        type: "string"
+      responses:
+        default:
+          description: "operation success"
+
+
+  /engi_cinema/homepage/getUsername:
+    get:
+      tags:
+      - "homepage"
+      summary: "getUsername"
+      description: "get Username"
+      produces:
+      - "application/json"
+      consumes:
+      - "array"
+      parameters:
+      - name: "token"
+        in: "query"
+        description: "token"
+        required: true
+        type: "string"
+      responses:
+        default:
+          description: "operation success"
+
+
+  /engi_cinema/search:
+    get:
+      tags:
+      - "search"
+      summary: "Search"
+      description: ""
+      operationId: "search"
+      produces:
+      - "application/json"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "input"
+        in: "formData"
+        description: "User search input"
+        required: false
+        type: "string"
+      responses:
+        default:
+          description: "succesful operation"
+          schema:
+            type: "string"
+            items:
+              $ref: "#/engi_cinema/search?search={input}"
+
+
+  /engi_cinema/details/getMovie:
+    get:
+      tags:
+      - "details"
+      summary: "getMovie"
+      description: "get Movie Detail"
+      produces:
+      - "application/json"
+      consumes:
+      - "array"
+      parameters:
+      - name: "movieID"
+        in: "query"
+        description: "movie ID"
+        required: true
+        type: "string"
+      responses:
+        default:
+          description: "operation success"
+
+
+  /engi_cinema/details/renderPage:
+    get:
+      tags:
+      - "details"
+      summary: "renderPage"
+      description: "render page"
+      produces:
+      - "applications/json"
+      consumes:
+      - "array"
+      parameters:
+      - name: "movieID"
+        in: "query"
+        description: "movie ID"
+        required: true
+        type: "string"
+      responses:
+        default:
+          description: "operation success"
+
+
+  /engi_cinema/review/addReview:
+    post:
+      tags:
+      - "review"
+      summary: "addReview"
+      description: "add Review"
+      produces:
+      - "application/json"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "transaction-id"
+        in: "formData"
+        description: "Transaction ID for review"
+        required: true
+        type: "string"
+      - name: "rating-star"
+        in: "formData"
+        description: "star rating of the movie"
+        required: true
+        type: "string"
+      - name: "review-input"
+        in: "formData"
+        description: "Review Input"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Submission success"
+        201:
+          description: "Submission failed"
+
+
+  /engi_cinema/ticket/getMovie:
+    get:
+      tags:
+      - "ticket"
+      summary: "getMovie"
+      description: ""
+      produces:
+      - "application/json"
+      consumes:
+      - "array"
+      parameters:
+      - name: "movieID"
+        in: "query"
+        description: "movie ID"
+        required: true
+        type: "string"
+      responses:
+        default:
+          description: "successful operation"
+
+
+  /engi_cinema/ticket/getSeatInfo:
+    get:
+      tags:
+        - "ticket"
+      summary: "getSeatInfo"
+      description: ""
+      operationId: "getSeatInfo"
+      produces:
+      - "application/json"
+      consumes:
+      - "array"
+      parameters:
+      - name: "movieID"
+        in: "query"
+        description: "movie ID"
+        required: true
+        type: "string"
+      - name: "scheduleDate"
+        in: "query"
+        description: "schedule date"
+        required: true
+        type: "string"
+      - name: "scheduleTime"
+        in: "query"
+        description: "schedule time"
+        required: true
+        type: "string"
+      responses:
+        default:
+          description: "successful operation"
+
+
+  /engi_cinema/ticket/payment:
+    get:
+      tags:
+      - "ticket"
+      summary: "payment"
+      description: "payment inserts transactions using insertTransactions.php"
+      produces:
+      - "string"
+      consumes:
+      - "array"
+      parameters:
+      - name: "movieID"
+        in: "query"
+        description: "movie ID"
+        required: true
+        type: "string"
+      - name: "date"
+        in: "query"
+        description: ""
+        required: true
+        type: "string"
+      - name: "time"
+        in: "query"
+        description: "time"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Display block modal"
+        400:
+          description: "Payment failed"
+
+
+  /engi_cinema/ticket/select:
+    get:
+      tags:
+      - "ticket"
+      summary: "select"
+      description: ""
+      produces:
+      - "application/json"
+      consumes:
+      - "array"
+      parameters:
+      - name: "movieID"
+        in: "query"
+        description: "movie ID"
+        required: true
+        type: "string"
+      responses:
+        default:
+          description: "successful operation"
+
+
+  /engi_cinema/transactions/getHistory:
+    post:
+      tags:
+      - "transactions"
+      summary: "getHistory"
+      description: "get Transaction History"
+      produces:
+      - "application/json"
+      consumes:
+      - "array"
+      parameters:
+      - name: "userID"
+        in: "query"
+        description: "user ID"
+        required: true
+        type: "string"
+      responses:
+        default:
+          description: "get Transaction History successfully"
+
+
+  /engi_cinema/transactions/editReview:
+    post:
+      tags:
+      - "transactions"
+      summary: "editReview"
+      description: "edit Review"
+      produces:
+      - "application/json"
+      consumes:
+      - "multipart/form-data"
+      parameters:
+      - name: "transaction-id"
+        in: "formData"
+        description: "Transaction ID for review"
+        required: true
+        type: "string"
+      - name: "rating-star"
+        in: "formData"
+        description: "star rating of the movie"
+        required: true
+        type: "string"
+      - name: "review-input"
+        in: "formData"
+        description: "Review Input"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Submission success"
+        201:
+          description: "Submission failed"
+
+
+  /engi_cinema/transactions/delReview:
+    get:
+      tags:
+      - "transactions"
+      summary: "delReview"
+      description: "delete Review"
+      consumes:
+      - "array"
+      parameters:
+      - name: "userID"
+        in: "query"
+        description: "user ID"
+        required: true
+        type: "string"
+      responses:
+        default:
+          description: "deleted review successfully"
